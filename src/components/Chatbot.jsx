@@ -98,6 +98,7 @@ const Chatbot = () => {
         scenarios[currentScenario].botResponse,
         "bot"
       );
+      
       setCurrentScenario(nextScenario);
     }
 
@@ -107,20 +108,20 @@ const Chatbot = () => {
       [scenarios[currentScenario].inputType]: "",
     }));
 
-    // Move to the next scenario after a delay
+    // // Move to the next scenario after a delay
     setCurrentScenario(nextScenario); // Move to the next scenario
+
   };
 
   const displayMessageWithTypingIndicator = (message, sender) => {
     setIsTyping(true);
-
     setTimeout(() => {
       setMessages((prevMessages) => [
         ...prevMessages,
         { text: message, sender },
       ]);
       setIsTyping(false);
-    }, 2000);
+    }, 3000);
   };
 
   const handleOptionClick = (selectedOptionLabel, nextScenario) => {
@@ -128,7 +129,6 @@ const Chatbot = () => {
       ...prevMessages,
       { text: selectedOptionLabel, sender: "user" },
     ]);
-
     if (
       selectedOptionLabel === "COMMERCE & MARKETING" ||
       selectedOptionLabel === "INFORMATIQUE" ||
@@ -145,7 +145,19 @@ const Chatbot = () => {
           "bot"
         );
         setCurrentScenario(nextScenario);
-      }, 2000);
+      }, 3000);
+    } else if (nextScenario === "not_talk") {
+        displayMessageWithTypingIndicator(
+        scenarios[currentScenario].botResponse,
+        "bot"
+      );
+      setTimeout(() => {
+        displayResourcesCard();
+      }, 3000);
+      setTimeout(() => {
+        displayMessageLineByLine(scenarios.not_talk.question, "bot");
+        setCurrentScenario(nextScenario);
+      }, 3000);
     } else {
       displayMessageWithTypingIndicator(
         scenarios[currentScenario].botResponse,
@@ -157,8 +169,38 @@ const Chatbot = () => {
           "bot"
         );
         setCurrentScenario(nextScenario);
-      }, 2000);
+      }, 3000);
     }
+  };
+
+  const displayMessageLineByLine = (message, sender) => {
+    const text = React.Children.toArray(message.props.children)
+      .map((child) =>
+        typeof child === "string" ? child : child.props.children
+      )
+      .flat()
+      .join("\n");
+
+    const lines = text.split("\n").filter((line) => line.trim() !== "");
+
+    setIsTyping(true); // Start typing indicator
+
+    const displayNextLine = async (index) => {
+      if (index < lines.length) {
+        setMessages((prevMessages) => [
+          ...prevMessages,
+          { text: lines[index], sender },
+        ]);
+
+        await new Promise((resolve) => setTimeout(resolve, 1000)); // Wait before showing next line
+        displayNextLine(index + 1);
+      } else {
+        setIsTyping(false);
+        // if (callback) callback();
+      }
+    };
+
+    displayNextLine(0);
   };
 
   const displayResourcesCard = () => {
@@ -232,48 +274,21 @@ const Chatbot = () => {
     }
   }, [messages]);
 
-  const displayMessageLineByLine = (message, sender) => {
-    const text = message.props.children
-      .map((child) =>
-        typeof child === "string" ? child : child.props.children
-      )
-      .flat()
-      .join("\n");
-
-    const lines = text.split("\n").filter((line) => line.trim() !== "");
-    let delay = 0;
-
-    lines.forEach((line) => {
-      setTimeout(() => {
-        setMessages((prevMessages) => [
-          ...prevMessages,
-          { text: line, sender },
-        ]);
-        setIsTyping(true);
-      }, delay);
-      delay += 2000;
-    });
-    setTimeout(() => setIsTyping(false), delay);
-  };
-
-
-useEffect(() => {
+  useEffect(() => {
     if (isChatVisible && !isTyping) {
       if (!hasShownInitialMessage) {
         setIsTyping(true);
         setTimeout(() => {
-        //   displayMessageLineByLine(scenarios.initial.question, "bot");
+          //   displayMessageLineByLine(scenarios.initial.question, "bot");
           setIsTyping(false);
           setHasShownInitialMessage(true);
           setHasInteracted(true);
-         
         }, 1000);
       }
     }
   }, [isChatVisible, isTyping]);
 
-
-const toggleChatVisibility = () => {
+  const toggleChatVisibility = () => {
     setChatVisible(!isChatVisible);
     if (!hasInteracted) {
       setHasInteracted(true);
@@ -284,16 +299,14 @@ const toggleChatVisibility = () => {
         setIsTyping(false);
       }, 1000);
     } else if (!isChatVisible) {
-      // When opening the chat, scroll to the last message
       setTimeout(() => {
         if (chatContainerRef.current) {
-          chatContainerRef.current.scrollTop = chatContainerRef.current.scrollHeight;
+          chatContainerRef.current.scrollTop =
+            chatContainerRef.current.scrollHeight;
         }
-      }, 0); // Set a timeout to allow the chat to render before scrolling
+      }, 0);
     }
-};
-
-
+  };
 
   const closeChat = () => {
     setChatVisible(false);
@@ -347,17 +360,17 @@ const toggleChatVisibility = () => {
             </svg>
           </button>
         ) : (
-          <div className="flex items-center bg-white text-black shadow-lg rounded-lg p-4">
+          <div className="flex items-center  text-black shadow-lg rounded-lg">
             {hasInteracted ? (
               <img
                 src={botImage}
                 onClick={toggleChatVisibility}
                 alt="Bot Logo"
-                className="w-16 h-16 mr-3"
+                className="w-32 h-32"
               />
             ) : (
-              <div className="flex items-center bg-white text-black shadow-lg rounded-lg p-4">
-                <img src={botImage} alt="Bot Logo" className="w-16 h-16 mr-3" />
+              <div className="flex items-center bg-white text-black shadow-lg rounded-lg p-3">
+                <img src={botImage} alt="Bot Logo" className="w-16 h-16" />
                 <div>
                   <span className="text-text-sm  font-semibold">
                     Bonjour 👋, besoin d'aide ? 😃
@@ -382,7 +395,7 @@ const toggleChatVisibility = () => {
       {isChatVisible && (
         <div className="fixed bottom-16 right-4  bg-white rounded-lg shadow-lg p-2 w-full max-w-md border border-gray-300 z-50">
           <div
-            className="h-[400px] w-full  overflow-y-auto flex flex-col space-y-2"
+            className="h-[400px] w-full overflow-y-auto flex flex-col"
             ref={chatContainerRef}
           >
             {messages.map((msg, index) => (
@@ -404,8 +417,8 @@ const toggleChatVisibility = () => {
                 <div
                   className={`p-2 max-w-xs rounded-lg ${
                     msg.sender === "user"
-                      ? "bg-blue-500 text-sm  text-white"
-                      : " text-sm text-gray-800"
+                      ? "bg-blue-500 text-sm mr-3 text-white"
+                      : " text-sm  text-gray-800"
                   }`}
                 >
                   {msg.text}
@@ -433,7 +446,7 @@ const toggleChatVisibility = () => {
                       onClick={() =>
                         handleOptionClick(option.label, option.next)
                       }
-                      className="bg-blue-500 text-white text-sm py-2 px-4 rounded-lg hover:bg-blue-600"
+                      className="text-blue-500 border mr-3 border-blue-500 text-sm py-2 px-4 rounded-lg hover:bg-blue-500 hover:text-white"
                     >
                       {option.label}
                     </button>
@@ -471,7 +484,7 @@ const toggleChatVisibility = () => {
                     />
                     <button
                       onClick={handleInputSubmit}
-                      className="ml-2  text-gray-600 px-4 py-2 rounded-lg hover:bg-gray-400"
+                      className="mr-2 text-gray-600 px-4 py-2 rounded-lg hover:bg-gray-400"
                     >
                       Envoyer
                     </button>
