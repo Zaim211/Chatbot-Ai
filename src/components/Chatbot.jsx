@@ -635,7 +635,7 @@ useEffect(() => {
           <div className="flex items-center bg-white text-black shadow-lg rounded-lg p-4">
             <img src={botImage} alt="Bot Logo" className="w-16 h-16 mr-3" />
             <div>
-              <span className="text-lg font-semibold">
+              <span className="text-text-sm  font-semibold">
                 Bonjour 👋, besoin d'aide ? 😃
               </span>
               <p
@@ -654,16 +654,16 @@ useEffect(() => {
       </div>
 
       {isChatVisible && (
-        <div className="fixed bottom-16 right-4 bg-white rounded-lg shadow-lg p-6 w-full max-w-md border border-gray-300 z-50">
+        <div className="fixed bottom-16 right-4  bg-white rounded-lg shadow-lg p-2 w-full max-w-md border border-gray-300 z-50">
           <div
-            className="h-[400px] w-full overflow-y-auto flex flex-col space-y-2"
+            className="h-[400px] w-full  overflow-y-auto flex flex-col space-y-2"
             ref={chatContainerRef}
           >
             {messages.map((msg, index) => (
               <div
                 key={index}
                 className={`flex ${
-                  msg.sender === "user" ? "justify-end" : "justify-start"
+                  msg.sender === "user" ? "justify-end" : "justify-start items-center"
                 }`}
               >
                 {msg.sender === "bot" && (
@@ -674,10 +674,10 @@ useEffect(() => {
                   />
                 )}
                 <div
-                  className={`p-3 max-w-xs rounded-lg ${
+                  className={`p-2 max-w-xs rounded-lg ${
                     msg.sender === "user"
-                      ? "bg-blue-500 text-white"
-                      : "bg-gray-200 text-gray-800"
+                      ? "bg-blue-500 text-sm  text-white"
+                      : " text-sm text-gray-800"
                   }`}
                 >
                   {msg.text}
@@ -691,7 +691,7 @@ useEffect(() => {
                   alt="Bot Typing"
                   className="w-12 h-12 rounded-full mr-2"
                 />
-                <div className="text-gray-500 font-bold">
+                <div className="text-gray-500 text-sm font-bold">
                   Bot est en train d'écrire...
                 </div>
               </div>
@@ -705,7 +705,7 @@ useEffect(() => {
                       onClick={() =>
                         handleOptionClick(option.label, option.next)
                       }
-                      className="bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600"
+                      className="bg-blue-500 text-white text-sm py-2 px-4 rounded-lg hover:bg-blue-600"
                     >
                       {option.label}
                     </button>
