@@ -322,16 +322,29 @@ export const scenarios = {
     request_phone: {
       question: (name) =>
         `S'il te plaît, ${name} entre ton numéro de téléphone ci-dessous.`,
-      botResponse: "Parfait ! 😊, Merci d'avoir pris le temps de discuter avec moi, À bientôt ! 😊",
+      botResponse: "Parfait",
       inputType: "phone",
       next: "final_response",
     },
   
     final_response: {
-      //   question: "Merci pour l'information ! Nous vous contacterons bientôt.",
+        question: "Merci pour l'information ! Nous vous contacterons bientôt.",
       options: [],
-      botResponse:
-        "Merci d'avoir pris le temps de discuter avec moi, À bientôt ! 😊",
+      next: "new_question",
+    //   botResponse:
+    //     "Merci d'avoir pris le temps de discuter avec moi, À bientôt ! 😊",
     },
+    new_question: {
+        question: "Vous avez une autre question ?",
+        options: [
+            { label: "Oui", next: "initial" },
+            { label: "Non", next: "Goodbye" },
+    ],
+    Goodbye: {
+        question: "Merci d'avoir discuté avec moi, À bientôt ! 😊",
+        options: [],
+        
+    }
+    }
   }
   
