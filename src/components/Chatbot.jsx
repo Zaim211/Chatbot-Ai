@@ -336,7 +336,7 @@ const Chatbot = () => {
     },
     request_name: {
       question: "Peux-tu me donner ton prénom, s’il te plaît ?",
-      botResponse: (name) => `Merci, ${name} ! D'accord, continuons !`, // Personalized response
+      botResponse: (name) => `Merci, ${name} ! D'accord, continuons !`,
       inputType: "name",
       next: "request_email",
     },
@@ -365,7 +365,7 @@ const Chatbot = () => {
   };
 
   const isValidEmail = (email) => {
-    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Simple regex for email validation
+    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return regex.test(email);
   };
 
@@ -794,7 +794,7 @@ const Chatbot = () => {
             [scenarios[currentScenario].inputType]: e.target.value,
           })
         }
-        className="bg-white  p-2 rounded-lg w-full"
+        className="bg-white border border-transparent focus:outline-none focus:ring-2 focus:ring-white p-2 text-gray-600  w-full"
       />
       <button
         onClick={handleInputSubmit}
