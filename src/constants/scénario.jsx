@@ -13,7 +13,17 @@ export const scenarios = {
     botRes: "Pardon, j'ai confondu 😌",
     botResponse: "Re-bonjour 👋",
   },
-
+  new_start: {
+    question: "S'il te plaît, dis-moi ce que tu cherches ?",
+    options: [
+        { label: "Étudiant 📚", next: "student" },
+        { label: "Salarié en activité 💼", next: "job_seeker" },
+        { label: "Demandeur d'emploi 🔎", next: "job_seeker" },
+        { label: "Une entreprise 🏢", next: "company" },
+        { label: "Un parent 👨‍👩‍👧‍👦", next: "parent" },
+    ],
+    botResponse: "D'accord, commençons !",
+    },
   talk_before: {
     question: "Alors tu voudrais…",
     options: [
@@ -389,7 +399,7 @@ export const scenarios = {
   new_question: {
     question: "Vous avez une autre question ?",
     options: [
-      { label: "Oui", next: "initial" },
+      { label: "Oui", next: "new_start" },
       { label: "Non", next: "Goodbye" },
     ],
     botResponse: "D'accord 🙂",
