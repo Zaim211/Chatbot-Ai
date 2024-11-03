@@ -70,6 +70,7 @@ export const scenarios = {
 
   // Student Scenario
   remmberme : {
+    question: "Je me souviens de toi, tu es...",
     options: [
         { label: "Étudiant 📚", next: "student" },
         { label: "Salarié en activité 💼", next: "job_seeker" },
