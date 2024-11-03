@@ -37,16 +37,15 @@ export const scenarios = {
   },
   
   pose_question: {
-    question: "Quelle est ta question ?",
-    inputType: "question",
-    next: "request_name",
-    botResponse: (
-        <div>
-            <h1>Je suis là pour t’aider 😊</h1>
-            <p>Peux-tu me donner ton prénom, s’il te plaît ?</p>
-        </div>
-    )
-    },
+   question: (
+    <div>
+        <h1>Si je ne suis pas en mesure de te donner une réponse immédiate, je vais contacter l’établissement afin de trouver une solution à ta question.</h1>
+        <p>Donc avant de poser ta question, j’aurais besoin de quelques informations pour que l'établissement te réponde au mieux.</p>
+    </div>
+    ),
+    options: [{label: "Ok", next: "request_name"}],
+    botResponse: "Merci pour ta compréhension 😊",
+},
   not_talk: {
     question: (
       <div>

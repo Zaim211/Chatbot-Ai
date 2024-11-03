@@ -173,7 +173,17 @@ const Chatbot = () => {
             );
             setCurrentScenario(nextScenario);
           }, 3000);
-    } else {
+    } else if (nextScenario === "pose_question"){
+        displayMessageWithTypingIndicator(
+            scenarios[currentScenario].botResponse,
+            "bot"
+          );
+        setTimeout(() => {
+            displayMessageLineByLine(scenarios.pose_question.question, "bot");
+            setCurrentScenario(nextScenario);
+          }, 3000);
+    }
+     else {
       displayMessageWithTypingIndicator(
         scenarios[currentScenario].botResponse,
         "bot"
@@ -209,6 +219,7 @@ const Chatbot = () => {
 
         await new Promise((resolve) => setTimeout(resolve, 1000)); // Wait before showing next line
         displayNextLine(index + 1);
+        setIsTyping(false);
       } else {
         setIsTyping(false);
         // if (callback) callback();
