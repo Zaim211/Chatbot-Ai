@@ -10,20 +10,43 @@ export const scenarios = {
       { label: "👍 Oui", next: "talk_before" },
       { label: "👎 Non", next: "not_talk" },
     ],
-    botResponse: "Pardon, j'ai confondu 😌",
+    botRes: "Pardon, j'ai confondu 😌",
+    botResponse: "Re-bonjour 👋",
   },
 
   talk_before: {
-    question: "Super ! Dis-moi comment je peux t'aider aujourd'hui ?",
+    question: "Alors tu voudrais…",
     options: [
-      { label: "Je suis étudiant", next: "student" },
-      { label: "Je suis à la recherche d'emploi", next: "job_seeker" },
-      { label: "Je suis parent", next: "parent" },
-      { label: "Je représente une entreprise", next: "company" },
+      { label: "que je te renseigne ?", next: "remmberme" },
+      { label: "poser une question ?", next: "pose_question" },
+      { label: "être contacté 📞", next: "contact" },
     ],
-    botResponse: "Tu as vu que Lead-ia Academy possédait 3 campus ?",
+    botResponse: "D'accord 🙂",
   },
 
+  contact: {
+    question: "Pourrais-tu me dire pourquoi tu souhaites être contacté ?",
+    inputType: "contact",
+    next: "request_name",
+    botResponse: (
+        <div>
+            <h1>D’accord, je comprends.</h1>
+            <p>Peux-tu me donner ton prénom, s’il te plaît ?</p>
+        </div>
+    )
+  },
+  
+  pose_question: {
+    question: "Quelle est ta question ?",
+    inputType: "question",
+    next: "request_name",
+    botResponse: (
+        <div>
+            <h1>Je suis là pour t’aider 😊</h1>
+            <p>Peux-tu me donner ton prénom, s’il te plaît ?</p>
+        </div>
+    )
+    },
   not_talk: {
     question: (
       <div>
@@ -46,6 +69,16 @@ export const scenarios = {
   },
 
   // Student Scenario
+  remmberme : {
+    options: [
+        { label: "Étudiant 📚", next: "student" },
+        { label: "Salarié en activité 💼", next: "job_seeker" },
+        { label: "Demandeur d'emploi 🔎", next: "job_seeker" },
+        { label: "Une entreprise 🏢", next: "company" },
+        { label: "Un parent 👨‍👩‍👧‍👦", next: "parent" },
+    ],
+    botResponse: "Tu as vu que Lead-ia Academy possédait 3 campus ?",
+  },
   student: {
     question:
       "Je t'invite à cliquer sur celui qui t'intéresse",
@@ -336,7 +369,7 @@ export const scenarios = {
     botResponse: "Merci pour l'information 📧",
     inputType: "email",
     next: "request_phone",
-    invalidResponse: ["Ton email n'est pas valide."],
+    invalidResponse: ["Désolé ! L'email que tu viens de rentrer ne semble pas être valide !."],
   },
   request_phone: {
     question: (name) =>

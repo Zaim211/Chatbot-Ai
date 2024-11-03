@@ -39,41 +39,39 @@ const Chatbot = () => {
   const handleInputSubmit = () => {
     const userResponse = userInfo[scenarios[currentScenario].inputType];
 
-    if (!userResponse) return; // Prevent submission if the input is empty
+    if (!userResponse) return;
 
-    // Save user response
+
     setMessages((prevMessages) => [
       ...prevMessages,
       { text: userResponse, sender: "user" },
     ]);
 
-    // Handle email validation
     if (currentScenario === "request_email") {
       if (!isValidEmail(userResponse)) {
-        // If email is invalid, display the invalid response
+
         scenarios[currentScenario].invalidResponse.forEach((message) => {
           displayMessageWithTypingIndicator(message, "bot");
         });
-        // Repeat the question for the email
+ 
         displayMessageWithTypingIndicator(
           scenarios[currentScenario].question(userInfo.name || ""),
           "bot"
         );
-        // Clear input for re-entry
+ 
         setUserInfo((prevUserInfo) => ({
           ...prevUserInfo,
           [scenarios[currentScenario].inputType]: "",
         }));
-        return; // Exit the function to prevent moving to the next scenario
+        return; 
       }
     }
 
-    // Get the next scenario
+
     const nextScenario = scenarios[currentScenario].next;
 
-    // Display bot response based on current scenario
     if (currentScenario === "request_name") {
-      // Use the name to generate the bot response
+
       displayMessageWithTypingIndicator(
         scenarios[currentScenario].botResponse(userResponse),
         "bot"
@@ -83,7 +81,7 @@ const Chatbot = () => {
         "bot"
       );
     } else if (currentScenario === "request_email") {
-      // Bot response for email
+  
       displayMessageWithTypingIndicator(
         scenarios[currentScenario].botResponse,
         "bot"
@@ -93,23 +91,28 @@ const Chatbot = () => {
         "bot"
       );
     } else if (currentScenario === "request_phone") {
-      // Bot response for phone
+
       displayMessageWithTypingIndicator(
         scenarios[currentScenario].botResponse,
         "bot"
       );
       
       setCurrentScenario(nextScenario);
+    } else if (currentScenario === "contact") {
+       setTimeout(() => {
+        displayMessageLineByLine(
+            scenarios[currentScenario].botResponse,
+            "bot"
+        );
+    }, 3000);
     }
 
-    // Clear the input field after the bot's acknowledgment
     setUserInfo((prevUserInfo) => ({
       ...prevUserInfo,
       [scenarios[currentScenario].inputType]: "",
     }));
 
-    // // Move to the next scenario after a delay
-    setCurrentScenario(nextScenario); // Move to the next scenario
+    setCurrentScenario(nextScenario);
 
   };
 
@@ -132,7 +135,7 @@ const Chatbot = () => {
     if (
       selectedOptionLabel === "COMMERCE & MARKETING" ||
       selectedOptionLabel === "INFORMATIQUE" ||
-      selectedOptionLabel === "COMMUNICATION"
+      selectedOptionLabel === "COMMUNICATION" 
     ) {
       displayMessageWithTypingIndicator(
         scenarios[currentScenario].botResponse,
@@ -148,7 +151,7 @@ const Chatbot = () => {
       }, 3000);
     } else if (nextScenario === "not_talk") {
         displayMessageWithTypingIndicator(
-        scenarios[currentScenario].botResponse,
+        scenarios[currentScenario].botRes,
         "bot"
       );
       setTimeout(() => {
@@ -158,6 +161,18 @@ const Chatbot = () => {
         displayMessageLineByLine(scenarios.not_talk.question, "bot");
         setCurrentScenario(nextScenario);
       }, 3000);
+    } else if (nextScenario === "talk_before") {
+        displayMessageWithTypingIndicator(
+            scenarios[currentScenario].botResponse,
+            "bot"
+          );
+          setTimeout(() => {
+            displayMessageWithTypingIndicator(
+              scenarios[nextScenario].question,
+              "bot"
+            );
+            setCurrentScenario(nextScenario);
+          }, 3000);
     } else {
       displayMessageWithTypingIndicator(
         scenarios[currentScenario].botResponse,
@@ -463,12 +478,23 @@ const Chatbot = () => {
                   <div className="flex items-center justify-between">
                     <input
                       type={scenarios[currentScenario].inputType}
-                      placeholder={`Entrez votre ${
+                    //   placeholder={`Entrez votre ${
+                    //     scenarios[currentScenario].inputType === "email"
+                    //       ? "email"
+                    //       : scenarios[currentScenario].inputType === "name"
+                    //       ? "nom"
+                    //       : "numéro de téléphone"
+                    //   }`}
+                    placeholder={`Entrez votre ${
                         scenarios[currentScenario].inputType === "email"
                           ? "email"
                           : scenarios[currentScenario].inputType === "name"
                           ? "nom"
-                          : "numéro de téléphone"
+                          : scenarios[currentScenario].inputType === "phone"
+                          ? "numéro de téléphone"
+                          : scenarios[currentScenario].inputType === "contact"
+                          ? "contact"
+                          : ""
                       }`}
                       value={
                         userInfo[scenarios[currentScenario].inputType] || ""
