@@ -10,4 +10,4 @@ const createChatbotWidget = () => {
   ReactDOM.render(<Chatbot />, container);  // JSX syntax should work fine here
 };
 
-window.createChatbotWidget = createChatbotWidget;
+window.createChatbotWidget = createChatbotWidget
