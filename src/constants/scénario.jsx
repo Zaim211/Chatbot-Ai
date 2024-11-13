@@ -17,8 +17,8 @@ export const scenarios = {
     question: "S'il te plaît, dis-moi ce que tu cherches ?",
     options: [
         { label: "Étudiant 📚", next: "student" },
-        { label: "Salarié en activité 💼", next: "job_seeker" },
-        { label: "Demandeur d'emploi 🔎", next: "job_seeker" },
+        { label: "Salarié en activité 💼", next: "salarie" },
+        { label: "Demandeur d'emploi 🔎", next: "student" },
         { label: "Une entreprise 🏢", next: "company" },
         { label: "Un parent 👨‍👩‍👧‍👦", next: "parent" },
     ],
@@ -60,32 +60,155 @@ export const scenarios = {
     question: (
       <div>
         <h1>
-         Salut 👋, Bienvenue sur le chatbot de Lead-ia Academy. Je m’appelle
-          Lydia et je me charge de guider les visiteurs du site web 😌
+         Salut 👋, Bienvenue sur le chatbot de BrainAI Academy. 
+         Welcome 🙏🏻 Je m'appelle John 🤖 et je suis là pour t'aider. 😌
         </h1>
-        <p>Commençons par faire connaissance…</p>
-        <p>Histoire que je puisse bien t’aiguiller, tu es… ?</p>
+        <p>Je voudrais savoir si tu es…</p>
       </div>
     ),
     options: [
       { label: "Étudiant 📚", next: "student" },
-      { label: "Salarié en activité 💼", next: "job_seeker" },
-      { label: "Demandeur d'emploi 🔎", next: "job_seeker" },
+      { label: "Salarié en activité 💼", next: "salarie" },
+      { label: "Demandeur d'emploi 🔎", next: "student" },
       { label: "Une entreprise 🏢", next: "company" },
       { label: "Un parent 👨‍👩‍👧‍👦", next: "parent" },
     ],
-    botResponse: "Tu as vu que Lead-ia Academy possédait 3 campus ?",
+    botResponse: "Ok, commençons !",
   },
+
+
+
+
+//slaarie scenario
+  salarie:{
+    question: "Pour mieux te renseigner, j’ai besoin de savoir quelle est ta tranche d’âge ?",
+    options: [
+      {label: "18ans - 25ans", next: "salarie_details"},
+      {label: "26ans - 35ans", next: "salarie_details"},
+      {label: "+ de 35ans", next: "salarie_details"}
+    ],
+    botResponse: "D'accord 🙂",
+  },
+
+  salarie_details: {
+    question:
+      "Je t'invite à cliquer sur celui qui t'intéresse",
+    options: [
+      { label: "Paris", next: "choose_course_salarie" },
+      { label: "Lyon", next: "choose_course_salaries" },
+      { label: "Marseille", next: "choose_course_salarie" },
+    ],
+    botResponse: "D'accord 🙂",
+  },
+  choose_course_salarie: {
+    question:
+      "Notre école propose plusieurs domaines de formation, lequel t’intéresse en priorité ?",
+    options: [
+      { label: "COMMERCE & MARKETING", next: "objectif_salarie" },
+      { label: "COMMUNICATION", next: "objectif_salarie" },
+      { label: "INFORMATIQUE", next: "objectif_salarie" },
+    ],
+    botResponse: "Un excellent choix pour ta carrière 🎓",
+  },
+  objectif_salarie: {
+    question: "Tu es là pour…",
+    options: [
+      { label: "que je te renseigne ?", next: "infor" },
+      { label: "poser une question ?", next: "pose_question" },
+      { label: "être contacté 📞", next: "contact" },
+    ],
+    botResponse: "D'accord 🙂",
+  },
+  infor: {
+    question: "Grâce à moi, tu auras des informations sur :",
+    options: [
+      { label: "Les formations 🎓", next: "informtion" },
+      { label: "Les métiers 👔", next: "informtion" },
+      { label: "Les inscriptions 🖊️", next: "informtion" },
+      { label: "Nos événements 📅", next: "informtion" },
+    ],
+    botResponse: "D'accord !"
+    },
+  informtion: {
+    questin: (
+      <div>
+        <h1>Tu m’as dit que tu étais salarié…</h1>
+        <p>
+        Pour pouvoir te renseigner sur les inscriptions, j’aurais besoin d’avoir certaines informations…
+        </p>
+        </div>
+    ),
+    options: [{label: "Ok", next: "Nivaux_etudes"}],
+    botResponse: "D'accord !"
+  },
+  Nivaux_etudes: {
+    question: (
+      <div>
+        <h1>Pour pouvoir te renseigner au mieux, j’aurais besoin de certaines informations..</h1>
+        <p>Où est-ce que tu en es dans tes études ?</p>
+      </div>
+    ),
+    options: [
+      { label: "Collège 🎒", next: "college" },
+      { label: "Lycée 📚", next: "lycéee" },
+      { label: "Études supérieures 🏫", next: "etude_superieures" },
+    ],
+    botResponse: "Excellent!",
+  },
+  etude_superieures: {
+      question: "Quel est ton dernier diplôme obtenu ?",
+      options: [
+        {label: "BTS/DUT", next: "request_name"},
+        {label: "Licence / Licence Pro", next: "request_name"},
+        {label: "Bachelor", next: "request_name"},
+        {label: "Master/Mastère", next: "request_name"},
+        {label: "Diplôme d’ingénieur", next: "request_name"},
+        {label: "École de commerce", next: "request_name"},
+        {label: "Diplôme d’art", next: "request_name"},
+      ],
+      botResponse: "Merci, c’est déjà plus clair."
+  },
+  
+
+  choose_course_salaries: {
+    question: "Clique sur le domaine de formation qui t’intéresse chez BrainAI Academy",
+    options: [
+      { label: "COMMERCE & MARKETING", next: "objectif_salarie" },
+      { label: "COMMUNICATION", next: "objectif_salarie" },
+      { label: "INFORMATIQUE", next: "objectif_salarie" },
+      { label: "Audit et Contrôle de Gestion", next: "objectif_salarie" },
+      { label: "Business Development et Ingénierie d’affaires", next: "objectif_salarie" },
+      { label: "Comptabilité et Finance", next: "objectif_salarie" },
+      { label: "Management Commercial", next: "objectif_salarie" },
+      { label: "Marketing et Communication Digitale", next: "objectif_salarie" },
+      { label: "Ressources Humaines", next: "objectif_salarie" },
+    ]
+  },
+  lycéee: {
+    question: "OK. Tu es en…",
+    options: [
+      {label: "CAP", next: "request_name"},
+      {label: "BAC Pro", next: "request_name"},
+      {label: "BAC Technologique", next: "request_name"},
+      {label: "BAC", next: "request_name"},
+      {label: "BEP", next: "request_name"},
+   
+    ],
+    botResponse: "Merci pour l'information 📧"
+  },
+
+
+
 
   // Student Scenario
   remmberme : {
     question: "Je me souviens de toi, tu es...",
     options: [
-        { label: "Étudiant 📚", next: "student" },
-        { label: "Salarié en activité 💼", next: "job_seeker" },
-        { label: "Demandeur d'emploi 🔎", next: "job_seeker" },
+        { label: "Étudiant 📚", next: "student" }, //done
+        { label: "Salarié en activité 💼", next: "salarie" }, //done
+        { label: "Demandeur d'emploi 🔎", next: "student" }, // done
         { label: "Une entreprise 🏢", next: "company" },
-        { label: "Un parent 👨‍👩‍👧‍👦", next: "parent" },
+        { label: "Un parent 👨‍👩‍👧‍👦", next: "parent" }, // done
     ],
     botResponse: "Tu as vu que Lead-ia Academy possédait 3 campus ?",
   },
@@ -101,13 +224,22 @@ export const scenarios = {
   },
   choose_course: {
     question:
-      "Clique sur le domaine de formation qui t’intéresse chez Lead-ia Academy",
+      "Clique sur le domaine de formation qui t’intéresse chez BrainAI Academy",
     options: [
-      { label: "COMMERCE & MARKETING", next: "course_details" },
-      { label: "COMMUNICATION", next: "course_details" },
-      { label: "INFORMATIQUE", next: "course_details" },
+      { label: "COMMERCE & MARKETING", next: "objectif" },
+      { label: "COMMUNICATION", next: "objectif" },
+      { label: "INFORMATIQUE", next: "objectif" },
     ],
     botResponse: "Un excellent choix pour ta carrière 🎓",
+  },
+  objectif: {
+    question: "Alors tu voudrais…",
+    options: [
+      { label: "que je te renseigne ?", next: "informtions" },
+      { label: "poser une question ?", next: "pose_question" },
+      { label: "être contacté 📞", next: "contact" },
+    ],
+    botResponse: "D'accord 🙂",
   },
   course_details: {
     question:
@@ -122,11 +254,68 @@ export const scenarios = {
   duration: {
     question: "Combien de temps es-tu prêt à consacrer à tes études ?",
     options: [
-      { label: "Temps plein", next: "financial_aid" },
-      { label: "Temps partiel", next: "financial_aid" },
+      { label: "Temps plein", next: "request_name" },
+      { label: "Temps partiel", next: "request_name" },
     ],
     botResponse: "Parfait, je note cela !",
   },
+  informtions: {
+    question: "Grâce à moi, tu auras des informations sur :",
+    options: [
+      { label: "Les formations 🎓", next: "Nivaux_etude" },
+      { label: "Les métiers 👔", next: "Nivaux_etude" },
+      { label: "Les inscriptions 🖊️", next: "Nivaux_etude" },
+      { label: "Nos événements 📅", next: "Nivaux_etude" },
+    ],
+    botResponse: "D'accord !"
+    },
+    Nivaux_etude: {
+      question: (
+        <div>
+          <h1>Pour pouvoir te renseigner au mieux, j’aurais besoin de certaines informations...</h1>
+          <p>Où est-ce que tu en es dans tes études ?</p>
+        </div>
+      ),
+      options: [
+        { label: "Collège 🎒", next: "college" },
+        { label: "Lycée 📚", next: "lycée" },
+        { label: "Études supérieures 🏫", next: "etude_superieur" },
+      ],
+      botResponse: "Excellent!",
+    },
+    lycée: {
+      question: "OK. Tu es en…",
+      options: [
+        {label: "CAP/BEP", next: "request_name"},
+        {label: "2nde", next: "request_name"},
+        {label: "1ere Pro", next: "request_name"},
+        {label: "1ere", next: "request_name"},
+        {label: "Terminale/BAC Pro", next: "request_name"},
+        {label: "Terminale/BAC Technologique", next: "request_name"},
+        {label: "Terminale/BAC", next: "request_name"},
+      ],
+      botResponse: "Merci pour l'information 📧"
+    },
+    etude_superieur: {
+      question: "OK. Tu es en…",
+      options: [
+        {label: "Bac+1", next: "course_details"},
+        {label: "Bac+2", next: "course_details"},
+        {label: "Bac+3", next: "course_details"},
+        {label: "Bac+4", next: "course_details"},
+        {label: "Bac+5", next: "course_details"},
+      ],
+      botResponse: "Gracias ! J’apprécie beaucoup 😉"
+      },
+      college: {
+        question: "OK. Tu es en… ?",
+        options: [
+          {label: "4e", next: "request_name"},
+          {label: "3e", next: "request_name"},
+        ],
+        botResponse: "Merci pour l'information 📧"
+      },
+
   financial_aid: {
     question:
       "As-tu besoin d'informations sur les bourses ou l'aide financière ?",
@@ -148,6 +337,11 @@ export const scenarios = {
     ],
     botResponse: "Ces options sont excellentes pour alléger les frais 💰",
   },
+
+
+
+
+
 
   // Job Seeker Scenario
   job_seeker: {
@@ -183,23 +377,66 @@ export const scenarios = {
     options: [
       {
         label: "Oui, je veux des informations sur les stages",
-        next: "request_namel",
+        next: "request_name",
       },
-      { label: "Non, merci", next: "rrequest_name" },
+      { label: "Non, merci", next: "request_name" },
     ],
     botResponse: "Les stages peuvent offrir une expérience précieuse 📚",
   },
 
   // Company Scenario
   company: {
-    question:
-      "Bonjour ! Êtes-vous intéressé par la formation pour vos employés ou la collaboration sur des projets de recherche ?",
+    question: (
+      <div>
+        <h1>Je t'accompagne dans ta démarche !</h1>
+        <p>Tu souhaites…</p>
+      </div>
+    ),
     options: [
-      { label: "Formation pour employés", next: "employee_training" },
-      { label: "Collaboration sur projets", next: "research_projects" },
+      { label: "Découvrir nos formations", next: "découvrir" },
+      { label: "Former tes équipes", next: "découvrir" },
+      { label: "Poser des questions", next: "pose_question" },
+      { label: "Être contacté", next: "contact" },
+      { label: "Recruter en alternance", next: "découvrir" },
+
     ],
-    botResponse: "Nous avons d'excellentes options pour les entreprises ! 🤝",
+    botResponse: "Merci 🤝",
   },
+  découvrir: {
+    question: (
+      <div>
+        <h1>Pour t'accompagner plus facilement, j’aurais besoin de quelques informations…</h1>
+        <p>L’école dispose de 3 campus. Lequel t'intéresse ?</p>
+      </div>
+    ),
+    options: [
+      { label: "Paris", next: "employee_training" },
+      { label: "Lyon", next: "employee_training" },
+      { label: "Marseille", next: "employee_training" },
+    ],
+    botResponse: "D'accord 🙂",
+  },
+  details: {
+    question: "Quel est ton rôle dans l’entreprise ?",
+    options: [
+      { label: "Président/Directeur Général", next: "entreprise" },
+      { label: "Ressources humaines", next: "entreprise" },
+      { label: "Directeur Technique", next: "entreprise" },
+    ],
+    botResponse: "Un choix judicieux pour faire évoluer votre carrière 📈"
+    },
+  entreprise: {
+    question: "Quel est le nom de ton entreprise ?" ,
+    botResponse: (
+      <div>
+          <h1>Merci pour l'information 📧</h1>
+          <p>Peux-tu me donner ton prénom, s’il te plaît ?</p>
+      </div>
+  ),
+    inputType: "entreprise",
+    next: "request_name"
+  },
+
   employee_training: {
     question:
       "Quel domaine de formation souhaitez-vous offrir à vos employés ?",
@@ -214,8 +451,8 @@ export const scenarios = {
   training_details: {
     question: "Souhaitez-vous des formations en ligne ou en présentiel ?",
     options: [
-      { label: "En ligne", next: "training_format" },
-      { label: "En présentiel", next: "training_format" },
+      { label: "En ligne", next: "details" },
+      { label: "En présentiel", next: "details" },
     ],
     botResponse:
       "Les deux options sont très efficaces pour un apprentissage réussi !",
@@ -248,13 +485,25 @@ export const scenarios = {
     botResponse:
       "C'est formidable de voir des entreprises investies dans la recherche !",
   },
+
+
+
+
+
+
+
   // Parent Scenario
   parent: {
-    question:
-      "Bonjour ! Souhaitez-vous obtenir des informations pour aider votre enfant à choisir une filière ou en savoir plus sur la vie étudiante ?",
+    question: (
+      <div>
+        <h1>Alors… Nos nouveaux élèves peuvent étudier sur 3 campus.</h1>
+        <p>Je vous invite à cliquer sur celui qui vous intéresse</p>
+      </div>
+    ),
     options: [
-      { label: "Aider à choisir une filière", next: "program_interest" },
-      { label: "Vie étudiante", next: "student_life" },
+      { label: "Paris", next: "choose_course" },
+      { label: "Lyon", next: "choose_course" },
+      { label: "Lille", next: "choose_course" },
     ],
     botResponse:
       "C'est formidable que vous soyez impliqué dans l'éducation de votre enfant ! 👩‍👧",
@@ -285,13 +534,13 @@ export const scenarios = {
     question:
       "Aimeriez-vous en savoir plus sur les bourses disponibles pour aider au financement des études ?",
     options: [
-      { label: "Oui, ça m'intéresse", next: "scholarships" },
+      { label: "Oui, ça m'intéresse", next: "scholarship" },
       { label: "Non, merci", next: "request_name" },
     ],
     botResponse:
       "Les bourses peuvent faire une grande différence financièrement !",
   },
-  scholarships: {
+  scholarship: {
     question: "Voici quelques types de bourses disponibles :",
     options: [
       { label: "Bourse d'excellence", next: "excellence_details" },
@@ -317,7 +566,7 @@ export const scenarios = {
       "Les bourses d'excellence sont attribuées en fonction des performances académiques. Souhaitez-vous des détails sur les critères d'éligibilité ?",
     options: [
       { label: "Oui, je veux en savoir plus", next: "request_name" },
-      { label: "Non, merci", next: "scholarships" },
+      { label: "Non, merci", next: "scholarship" },
     ],
     botResponse: "C'est un excellent moyen de récompenser le travail acharné !",
   },
@@ -383,7 +632,7 @@ export const scenarios = {
   },
   request_phone: {
     question: (name) =>
-      `S'il te plaît, ${name} entre ton numéro de téléphone ci-dessous.`,
+      `S'il te plaît, ${name} entre ton numéro de téléphone 📱 ci-dessous.`,
     botResponse: "Parfait, Vous avez une autre question ?",
     inputType: "phone",
     next: "new_question",
