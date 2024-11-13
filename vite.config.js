@@ -42,4 +42,4 @@ export default defineConfig({
       formats: ['umd', 'es'], // UMD for global scope, ES for modern imports
     },
   },
-});
+})
