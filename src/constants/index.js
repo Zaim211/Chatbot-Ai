@@ -64,12 +64,12 @@ export const navigation = [
     title: "Contact",
     url: "#contact",
   },
-  {
-    id: "4",
-    title: "New account",
-    url: "#signup",
-    onlyMobile: true,
-  },
+  // {
+  //   id: "4",
+  //   title: "New account",
+  //   url: "#signup",
+  //   onlyMobile: true,
+  // },
   {
     id: "5",
     title: "Sign in",

@@ -722,7 +722,7 @@ const Chatbot = () => {
   </div>
 
   {isChatVisible && (
-    <div className="fixed bottom-16 right-4 bg-white rounded-lg mb-2 pb-2  w-full max-w-md  z-50">  
+    <div className="fixed bottom-16 right-4 bg-white rounded-lg mb-2 pb-2 w-[95%] sm:w-[90%] md:w-[80%] lg:max-w-md  max-w-sm  z-50">  
       <div className="flex items-center relative bg-black text-white p-2  top-0 left-0 rounded-t-lg w-full">
       <img src={botImage} alt="Bot Logo" className="w-16 h-16 mr-3" />
       
