@@ -99,7 +99,6 @@ const Chatbot = () => {
       } 
     } else if (currentScenario === "request_phone") {
       if (!isValidFrenchPhone(userResponse)) {
-
         // scenarios[currentScenario].invalidResponse.forEach((message) => {
         //   displayMessageWithTypingIndicator(message, "bot");
         // });
