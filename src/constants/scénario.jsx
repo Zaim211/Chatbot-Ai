@@ -627,16 +627,41 @@ export const scenarios = {
     question: (name) => `S'il te plaît ${name}, entre ton email ci-dessous.`,
     botResponse: "Merci pour l'information 📧",
     inputType: "email",
+    next: "verification_email",
+    invalidResponse: ["Désolé ! L'email que tu viens de rentrer ne semble pas être valide !."],
+  },
+  request_add_email: { 
+    question: "Peux-tu me donner ton correct email, s’il te plaît ?",
+    botResponse: "Merci pour l'information 📧",
+    inputType: "email",
     next: "request_phone",
     invalidResponse: ["Désolé ! L'email que tu viens de rentrer ne semble pas être valide !."],
   },
-  request_phone: {
-    question: (name) =>
-      `S'il te plaît, ${name} entre ton numéro de téléphone 📱 ci-dessous.`,
-    botResponse: "Parfait, Vous avez une autre question ?",
-    inputType: "phone",
-    next: "new_question",
+  verification_email: {
+    question: "Est-ce que l'email 📧 est correct ?",
+    options: [
+      {label: "Oui", next: "request_phone"},
+      {label: "Non", next: "request_add_email"}
+    ],
+    botResponse: "Merci pour l'information 📧",
   },
+  verification_phone: {
+    question: "Est-ce que le numéro de téléphone 📱 est correct ?",
+    options: [
+      {label: "Oui", next: "new_question"},
+      {label: "Non", next: "request_phone"}
+    ],
+    botResponse: "Merci pour l'information 📧",
+  },
+  
+  request_phone: {
+    question: 'S\'il te plaît, entre ton numéro de téléphone 📱 ci-dessous.',
+    botResponse: "Parfait!",
+    inputType: "phone",
+    next: "verification_phone",
+    invalidResponse: ["Désolé ! le numéro de téléphone que tu viens de rentrer ne semble pas être valide !."],
+  },
+ 
 
   final_response: {
     question: "Merci pour l'information ! Nous vous contacterons bientôt.",
