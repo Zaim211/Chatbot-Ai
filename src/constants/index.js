@@ -49,13 +49,13 @@ export const navigation = [
   },
   {
     id: "2",
-    title: "How to use",
-    url: "#how-to-use",
+    title: "Comment fonctionne",
+    url: "#Comment-fonctionne",
   },
   {
     id: "3",
-    title: "Roadmap",
-    url: "#roadmap",
+    title: "Contact",
+    url: "#contact",
   },
   {
     id: "4",
@@ -78,10 +78,11 @@ export const notificationImages = [notification4, notification3, notification2];
 export const companyLogos = [yourlogo, yourlogo, yourlogo, yourlogo, yourlogo];
 
 export const brainwaveServices = [
-  "Photo generating",
-  "Photo enhance",
-  "Seamless Integration",
+  "Conversation fluide avec le chatbot", // 1: Fluid conversation with chatbot
+  "Génération des leads vers le tableau de bord", // 2: Lead generation to the dashboard
+  "Intégrer le chatbot sur votre site web", // 3: Integrate chatbot on your website
 ];
+
 
 export const brainwaveServicesIcons = [
   recording03,
@@ -241,19 +242,71 @@ export const pricing = [
   },
 ];
 
+// export const benefits = [
+//   {
+//     id: "0",
+//     title: "Ask anything",
+//     text: "Lets users quickly find answers to their questions without having to search through multiple sources.",
+//     backgroundUrl: "./src/assets/benefits/card-1.svg",
+//     iconUrl: benefitIcon1,
+//     imageUrl: benefitImage2,
+//   },
+//   {
+//     id: "1",
+//     title: "Improve everyday",
+//     text: "The app uses natural language processing to understand user queries and provide accurate and relevant responses.",
+//     backgroundUrl: "./src/assets/benefits/card-2.svg",
+//     iconUrl: benefitIcon2,
+//     imageUrl: benefitImage2,
+//     light: true,
+//   },
+//   {
+//     id: "2",
+//     title: "Connect everywhere",
+//     text: "Connect with the AI chatbot from anywhere, on any device, making it more accessible and convenient.",
+//     backgroundUrl: "./src/assets/benefits/card-3.svg",
+//     iconUrl: benefitIcon3,
+//     imageUrl: benefitImage2,
+//   },
+//   {
+//     id: "3",
+//     title: "Fast responding",
+//     text: "Lets users quickly find answers to their questions without having to search through multiple sources.",
+//     backgroundUrl: "./src/assets/benefits/card-4.svg",
+//     iconUrl: benefitIcon4,
+//     imageUrl: benefitImage2,
+//     light: true,
+//   },
+//   {
+//     id: "4",
+//     title: "Ask anything",
+//     text: "Lets users quickly find answers to their questions without having to search through multiple sources.",
+//     backgroundUrl: "./src/assets/benefits/card-5.svg",
+//     iconUrl: benefitIcon1,
+//     imageUrl: benefitImage2,
+//   },
+//   {
+//     id: "5",
+//     title: "Improve everyday",
+//     text: "The app uses natural language processing to understand user queries and provide accurate and relevant responses.",
+//     backgroundUrl: "./src/assets/benefits/card-6.svg",
+//     iconUrl: benefitIcon2,
+//     imageUrl: benefitImage2,
+//   },
+// ];
 export const benefits = [
   {
     id: "0",
-    title: "Ask anything",
-    text: "Lets users quickly find answers to their questions without having to search through multiple sources.",
+    title: "Intégration facile du chatbot",
+    text: "Ajoutez facilement un chatbot à votre site web pour interagir avec vos utilisateurs et collecter des données précieuses.",
     backgroundUrl: "./src/assets/benefits/card-1.svg",
     iconUrl: benefitIcon1,
     imageUrl: benefitImage2,
   },
   {
     id: "1",
-    title: "Improve everyday",
-    text: "The app uses natural language processing to understand user queries and provide accurate and relevant responses.",
+    title: "Collecte et analyse des données",
+    text: "Notre chatbot collecte des informations en temps réel et les envoie à votre tableau de bord pour une analyse approfondie.",
     backgroundUrl: "./src/assets/benefits/card-2.svg",
     iconUrl: benefitIcon2,
     imageUrl: benefitImage2,
@@ -261,16 +314,16 @@ export const benefits = [
   },
   {
     id: "2",
-    title: "Connect everywhere",
-    text: "Connect with the AI chatbot from anywhere, on any device, making it more accessible and convenient.",
+    title: "Scénarios personnalisables",
+    text: "Choisissez le scénario de chatbot adapté à vos besoins pour offrir une expérience utilisateur optimale et dynamique.",
     backgroundUrl: "./src/assets/benefits/card-3.svg",
     iconUrl: benefitIcon3,
     imageUrl: benefitImage2,
   },
   {
     id: "3",
-    title: "Fast responding",
-    text: "Lets users quickly find answers to their questions without having to search through multiple sources.",
+    title: "Réponses automatisées et instantanées",
+    text: "Le chatbot répond immédiatement aux demandes des utilisateurs, améliorant ainsi l'efficacité de votre service client.",
     backgroundUrl: "./src/assets/benefits/card-4.svg",
     iconUrl: benefitIcon4,
     imageUrl: benefitImage2,
@@ -278,21 +331,22 @@ export const benefits = [
   },
   {
     id: "4",
-    title: "Ask anything",
-    text: "Lets users quickly find answers to their questions without having to search through multiple sources.",
+    title: "Amélioration continue",
+    text: "Grâce à l'analyse des données collectées, le chatbot s'améliore constamment pour offrir une meilleure expérience utilisateur.",
     backgroundUrl: "./src/assets/benefits/card-5.svg",
     iconUrl: benefitIcon1,
     imageUrl: benefitImage2,
   },
   {
     id: "5",
-    title: "Improve everyday",
-    text: "The app uses natural language processing to understand user queries and provide accurate and relevant responses.",
+    title: "Accès à des rapports détaillés",
+    text: "Consultez des rapports détaillés sur les interactions de votre chatbot avec les utilisateurs, directement dans votre tableau de bord.",
     backgroundUrl: "./src/assets/benefits/card-6.svg",
     iconUrl: benefitIcon2,
     imageUrl: benefitImage2,
   },
 ];
+
 
 export const socials = [
   {

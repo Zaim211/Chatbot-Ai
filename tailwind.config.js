@@ -82,7 +82,7 @@ export default {
             {},
         },
         ".h1": {
-          "@apply font-semibold text-[2.5rem] leading-[3.25rem] md:text-[2.75rem] md:leading-[3.75rem] lg:text-[3.25rem] lg:leading-[4.0625rem] xl:text-[3.75rem] xl:leading-[4.5rem]":
+          "@apply font-semibold text-[1rem] leading-[3.25rem] md:text-[1rem] md:leading-[3.75rem] lg:text-[2.6rem] lg:leading-[4.0625rem] xl:text-[2.2rem] xl:leading-[3rem]":
             {},
         },
         ".h2": {
@@ -102,7 +102,7 @@ export default {
           "@apply font-semibold text-lg leading-8": {},
         },
         ".body-1": {
-          "@apply text-[0.875rem] leading-[1.5rem] md:text-[1rem] md:leading-[1.75rem] lg:text-[1.25rem] lg:leading-8":
+          "@apply text-[0.875rem] leading-[1.5rem] md:text-[1rem] md:leading-[1.75rem] lg:text-[1.1rem] lg:leading-8":
             {},
         },
         ".body-2": {

@@ -74,9 +74,11 @@ import facebook from "./socials/facebook.svg";
 import instagram from "./socials/instagram.svg";
 import telegram from "./socials/telegram.svg";
 import twitter from "./socials/twitter.svg";
+import cover from "./services/cover.png";
 
 export {
   brainwave,
+  cover,
   check,
   check2,
   loading1,

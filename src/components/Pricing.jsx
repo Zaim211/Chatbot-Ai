@@ -38,14 +38,7 @@ const Pricing = () => {
           <RightLine />
         </div>
 
-        <div className="flex justify-center mt-10">
-          <a
-            className="text-xs font-code font-bold tracking-wider uppercase border-b"
-            href="/pricing"
-          >
-            See the full details
-          </a>
-        </div>
+       
       </div>
     </Section>
   );
