@@ -133,7 +133,7 @@ const Hero = () => {
           <div className="w-full max-w-[300px] md:max-w-[400px] lg:max-w-[500px] relative rounded-lg shadow-md">
             <div className="rounded-lg overflow-hidden">
               <video
-                className="w-full h-[180px] md:h-[250px] lg:h-[350px] object-cover"
+                className="w-full h-[180px] md:h-[250px] lg:h-[350px] object-contain"
                 controls
                 poster={cover}
               >
