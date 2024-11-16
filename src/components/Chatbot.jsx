@@ -728,7 +728,7 @@ const Chatbot = () => {
       
       <div>
         <div className="flex gap-2 items-center">
-        <span className="text-lg font-semibold">BrainAI</span>
+        <span className="text-md font-semibold">COVERBOTAI</span>
         <div className=" w-3 h-3 bg-green-500 rounded-full" />
         </div>
         <p className="text-sm text-gray-100">
