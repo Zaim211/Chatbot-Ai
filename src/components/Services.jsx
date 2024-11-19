@@ -1,6 +1,6 @@
 import Section from "./Section";
 import Heading from "./Heading";
-import { service2, check, bénéfite } from "../assets";
+import { service2, check, ben } from "../assets";
 import { brainwaveServices } from "../constants";
 import Title from "./Title";
 
@@ -21,7 +21,7 @@ const Services = () => {
             {/* Image on the left */}
             <div className="w-full lg:w-1/2">
               <img
-                src={benefite}
+                src={ben}
                 className="h-[100px] sm:h-[300px]  w-full object-contain rounded-md"
                 width={630}
                 height={750}
