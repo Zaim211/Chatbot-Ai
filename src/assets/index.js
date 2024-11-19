@@ -68,7 +68,7 @@ import benefitIcon2 from "./benefits/icon-2.svg";
 import benefitIcon3 from "./benefits/icon-3.svg";
 import benefitIcon4 from "./benefits/icon-4.svg";
 import benefitImage2 from "./benefits/image-2.png";
-import bénéfite from './benefits/bénéfite.png';
+import benefite from './benefits/bénéfite.png';
 
 import discordBlack from "./socials/discord.svg";
 import facebook from "./socials/facebook.svg";
@@ -105,7 +105,7 @@ export {
   background,
   curve,
   robot,
-  bénéfite,
+  benefite,
   heroBackground,
   curve1,
   curve2,

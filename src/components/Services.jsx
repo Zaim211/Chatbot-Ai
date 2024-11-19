@@ -21,7 +21,7 @@ const Services = () => {
             {/* Image on the left */}
             <div className="w-full lg:w-1/2">
               <img
-                src={bénéfite}
+                src={benefite}
                 className="h-[100px] sm:h-[300px]  w-full object-contain rounded-md"
                 width={630}
                 height={750}
