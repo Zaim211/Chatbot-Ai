@@ -6,9 +6,9 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   plugins: [react()],
   assetsInclude: ['**/*.PNG'],
-  define: {
-    'process.env': '{}',  // Define process.env as an empty object
-  },
+  // define: {
+  //   'process.env': '{}',  // Define process.env as an empty object
+  // },
 })
 // import { defineConfig } from 'vite';
 // import react from '@vitejs/plugin-react';
