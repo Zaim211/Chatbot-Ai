@@ -1,0 +1,59 @@
+import React, { useState } from "react";
+import { faqData } from "../constants";
+import Section from "./Section";
+
+const Faq = () => {
+  const [selectedQuestionIndex, setSelectedQuestionIndex] = useState(null);
+
+  const toggleQuestion = (index) => {
+    setSelectedQuestionIndex(selectedQuestionIndex === index ? null : index);
+  };
+
+  return (
+    <Section id="faq">
+      <div className="container relative z-2 grid grid-cols-1 mt-12 md:grid-cols-2 gap-8">
+        {/* Left Panel */}
+        <div className="flex items-center justify-center">
+          <div>
+            <h2 className="md:max-w-md text-black lg:max-w-2xl text-center lg:text-xl text-md">Questions Fréquemment Posées</h2>
+            <p className="text-gray-700 mb-4 md:max-w-md  lg:max-w-2xl text-center lg:text-xl text-md">
+              Pour plus de questions, contactez-nous via <br /> le formulaire ou L'email.
+            </p>
+          </div>
+        </div>
+
+        {/* Right Panel */}
+        <div className="p-4 rounded-lg shadow-lg">
+          <ul className="space-y-4">
+            {faqData.map((faq, index) => (
+              <li
+                key={index}
+                className="bg-white shadow-lg rounded-lg border border-gray-200"
+              >
+                <button
+                  onClick={() => toggleQuestion(index)}
+                  className="w-full flex items-center justify-between p-4 text-left font-medium text-gray-800"
+                >
+                  <span className="flex items-center space-x-2">
+                    <span className="text-black">{index + 1}.</span>
+                    <span className="text-black">{faq.question}</span>
+                  </span>
+                  <span className="text-gray-500">
+                    {selectedQuestionIndex === index ? "-" : "+"}
+                  </span>
+                </button>
+                {selectedQuestionIndex === index && (
+                  <div className="p-4 text-gray-700 border-t border-gray-300">
+                    {faq.answer}
+                  </div>
+                )}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </Section>
+  );
+};
+
+export default Faq;

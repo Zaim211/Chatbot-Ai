@@ -8,27 +8,27 @@ export default {
     extend: {
       colors: {
         color: {
-          1: "#AC6AFF",
-          2: "#FFC876",
-          3: "#FF776F",
-          4: "#7ADB78",
-          5: "#858DFF",
-          6: "#FF98E2",
+          1: "#FFFFFF",
+          2: "#FFFFFF",
+          3: "#000000",
+          4: "#FFFFFF",
+          5: "#FFFFFF",
+          6: "#FFFFFF",
         },
         stroke: {
           1: "#26242C",
         },
         n: {
-          1: "#FFFFFF",
-          2: "#CAC6DD",
-          3: "#ADA8C3",
-          4: "#757185",
-          5: "#3F3A52",
-          6: "#252134",
-          7: "#15131D",
-          8: "#0E0C15",
-          9: "#474060",
-          10: "#43435C",
+          1: "#000000",
+          2: "#FFFFFF",
+          3: "#000000",
+          4: "#000000",
+          5: "#000000",
+          6: "#000000",
+          7: "#000000",
+          8: "#FFFFFF",
+          9: "#FFFFFF",
+          10: "#FFFFFF",
           11: "#1B1B2E",
           12: "#2E2A41",
           13: "#6C7275",
@@ -82,11 +82,11 @@ export default {
             {},
         },
         ".h1": {
-          "@apply font-semibold text-[1rem] leading-[3.25rem] md:text-[1rem] md:leading-[3.75rem] lg:text-[2.6rem] lg:leading-[4.0625rem] xl:text-[2.2rem] xl:leading-[3rem]":
+          "@apply font-semibold text-[1rem] leading-[3.25rem] md:text-[1rem] md:leading-[3.75rem] lg:text-[2rem] lg:leading-[4.0625rem] xl:text-[1.8rem] xl:leading-[3rem]":
             {},
         },
         ".h2": {
-          "@apply text-[1.75rem] leading-[2.5rem] md:text-[2rem] md:leading-[2.5rem] lg:text-[2.5rem] lg:leading-[3.5rem] xl:text-[3rem] xl:leading-tight":
+          "@apply text-[1.70rem] leading-[2.5rem] md:text-[1rem] md:leading-[2.5rem] lg:text-[2rem] lg:leading-[3.5rem] xl:text-[2rem] xl:leading-tight":
             {},
         },
         ".h3": {

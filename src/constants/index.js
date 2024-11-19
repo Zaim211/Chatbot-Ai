@@ -49,27 +49,28 @@ export const navigation = [
     title: "Features",
     url: "#features",
   },
-  {
-    id: "1",
-    title: "Pricing",
-    url: "#pricing",
-  },
+  
+ 
   {
     id: "2",
     title: "Comment fonctionne",
     url: "#Comment-fonctionne",
   },
   {
+    id: "4",
+    title: "Faq",
+    url: "#faq",
+  },
+  {
     id: "3",
     title: "Contact",
     url: "#contact",
   },
-  // {
-  //   id: "4",
-  //   title: "New account",
-  //   url: "#signup",
-  //   onlyMobile: true,
-  // },
+  {
+    id: "1",
+    title: "Blog",
+    url: "/blog",
+  },
   {
     id: "5",
     title: "Sign in",
@@ -78,6 +79,106 @@ export const navigation = [
   },
 ];
 
+export const categories = {
+  "Tous les articles": [
+    { id: 1, 
+      title: "Intelligence Artificielle : Agence de communication ou chatbot IA pour les écoles supérieures ?", 
+      description: "Les écoles supérieures doivent repenser leur stratégie de communication pour mieux atteindre les étudiants. Tandis qu’une agence de communication traditionnelle peut être efficace, l’intégration d’un chatbot IA offre une approche plus personnalisée et automatisée, idéale pour maximiser l’engagement et améliorer l’expérience d’inscription des étudiants.",
+      image: "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png" },
+    { id: 2, 
+      title: "Default Article 2", 
+      description: "Les écoles supérieures doivent repenser leur stratégie de communication pour mieux atteindre les étudiants. Tandis qu’une agence de communication traditionnelle peut être efficace, l’intégration d’un chatbot IA offre une approche plus personnalisée et automatisée, idéale pour maximiser l’engagement et améliorer l’expérience d’inscription des étudiants.",
+      image: "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png" },
+    { id: 3, 
+      title: "Default Article 3", 
+      description: "Les écoles supérieures doivent repenser leur stratégie de communication pour mieux atteindre les étudiants. Tandis qu’une agence de communication traditionnelle peut être efficace, l’intégration d’un chatbot IA offre une approche plus personnalisée et automatisée, idéale pour maximiser l’engagement et améliorer l’expérience d’inscription des étudiants.",
+      image: "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png" },
+  ],
+  Marketing: [
+    { id: 1, 
+      title: "Intelligence Artificielle : Agence de communication ou chatbot IA pour les écoles supérieures ?", 
+      description: "Les écoles supérieures doivent repenser leur stratégie de communication pour mieux atteindre les étudiants. Tandis qu’une agence de communication traditionnelle peut être efficace, l’intégration d’un chatbot IA offre une approche plus personnalisée et automatisée, idéale pour maximiser l’engagement et améliorer l’expérience d’inscription des étudiants.",
+      image: "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png" },
+    { id: 2, 
+      title: "7 Raisons de choisir un chatbot dédié à l’enseignement supérieur (plutôt qu’un chatbot généraliste)", 
+      description: "Les écoles supérieures doivent repenser leur stratégie de communication pour mieux atteindre les étudiants. Tandis qu’une agence de communication traditionnelle peut être efficace, l’intégration d’un chatbot IA offre une approche plus personnalisée et automatisée, idéale pour maximiser l’engagement et améliorer l’expérience d’inscription des étudiants.",
+      image: "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png" },
+    { id: 3, 
+      title: "L’achat de leads pour les écoles : la fausse bonne idée ?", 
+      description: "Les écoles supérieures doivent repenser leur stratégie de communication pour mieux atteindre les étudiants. Tandis qu’une agence de communication traditionnelle peut être efficace, l’intégration d’un chatbot IA offre une approche plus personnalisée et automatisée, idéale pour maximiser l’engagement et améliorer l’expérience d’inscription des étudiants.",
+      image: "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png" },
+  ],
+  Technologie: [
+    { id: 1, 
+      title: "Tous sur les chatbots : usages et avantages !", 
+      description: "Les écoles supérieures doivent repenser leur stratégie de communication pour mieux atteindre les étudiants. Tandis qu’une agence de communication traditionnelle peut être efficace, l’intégration d’un chatbot IA offre une approche plus personnalisée et automatisée, idéale pour maximiser l’engagement et améliorer l’expérience d’inscription des étudiants.",
+      image: "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png" },
+    { id: 2, 
+      title: "Qu’est-ce qu’un bon lead pour votre école supérieure ?", 
+      description: "Les écoles supérieures doivent repenser leur stratégie de communication pour mieux atteindre les étudiants. Tandis qu’une agence de communication traditionnelle peut être efficace, l’intégration d’un chatbot IA offre une approche plus personnalisée et automatisée, idéale pour maximiser l’engagement et améliorer l’expérience d’inscription des étudiants.",
+      image: "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png", 
+      content: `
+            **Qu’est-ce qu’un lead dans le contexte éducatif ?**  
+            Un lead est une personne ayant manifesté un intérêt pour les programmes d’un établissement. Cet intérêt peut se matérialiser par :  
+            - Une demande d’informations via le site web.  
+            - Une participation à une journée portes ouvertes.  
+            - Une inscription à une newsletter ou une campagne marketing.  
+
+            **Les caractéristiques d’un bon lead**  
+            1. Adéquation avec l’offre éducative : Le lead doit correspondre aux programmes proposés par l’établissement.  
+            2. Engagement actif : Les leads qualifiés interagissent régulièrement avec l’établissement.  
+            3. Capacité à convertir : Un bon lead dispose des qualifications nécessaires pour intégrer l’école.  
+            4. Intérêt réel et motivé : Un bon prospect montre un véritable intérêt pour l’établissement.  
+
+            **Comment identifier un bon lead ?**  
+            - Analyse des interactions : Utiliser des outils pour suivre les comportements des prospects.  
+            - Qualification par formulaire : Ajouter des questions stratégiques dans les formulaires d’inscription.  
+            - Automatisation avec les chatbots : Faciliter la qualification des leads en fonction de leurs besoins.  
+
+            **Stratégies pour générer de bons leads**  
+            1. Marketing de contenu : Créer des articles, vidéos, ou guides engageants.  
+            2. Ciblage publicitaire : Utiliser les réseaux sociaux ou Google Ads pour atteindre des profils spécifiques.  
+            3. Partenariats stratégiques : Collaborer avec des écoles, lycées ou entreprises pour des recommandations directes.  
+
+            **Conclusion**  
+            Prioriser la qualité sur la quantité est la clé pour attirer des étudiants qualifiés et améliorer les taux de conversion.`,
+          },
+ 
+  ],
+  Admissions: [
+    { id: 1, 
+      title: "Admissions Article 1", 
+      description: "Les écoles supérieures doivent repenser leur stratégie de communication pour mieux atteindre les étudiants. Tandis qu’une agence de communication traditionnelle peut être efficace, l’intégration d’un chatbot IA offre une approche plus personnalisée et automatisée, idéale pour maximiser l’engagement et améliorer l’expérience d’inscription des étudiants.",
+      image: "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png" },
+  ],
+};
+
+
+export  const faqData = [
+    {
+      question: "Qu'est-ce que MyBot.Chat ?",
+      answer:
+        "MyBot.Chat est une plateforme SaaS de création de chatbot qui utilise ChatGPT ou Llama 3 comme backend pour vous aider à construire un chatbot IA spécialisé aussi intelligent que ChatGPT pour mieux servir vos clients. Aucune compétence en programmation n'est requise pour créer un chatbot sur cette plateforme. Cela prend environ 5 minutes pour voir un chatbot en fonctionnement.",
+    },
+    {
+      question: "Comment ça fonctionne ?",
+      answer:
+        "MyBot.Chat utilise la puissance de ChatGPT (ou Llama 3) pour entraîner un chatbot avec les données que vous fournissez, qu'elles proviennent d'un site web, de documents PDF, de contenu texte, de fichiers Word, Excel ou de vos données FAQ. Le produit final est un chatbot aussi intelligent que ChatGPT qui comprend bien votre entreprise et peut parler aux utilisateurs en votre nom.",
+    },
+    {
+      question:
+        "J'ai besoin d'une fonctionnalité que vous n'avez pas, cela m'aidera dans mon activité ou mon cas d'utilisation, pouvez-vous la développer ?",
+      answer:
+        "Oui, j'aime créer des produits utiles pour les utilisateurs. Veuillez utiliser le formulaire de contact pour m'envoyer les détails sur votre cas d'utilisation, vos besoins professionnels, et discutons de comment je peux vous aider.",
+    },
+    {
+      question: "Puis-je obtenir un remboursement si je n'aime pas le service ?",
+      answer:
+        "Vous pouvez essayer le plan gratuit avec des fonctionnalités limitées pour voir si cela vous convient avant d'acheter. Une fois que vous avez acheté un plan, vous pouvez l'utiliser jusqu'à la fin du mois. Ensuite, vous pouvez arrêter de l'utiliser. Aucun remboursement partiel ou complet.",
+    },
+];
+
+
 export const heroIcons = [homeSmile, file02, searchMd, plusSquare];
 
 export const notificationImages = [notification4, notification3, notification2];
@@ -85,9 +186,9 @@ export const notificationImages = [notification4, notification3, notification2];
 export const companyLogos = [yourlogo, yourlogo, yourlogo, yourlogo, yourlogo];
 
 export const brainwaveServices = [
-  "Conversation fluide avec le chatbot", // 1: Fluid conversation with chatbot
-  "Génération des leads vers le tableau de bord", // 2: Lead generation to the dashboard
-  "Intégrer le chatbot sur votre site web", // 3: Integrate chatbot on your website
+  "Conversation fluide avec le chatbot",
+  "Génération des leads vers le tableau de bord",
+  "Intégrer le chatbot sur votre site web",
 ];
 
 

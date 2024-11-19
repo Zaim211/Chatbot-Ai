@@ -698,7 +698,7 @@ const Chatbot = () => {
             className="w-32 h-32"
           />
         ) : (
-          <div className="flex items-center bg-white text-black shadow-lg rounded-lg p-3">
+          <div className="flex items-center bg-[#97d197] text-black shadow-lg rounded-lg p-3">
             <img src={botImage} alt="Bot Logo" className="w-16 h-16" />
             <div>
               <span className="text-sm font-semibold">
@@ -710,7 +710,7 @@ const Chatbot = () => {
                   isChatVisible
                     ? "bg-blue-500 text-white"
                     : "bg-gray-200 text-black"
-                } hover:bg-blue-500 hover:text-white`}
+                } hover:bg-black hover:text-white`}
               >
                 👉 Par ici la démo 😀
               </p>
@@ -722,8 +722,8 @@ const Chatbot = () => {
   </div>
 
   {isChatVisible && (
-    <div className="fixed bottom-16 right-4 bg-white rounded-lg mb-2 pb-2 w-[95%] sm:w-[90%] md:w-[80%] lg:max-w-md  max-w-sm  z-50">  
-      <div className="flex items-center relative bg-black text-white p-2  top-0 left-0 rounded-t-lg w-full">
+    <div className="fixed bottom-16 right-4 bg-gray-200 border border-gray-600 rounded-lg mb-2 pb-2 w-[95%] sm:w-[90%] md:w-[80%] lg:max-w-md  max-w-sm  z-50">  
+      <div className="flex items-center relative bg-[#97d197] text-white p-2  top-0 left-0 rounded-t-lg w-full">
       <img src={botImage} alt="Bot Logo" className="w-16 h-16 mr-3" />
       
       <div>

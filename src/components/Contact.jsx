@@ -9,11 +9,15 @@ import {
 import Section from "./Section";
 import Heading from "./Heading";
 import { service1 } from "../assets";
+import Title from "./Title";
 
 const Contact = () => {
   return (
-    <Section id="contact">
-      <div className="container relative z-2 grid grid-cols-1 md:grid-cols-2 gap-10">
+    <Section id="contact" className="mt-12">
+      <div className="absolute inset-0 bg-gradient-to-r from-[#c0cfc0] via-[#d3dfd3] to-[#F8F8FF] z-0" />
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/70 to-white z-0" />
+      
+      <div className="container relative z-2 grid grid-cols-1 md:grid-cols-2  gap-10">
         {/* Left Section with Image */}
         <div className="flex justify-center items-center">
           <img
@@ -25,7 +29,7 @@ const Contact = () => {
 
         {/* Right Section with Contact Information */}
         <div className=" p-8 rounded-lg shadow-lg flex flex-col justify-center">
-          <Heading
+          <Title
             className="text-center mb-8"
             title="Contactez-nous"
           />

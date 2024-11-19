@@ -86,4 +86,10 @@
 .-rotate-360 {
   @apply rotate-[-360deg]
 }
-
+@layer utilities {
+  .gradient-limit {
+    background: linear-gradient(to right, #32CD32, #228B22, #F8F8FF);
+    height: 300px;
+    clip-path: inset(0 0 0 0); /* Optional for precise clipping */
+  }
+}
