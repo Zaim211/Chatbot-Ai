@@ -553,6 +553,12 @@ const Chatbot = () => {
       </div>
     )}
   </div>
+  {isChatVisible && (
+      <div
+        className="fixed inset-0 bg-black opacity-50"
+        onClick={closeChat}
+      ></div>
+    )}
 
   {isChatVisible && (
    
