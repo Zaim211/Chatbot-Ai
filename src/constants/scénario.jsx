@@ -1,17 +1,34 @@
 export const scenarios = {
   initial: {
+    // question: (
+    //   <div>
+    //     <h1>Bonjour 👋</h1>
+    //     <p>Nous avons déjà discuté ensemble 🙂</p>
+    //   </div>
+    // ),
+    // options: [
+    //   { label: "👍 Oui", next: "talk_before" },
+    //   { label: "👎 Non", next: "not_talk" },
+    // ],
+    // botRes: "Pardon, j'ai confondu 😌",
+    // botResponse: "Re-bonjour 👋",
     question: (
       <div>
-        <h1>Bonjour 👋</h1>
-        <p>Nous avons déjà discuté ensemble 🙂</p>
+        <h1>
+         Salut 👋, Bienvenue sur le chatbot de AIChatLedz. 
+         Welcome 🙏🏻 Je m'appelle John 🤖 et je suis là pour t'aider. 😌
+        </h1>
+        <p>Je voudrais savoir si tu es…</p>
       </div>
     ),
     options: [
-      { label: "👍 Oui", next: "talk_before" },
-      { label: "👎 Non", next: "not_talk" },
+      { label: "Étudiant 📚", next: "student" },
+      { label: "Salarié en activité 💼", next: "salarie" },
+      { label: "Demandeur d'emploi 🔎", next: "student" },
+      { label: "Une entreprise 🏢", next: "company" },
+      { label: "Un parent 👨‍👩‍👧‍👦", next: "parent" },
     ],
-    botRes: "Pardon, j'ai confondu 😌",
-    botResponse: "Re-bonjour 👋",
+    botResponse: "Ok, commençons !",
   },
   new_start: {
     question: "S'il te plaît, dis-moi ce que tu cherches ?",
