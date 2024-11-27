@@ -1,5 +1,5 @@
 import { curve, robot } from "../assets";
-import brain from "../assets/brain.mp4";
+import AIChatLedz from "../assets/AIChatLedz.mp4";
 import Button from "./Button";
 import Section from "./Section";
 import { useRef } from "react";
@@ -56,7 +56,7 @@ const Hero = () => {
                 controls
                 poster={boot}
               >
-                <source src={brain} type="video/mp4" />
+                <source src={AIChatLedz} type="video/mp4" />
                 Votre navigateur ne supporte pas la lecture vidéo.
               </video>
             </div>
