@@ -39,7 +39,7 @@ const Hero = () => {
               </span>
             </h1>
             <p className="body-1 text-sm md:text-base mb-6 text-black">
-              Libérez le pouvoir de l'IA avec ConverBot. <br /> Améliorez votre
+              Libérez le pouvoir de l'IA avec Botgeneration.AI <br /> Améliorez votre
               expérience utilisateur <br /> et optimisez votre service client 
               grâce <br />à notre chatbot intelligent.
             </p>
