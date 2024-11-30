@@ -53,7 +53,7 @@ export const navigation = [
  
   {
     id: "2",
-    title: "Comment fonctionne",
+    title: "Comment-ça-marche",
     url: "#Comment-fonctionne",
   },
   {

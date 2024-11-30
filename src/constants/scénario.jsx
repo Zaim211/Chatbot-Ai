@@ -15,7 +15,7 @@ export const scenarios = {
     question: (
       <div>
         <h1>
-         Salut 👋, Bienvenue sur le chatbot de AIChatLedz. 
+         Salut 👋, Bienvenue sur le chatbot de Botgeneration.AI. 
          Welcome 🙏🏻 Je m'appelle John 🤖 et je suis là pour t'aider. 😌
         </h1>
         <p>Je voudrais savoir si tu es…</p>

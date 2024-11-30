@@ -356,7 +356,7 @@ selectedOptionLabel === "Un parent 👨‍👩‍👧‍👦") {
             className="w-12 h-12 rounded-full"
           />
           <div>
-            <h1 className="text-md font-semibold text-black">Salut 👋, Bienvenue sur le chatbot de AIChatLedz.</h1>
+            <h1 className="text-md font-semibold text-black">Salut 👋, Bienvenue sur le chatbot de Botgeneration.AI</h1>
             <h2 className="text-lg font-bold text-gray-800">
               Contactez-nous directement
             </h2>
@@ -541,7 +541,7 @@ selectedOptionLabel === "Un parent 👨‍👩‍👧‍👦") {
                 src={botImage}
                 onClick={toggleChatVisibility}
                 alt="Bot Logo"
-                className="w-32 h-32"
+                className="w-20 h-20"
               />
             ) : (
               <div className="flex items-center bg-[#97d197] text-black shadow-lg rounded-lg p-3">
@@ -580,7 +580,7 @@ selectedOptionLabel === "Un parent 👨‍👩‍👧‍👦") {
 
             <div>
               <div className="flex gap-2 items-center">
-                <span className="text-md font-semibold">COVERBOTAI</span>
+                <span className="text-md font-semibold">Botgeneration.AI</span>
                 <div className=" w-3 h-3 bg-green-500 rounded-full" />
               </div>
               <p className="text-sm text-gray-100">

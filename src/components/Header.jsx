@@ -31,15 +31,15 @@ const Header = () => {
 
   return (
     <div
-      className={`fixed top-0 left-0 w-full z-50   lg:bg-n-8/90 lg:backdrop-blur-sm ${
+      className={`fixed top-0 left-0 w-full z-50  lg:bg-n-8/90 lg:backdrop-blur-sm ${
         openNavigation ? "bg-n-8" : "bg-n-8/90 backdrop-blur-sm"
       }`}
     >
-      <div className="flex bg-gradient-to-r from-[#97d197] via-[#8bc98b] to-[#59966d] items-center px-5 lg:px-7.5 xl:px-10 max-lg:py-4">
-        <a className="block w-[12rem] xl:mr-8" href="#hero">
+      <div className="flex items-center px-5 lg:px-7.5 xl:px-10 max-lg:py-4">
+        <a className="block w-[12rem] xl:mr-8" href="/">
           <div className="flex items-center ">
-          <img src={bot} width={90} height={40} alt="Chat AI" />
-          <p className="font-bold text-white text-2xl">AIChatLedz</p>
+          <img src={bot} width={32} height={32} alt="Chat AI" />
+          <p className="font-bold text-black text-2xl">Botgeneration.ai</p>
           </div>
         </a>
 
@@ -54,12 +54,12 @@ const Header = () => {
                 key={item.id}
                 href={item.url}
                 onClick={handleClick}
-                className={`block relative font-code  text-2xl uppercase text-black transition-colors hover:text-white ${
+                className={`block relative font-code  text-2xl uppercase text-black transition-colors hover:text-[#228B22] ${
                   item.onlyMobile ? "lg:hidden" : ""
                 } px-6 py-6 md:py-8 lg:-mr-0.25  lg:text-sm lg:font-semibold ${
                   item.url === pathname.hash
                     ? "z-2 lg:text-white"
-                    : "lg:text-white"
+                    : "lg:text-black underline"
                 } lg:leading-5 xl:text-md  lg:hover:text-n-1 xl:px-6`}
               >
                 {item.title}
@@ -69,11 +69,11 @@ const Header = () => {
 
           <HamburgerMenu />
         </nav>
-
+{/* 
         
         <Button className="hidden text-white lg:flex" href="#login">
           Sign in
-        </Button>
+        </Button> */}
 
         <Button
           className="ml-auto lg:hidden"
