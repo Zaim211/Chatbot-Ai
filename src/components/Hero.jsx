@@ -1,10 +1,10 @@
 import { curve } from "../assets";
-import AIChatLedz from "../assets/AIChatLedz.mp4";
+// import AIChatLedz from "../assets/AIChatLedz.mp4";
 import Button from "./Button";
 import Section from "./Section";
 import { useRef } from "react";
-import { boot } from "../assets";
-import dash from '../assets/herodash.png';
+// import { boot } from "../assets";
+// import dash from '../assets/herodash.png';
 
 
 
