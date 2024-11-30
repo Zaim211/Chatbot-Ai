@@ -11,7 +11,7 @@ const Services = () => {
 
       <div className="relative z-10 container">
         <Title
-          title="Comment fonctionne notre Chatbot ?"
+          title="Comment ça marche notre Chatbot ?"
           text="Intégrez facilement notre chatbot intelligent sur votre site web pour générer des prospects"
           className="md:max-w-md text-black lg:max-w-2xl text-center lg:text-xl text-md"
         />
