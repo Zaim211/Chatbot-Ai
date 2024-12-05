@@ -88,7 +88,7 @@ export default defineConfig({
         entryFileNames: 'assets/[name].[hash].js',
         chunkFileNames: 'assets/[name].[hash].js',
         assetFileNames: 'assets/[name].[hash].[ext]',
-        dir: 'dist', // Output directory for the widget build
+        dir: 'dist',
       },
     },
   },
