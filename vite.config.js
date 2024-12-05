@@ -51,6 +51,14 @@ export default defineConfig({
       fileName: (format) => `chatbot-widget.${format}.js`,
       formats: ['umd', 'es'], // UMD for global scope, ES for modern imports
     },
+    rollupOptions: {
+      input: {
+        // Entry point for the website (index.html)
+        main: path.resolve(__dirname, 'index.html'), // Replace with your actual website entry point if different
+        // Entry point for the chatbot widget (chatbot-widget.jsx)
+        chatbotWidget: path.resolve(__dirname, 'src/chatbot-widget.jsx'),
+      },
+    },
   },
 })
 
