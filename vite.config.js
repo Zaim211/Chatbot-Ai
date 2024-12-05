@@ -28,6 +28,33 @@
 
 
 
+// import { defineConfig } from 'vite';
+// import react from '@vitejs/plugin-react';
+// import path from 'path';
+
+// // Vite configuration for building the website and chatbot widget
+// export default defineConfig({
+//   plugins: [react()],
+//   assetsInclude: ['**/*.PNG'],
+//   define: {
+//     'process.env': {}, // This will define process.env as an empty object, preventing the error
+//   },
+//   resolve: {
+//     alias: {
+//       '@': path.resolve(__dirname, 'src'), // Alias for imports
+//     },
+//   },
+//   build: {   
+//     lib: {
+//       entry: path.resolve(__dirname, 'src/chatbot-widget.jsx'),
+//       name: 'ChatbotWidget',
+//       fileName: (format) => `chatbot-widget.${format}.js`,
+//       formats: ['umd', 'es'], // UMD for global scope, ES for modern imports
+//     },
+//   },
+// })
+
+
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import path from 'path';
@@ -44,51 +71,27 @@ export default defineConfig({
       '@': path.resolve(__dirname, 'src'), // Alias for imports
     },
   },
-  build: {   
+  build: {
+    // Build for the widget (library)
     lib: {
       entry: path.resolve(__dirname, 'src/chatbot-widget.jsx'),
       name: 'ChatbotWidget',
       fileName: (format) => `chatbot-widget.${format}.js`,
       formats: ['umd', 'es'], // UMD for global scope, ES for modern imports
     },
+    // Output for the website
+    outDir: 'dist', // The folder where both the widget and website will be bundled
+    rollupOptions: {
+      input: {
+        main: path.resolve(__dirname, 'index.html'), // Your website's entry point
+        widget: path.resolve(__dirname, 'src/chatbot-widget.jsx'), // The widget entry point
+      },
+      output: {
+        // For multiple entries, specify how files will be outputted
+        entryFileNames: '[name].js',
+        chunkFileNames: '[name].[hash].js',
+        assetFileNames: '[name].[hash].[ext]',
+      },
+    },
   },
-})
-
-
-
-// import { defineConfig } from 'vite';
-// import react from '@vitejs/plugin-react';
-// import path from 'path';
-
-// export default defineConfig({
-//   plugins: [react()],
-//   assetsInclude: ['**/*.PNG'],
-//   define: {
-//     'process.env': {}, // Avoid process.env errors
-//   },
-//   resolve: {
-//     alias: {
-//       '@': path.resolve(__dirname, 'src'),
-//     },
-//   },
-//   build: {
-//     // Build configuration for the website (standard web app)
-//     rollupOptions: {
-//       input: {
-//         main: path.resolve(__dirname, 'index.html'), // Main entry for website
-//       },
-//     },
-//     outDir: 'dist', // Build directory for the website
-//   },
-  
-//   lib: {
-//     entry: path.resolve(__dirname, 'src/chatbot-widget.jsx'),
-//     name: 'ChatbotWidget',
-//     fileName: (format) => `chatbot-widget.${format}.js`,
-//     formats: ['umd', 'es'], // UMD for embedding and ES for imports
-//   },
-// })
-
-
-
-
+});
