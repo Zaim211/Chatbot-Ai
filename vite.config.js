@@ -80,7 +80,7 @@ export default defineConfig({
     },
     outDir: 'dist', // Build directory for the website
   },
-  // Separate configuration for building the chatbot widget
+  
   lib: {
     entry: path.resolve(__dirname, 'src/chatbot-widget.jsx'),
     name: 'ChatbotWidget',
