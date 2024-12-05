@@ -84,11 +84,7 @@ export default defineConfig({
       '@': path.resolve(__dirname, 'src'), // Alias for imports
     },
   },
-  build: {
-    // Building the website
-    rollupOptions: {
-      input: path.resolve(__dirname, 'index.html'),  // The entry HTML file for your website
-    },
+  build: {   
     lib: {
       entry: path.resolve(__dirname, 'src/chatbot-widget.jsx'),
       name: 'ChatbotWidget',
