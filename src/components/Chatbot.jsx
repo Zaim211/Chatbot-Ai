@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useRef } from "react";
 import botImage from "../assets/bot.png";
 import imgbot from "../assets/imgbot.png";
-import instagram from "../assets/istg.jfif";
-import { scenarios } from "../constants/scénario";
+import { scenarios, routes } from "../constants/scénario";
+
 import { sendChatData } from "../api/sendChatData";
 
 const Chatbot = () => {
@@ -10,6 +10,7 @@ const Chatbot = () => {
   const [messages, setMessages] = useState([]);
   const [currentScenario, setCurrentScenario] = useState("initial");
   const [userInfo, setUserInfo] = useState({});
+  const [inputValue, setInputValue] = useState("");
   const [isTyping, setIsTyping] = useState(false);
   const [isFirstVisit, setIsFirstVisit] = useState(false);
   const [isChatVisible, setChatVisible] = useState(false);
@@ -22,14 +23,8 @@ const Chatbot = () => {
       title: "Digital Marketing Course",
       image: imgbot,
       link: "https://www.coursera.org/learn/foundations-of-digital-marketing-and-e-commerce",
-    },
-  ]);
-
-  const [ads] = useState([
-    {
-      title: "Digital Marketing Course",
-      image: instagram,
-      link: "https://demo.lead-ia.com/bachelor-marketing-digital.html",
+      details:
+        "Learn the fundamentals of digital marketing and e-commerce to grow your business or career.",
     },
   ]);
 
@@ -91,21 +86,6 @@ const Chatbot = () => {
       }
     } else if (currentScenario === "request_phone") {
       if (!isValidFrenchPhone(userResponse)) {
-        // scenarios[currentScenario].invalidResponse.forEach((message) => {
-        //   displayMessageWithTypingIndicator(message, "bot");
-        // });
-
-        // displayMessageWithTypingIndicator(
-        //   scenarios[currentScenario].question,
-        //   "bot"
-        // );
-
-        // setUserInfo((prevUserInfo) => ({
-        //   ...prevUserInfo,
-        //   [scenarios[currentScenario].inputType]: "",
-        // }));
-        // return;
-
         scenarios[currentScenario].invalidResponse.forEach((message) => {
           displayMessageWithTypingIndicator(message, "bot");
         });
@@ -208,6 +188,156 @@ const Chatbot = () => {
 
     sendData(currentScenario, userInfo[scenarios[currentScenario].inputType]);
   };
+  const handleAISubmit = async () => {
+    if (!inputValue.trim()) return;
+
+    // Add user's message to the chat
+    setMessages([...messages, { sender: "user", text: inputValue }]);
+    setInputValue(""); // Clear the input
+    setIsTyping(true); // Show typing indicator
+
+    // Check for matching routes
+    const matchedRoute = routes.find((route) =>
+      route.keywords.some((keyword) =>
+        inputValue.toLowerCase().includes(keyword.toLowerCase())
+      )
+    );
+
+    if (matchedRoute) {
+      // If a matching route is found, display the URL as the bot's response
+      setTimeout(() => {
+        // const responseMessage = `Pour plus d'informations concernant "${inputValue.trim()}", veuillez visiter le lien suivant : ${matchedRoute.route}`;
+        const responseMessage = (
+          <span>
+            Pour plus d'informations concernant "
+            <strong>{inputValue.trim()}</strong>
+            ", veuillez visiter le lien suivant :{" "}
+            <a
+              href={matchedRoute.route}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ color: "blue", textDecoration: "underline" }}
+            >
+              {matchedRoute.route}
+            </a>
+          </span>
+        );
+
+        setMessages((prevMessages) => [
+          ...prevMessages,
+          { sender: "bot", text: responseMessage },
+        ]);
+        setIsTyping(false); // Hide typing indicator
+      }, 2000); // Simulate typing delay
+      return; // Stop further execution
+    }
+
+    // If no route matched, proceed to ChatGPT API request
+    try {
+      const response = await fetch(
+        "https://api.openai.com/v1/chat/completions",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer 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`,
+          },
+          body: JSON.stringify({
+            model: "gpt-4",
+            messages: [{ role: "user", content: inputValue }],
+          }),
+        }
+      );
+
+      const data = await response.json();
+      const chatGPTResponse = data.choices[0].message.content;
+
+      // Add ChatGPT's response to the chat
+      setTimeout(() => {
+        setMessages((prevMessages) => [
+          ...prevMessages,
+          { sender: "bot", text: chatGPTResponse },
+        ]);
+        setIsTyping(false); // Hide typing indicator
+      }, 2000); // Simulate typing delay
+    } catch (error) {
+      console.error("Error communicating with ChatGPT:", error);
+      setTimeout(() => {
+        setMessages((prevMessages) => [
+          ...prevMessages,
+          {
+            sender: "bot",
+            text: "Désolé, une erreur s'est produite. Veuillez réessayer plus tard.",
+          },
+        ]);
+        setIsTyping(false); // Hide typing indicator
+      }, 2000); // Simulate typing delay
+    }
+  };
+
+  // const handleAISubmit = async () => {
+  //   if (!inputValue.trim()) return;
+
+  //   // Add user's message to the chat
+  //   setMessages([...messages, { sender: "user", text: inputValue }]);
+
+  //   // Loop through each route and check if the input contains any of its keywords
+  //   const matchedRoute = routes.find((route) =>
+  //     route.keywords.some((keyword) =>
+  //       inputValue.toLowerCase().includes(keyword.toLowerCase())
+  //     )
+  //   );
+
+  //   if (matchedRoute) {
+  //     // If a matching route is found, display the URL as the bot's response
+  //     const responseMessage = `For more information, please visit the following link: ${matchedRoute.route}`;
+  //     setMessages((prevMessages) => [
+  //       ...prevMessages,
+  //       { sender: "bot", text: responseMessage },
+  //     ]);
+  //     setInputValue(""); // Clear the input
+  //     return; // Stop further execution (no need to call ChatGPT API)
+  //   }
+
+  //   // If no route matched, proceed to ChatGPT API request
+  //   try {
+  //     const response = await fetch(
+  //       "https://api.openai.com/v1/chat/completions",
+  //       {
+  //         method: "POST",
+  //         headers: {
+  //           "Content-Type": "application/json",
+  //           Authorization: `Bearer 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`,
+  //         },
+  //         body: JSON.stringify({
+  //           model: "gpt-4",
+  //           messages: [{ role: "user", content: inputValue }],
+  //         }),
+  //       }
+  //     );
+
+  //     const data = await response.json();
+  //     const chatGPTResponse = data.choices[0].message.content;
+
+  //     // Add ChatGPT's response to the chat
+  //     setMessages((prevMessages) => [
+  //       ...prevMessages,
+  //       { sender: "bot", text: chatGPTResponse },
+  //     ]);
+  //   } catch (error) {
+  //     console.error("Error communicating with ChatGPT:", error);
+  //     setMessages((prevMessages) => [
+  //       ...prevMessages,
+  //       {
+  //         sender: "bot",
+  //         text: "Désolé, une erreur s'est produite. Veuillez réessayer plus tard.",
+  //       },
+  //     ]);
+  //   }
+
+  //   // Clear the user input
+  //   setInputValue("");
+  // };
 
   const displayMessageWithTypingIndicator = (message, sender) => {
     setIsTyping(true);
@@ -225,15 +355,17 @@ const Chatbot = () => {
       ...prevMessages,
       { text: selectedOptionLabel, sender: "user" },
     ]);
-    
-      // selectedOptionLabel === "COMMERCE & MARKETING" ||
-      // selectedOptionLabel === "INFORMATIQUE" ||
-      // selectedOptionLabel === "COMMUNICATION"
-      if (selectedOptionLabel === "Étudiant 📚" ||
-selectedOptionLabel === "Salarié en activité 💼" ||
-selectedOptionLabel === "Demandeur d'emploi 🔎" ||
-selectedOptionLabel === "Une entreprise 🏢" ||
-selectedOptionLabel === "Un parent 👨‍👩‍👧‍👦") {
+
+    // selectedOptionLabel === "COMMERCE & MARKETING" ||
+    // selectedOptionLabel === "INFORMATIQUE" ||
+    // selectedOptionLabel === "COMMUNICATION"
+    if (
+      selectedOptionLabel === "Étudiant 📚" ||
+      selectedOptionLabel === "Salarié en activité 💼" ||
+      selectedOptionLabel === "Demandeur d'emploi 🔎" ||
+      selectedOptionLabel === "Une entreprise 🏢" ||
+      selectedOptionLabel === "Un parent 👨‍👩‍👧‍👦"
+    ) {
       displayMessageWithTypingIndicator(
         scenarios[currentScenario].botResponse,
         "bot"
@@ -356,8 +488,10 @@ selectedOptionLabel === "Un parent 👨‍👩‍👧‍👦") {
             className="w-12 h-12 rounded-full"
           />
           <div>
-            <h1 className="text-md font-semibold text-black">Salut 👋, Bienvenue sur le chatbot de Botgeneration.AI</h1>
-            <h2 className="text-lg font-bold text-gray-800">
+            <h1 className="text-md font-semibold text-black">
+              Salut 👋, Bienvenue sur le chatbot de Botgeneration.AI
+            </h1>
+            <h2 className="text-sm font-bold text-gray-800">
               Contactez-nous directement
             </h2>
 
@@ -389,19 +523,28 @@ selectedOptionLabel === "Un parent 👨‍👩‍👧‍👦") {
               <div className="text-gray-800 mt-2 font-semibold">
                 {course.title}
               </div>
+              <p className="text-sm text-gray-600 mt-2">{course.details}</p>
               <a
                 href={course.link}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="mt-2 inline-block bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600"
               >
-                More Details
+                Plus Details
               </a>
+              {/* Additional Lines Below the Button */}
+              <p className="text-xs text-gray-500 mt-2">
+                Commencez aujourd'hui pour transformer votre carrière.
+              </p>
+              <p className="text-xs text-gray-500">
+                Obtenez un certificat après l'achèvement.
+              </p>
             </div>
           ))}
         </div>
       </div>
     );
+
     setMessages((prevMessages) => [
       ...prevMessages,
       { text: courseCard, sender: "bot" },
@@ -513,11 +656,12 @@ selectedOptionLabel === "Un parent 👨‍👩‍👧‍👦") {
 
   return (
     <div>
+      {/* Chat Toggle Button */}
       <div className="fixed bottom-4 z-50 right-4 flex items-center cursor-pointer">
         {isChatVisible ? (
           <button
             onClick={closeChat}
-            className="bg-black text-white hover:bg-gray-800  rounded-full"
+            className="bg-black text-white hover:bg-gray-800 rounded-full"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -535,7 +679,7 @@ selectedOptionLabel === "Un parent 👨‍👩‍👧‍👦") {
             </svg>
           </button>
         ) : (
-          <div className="flex items-center text-black shadow-lg rounded-lg">
+          <div className="flex items-center  text-black shadow-lg rounded-lg p-3">
             {hasInteracted ? (
               <img
                 src={botImage}
@@ -544,114 +688,116 @@ selectedOptionLabel === "Un parent 👨‍👩‍👧‍👦") {
                 className="w-20 h-20"
               />
             ) : (
-              <div className="flex items-center bg-[#97d197] text-black shadow-lg rounded-lg p-3">
-                <img src={botImage} alt="Bot Logo" className="w-16 h-16" />
-                <div>
-                  <span className="text-sm font-semibold">
-                    Bonjour 👋, besoin d'aide ? 😃
-                  </span>
-                  <p
-                    onClick={toggleChatVisibility}
-                    className={`text-sm mt-1 cursor-pointer text-center rounded-lg w-48 py-4 ${
-                      isChatVisible
-                        ? "bg-blue-500 text-white"
-                        : "bg-gray-200 text-black"
-                    } hover:bg-black hover:text-white`}
-                  >
-                    👉 Par ici la démo 😀
-                  </p>
-                </div>
+              <div className="bg-[#97d197] shadow-lg rounded-lg p-3">
+                <span className="text-sm font-semibold">
+                  Bonjour 👋, besoin d'aide ? 😃
+                </span>
+                <p
+                  onClick={toggleChatVisibility}
+                  className="text-sm mt-1 cursor-pointer text-center rounded-lg w-48 py-4 bg-gray-200 text-black hover:bg-black hover:text-white"
+                >
+                  👉 Par ici la démo 😀
+                </p>
               </div>
             )}
           </div>
         )}
       </div>
-      {isChatVisible && (
-        <div
-          className="fixed inset-0 bg-black opacity-50"
-          onClick={closeChat}
-        ></div>
-      )}
 
+      {/* Chat Modal */}
       {isChatVisible && (
-        <div className="fixed bottom-16 right-4 bg-gray-200 border border-gray-600 rounded-lg mb-2 pb-2 w-[95%] sm:w-[90%] md:w-[80%] lg:max-w-md  max-w-sm  z-50">
-          <div className="flex items-center relative bg-[#97d197] text-white p-2  top-0 left-0 rounded-t-lg w-full">
-            <img src={botImage} alt="Bot Logo" className="w-16 h-16 mr-3" />
-
-            <div>
-              <div className="flex gap-2 items-center">
-                <span className="text-md font-semibold">Botgeneration.AI</span>
-                <div className=" w-3 h-3 bg-green-500 rounded-full" />
-              </div>
-              <p className="text-sm text-gray-100">
-                {isTyping ? "En train d'écrire..." : "En ligne"}
-              </p>
-            </div>
-          </div>
+        <>
+          {/* Overlay */}
           <div
-            className="h-[400px] w-full overflow-y-auto flex flex-col"
-            ref={chatContainerRef}
-          >
-            {messages.map((msg, index) => (
-              <div
-                key={index}
-                className={`flex ${
-                  msg.sender === "user"
-                    ? "justify-end"
-                    : "justify-start items-center"
-                }`}
-              >
-                {msg.sender === "bot" && (
+            className="fixed inset-0 bg-black opacity-50"
+            onClick={closeChat}
+          ></div>
+
+          {/* Chat Window */}
+          <div className="fixed bottom-16 right-4 bg-gray-200 border border-gray-600 rounded-lg mb-2 pb-2 w-[95%] sm:w-[90%] md:w-[80%] lg:max-w-md max-w-sm z-50">
+            {/* Header */}
+            <div className="flex items-center bg-[#97d197] text-white p-2 rounded-t-lg">
+              <img src={botImage} alt="Bot Logo" className="w-12 h-12 mr-3" />
+              <div>
+                <div className="flex items-center gap-2">
+                  <span className="text-sm font-semibold">BotGenerationAI</span>
+                  <div className="w-3 h-3 bg-green-500 rounded-full"></div>
+                </div>
+                <p className="text-sm text-gray-100">
+                  {isTyping ? "En train d'écrire..." : "En ligne"}
+                </p>
+              </div>
+            </div>
+
+            {/* Chat Messages */}
+            <div
+              className="h-[336px] w-full overflow-y-auto flex flex-col px-2"
+              ref={chatContainerRef}
+            >
+              {messages.map((msg, index) => (
+                <div
+                  key={index}
+                  className={`flex ${
+                    msg.sender === "user"
+                      ? "justify-end text-xs"
+                      : "justify-start text-sm items-center"
+                  } mb-2`}
+                >
+                  {msg.sender === "bot" && (
+                    <img
+                      src={botImage}
+                      alt="Bot"
+                      className="w-8 h-8 rounded-full mr-2"
+                    />
+                  )}
+
+                  <div
+                    className={`p-2 max-w-xs text-xs rounded-lg ${
+                      msg.sender === "user"
+                        ? "bg-blue-500 text-white text-sm"
+                        : "bg-gray-200 text-gray-800"
+                    }`}
+                  >
+                    {msg.text}
+                  </div>
+                </div>
+              ))}
+
+              {isTyping && (
+                <div className="flex items-center">
                   <img
                     src={botImage}
-                    alt="Bot"
-                    className="w-16 h-16 rounded-full"
+                    alt="Typing..."
+                    className="w-8 h-8 rounded-full mr-2"
                   />
-                )}
-                <div
-                  className={`p-2 max-w-xs rounded-lg ${
-                    msg.sender === "user"
-                      ? "bg-blue-500 text-sm mr-3 text-white"
-                      : " text-sm  text-gray-800"
-                  }`}
-                >
-                  {msg.text}
+                  <div className="text-gray-500 text-xs font-bold">
+                    Bot est en train d'écrire...
+                  </div>
                 </div>
-              </div>
-            ))}
-            {isTyping && (
-              <div className="flex items-center">
-                <img
-                  src={botImage}
-                  alt="Bot Typing"
-                  className="w-12 h-12 rounded-full mr-2"
-                />
-                <div className="text-gray-500 text-sm font-bold">
-                  Bot est en train d'écrire...
-                </div>
-              </div>
-            )}
-            <div className="mt-4 text-left">
-              {!isTyping && scenarios[currentScenario].options && (
-                <div className="flex flex-col items-end space-y-2  mb-2">
+              )}
+            </div>
+
+            {/* Options or Input */}
+            <div className="mt-4 px-4">
+              <div className="border-b border-gray-500 mb-2"></div>
+              {scenarios[currentScenario].options && (
+                <div className="flex flex-row items-end space-x-1 mb-4">
                   {scenarios[currentScenario].options.map((option, index) => (
                     <button
                       key={index}
                       onClick={() =>
                         handleOptionClick(option.label, option.next)
                       }
-                      className="text-blue-500 border mr-3 border-blue-500 text-sm py-2 px-4 rounded-lg hover:bg-blue-500 hover:text-white"
+                      className="text-blue-500 border text-xs border-blue-500 py-1 px-1 rounded-lg hover:bg-blue-500 hover:text-white"
                     >
                       {option.label}
                     </button>
                   ))}
                 </div>
               )}
-              {!isTyping && scenarios[currentScenario].inputType && (
-                <div className="mt-4 w-full">
-                  {/* Divider line */}
-                  <div className="border-b border-gray-300 mb-2"></div>
-                  {/* Input and button container */}
+              <div className="mt-4">
+                {/* Specific Scenario Input */}
+                {scenarios[currentScenario]?.inputType ? (
                   <div className="flex items-center gap-2 mb-2 justify-between">
                     <input
                       type={scenarios[currentScenario].inputType}
@@ -680,20 +826,47 @@ selectedOptionLabel === "Un parent 👨‍👩‍👧‍👦") {
                             e.target.value,
                         })
                       }
-                      className="bg-white border mr-2 ml-2 rounded-md border-transparent focus:outline-none focus:ring-2 focus:ring-white p-2 text-gray-600 w-full"
+                      onKeyDown={(e) => {
+                        if (e.key === "Enter") {
+                          handleInputSubmit(); // Trigger submission on Enter
+                        }
+                      }}
+                      className="bg-white border rounded-md p-2 w-full focus:outline-none focus:ring-2 focus:ring-blue-200"
                     />
                     <button
                       onClick={handleInputSubmit}
-                      className="mr-2 text-white font-bold bg-blue-500 px-4 py-2 rounded-lg hover:bg-blue-400"
+                      className="text-white bg-green-500 px-4 py-2 rounded-lg hover:bg-green-400"
                     >
                       Envoyer
                     </button>
                   </div>
-                </div>
-              )}
+                ) : (
+                  // General Chat Input
+                  <div className="flex items-center gap-2 justify-between">
+                    <input
+                      type="text"
+                      placeholder="Comment puis-je vous aider ?"
+                      value={inputValue}
+                      onChange={(e) => setInputValue(e.target.value)}
+                      onKeyDown={(e) => {
+                        if (e.key === "Enter") {
+                          handleAISubmit(); // Call the submit function
+                        }
+                      }}
+                      className="bg-white border text-sm rounded-lg p-2 w-full focus:outline-none focus:ring-2 focus:ring-green-200"
+                    />
+                    <button
+                      onClick={handleAISubmit}
+                      className="text-white bg-green-500 px-4 py-2 rounded-lg hover:bg-green-400"
+                    >
+                      Envoyer
+                    </button>
+                  </div>
+                )}
+              </div>
             </div>
           </div>
-        </div>
+        </>
       )}
     </div>
   );

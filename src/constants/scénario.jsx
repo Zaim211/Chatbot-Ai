@@ -1,17 +1,159 @@
+
+export const routes = [
+  {
+    route: 'https://www.koutquekout.com/postbac-ntc',
+    keywords: [ 'https:', 'www.koutquekout.com', 'postbac-ntc' ]
+  },
+  {
+    route: 'https://www.koutquekout.com/bts-mco',
+    keywords: [ 'https:', 'www.koutquekout.com', 'bts-mco' ]
+  },
+  {
+    route: 'https://www.koutquekout.com/bts-negociation-rel-client',
+    keywords: [ 'https:', 'www.koutquekout.com', 'bts-negociation-rel-client' ]
+  },
+  {
+    route: 'https://www.koutquekout.com/bachelor-rdc',
+    keywords: [ 'https:', 'www.koutquekout.com', 'bachelor-rdc' ]
+  },
+  {
+    route: 'https://www.koutquekout.com/manager-commercial-et-marketing',
+    keywords: [
+      'https:',
+      'www.koutquekout.com',
+      'manager-commercial-et-marketing'
+    ]
+  },
+  {
+    route: 'https://www.koutquekout.com/metiers',
+    keywords: [ 'https:', 'www.koutquekout.com', 'metiers' ]
+  },
+  {
+    route: 'https://www.koutquekout.com/entreprise-recrutement',
+    keywords: [ 'https:', 'www.koutquekout.com', 'entreprise-recrutement' ]
+  },
+  {
+    route: 'https://www.koutquekout.com/contact',
+    keywords: [ 'https:', 'www.koutquekout.com', 'contact' ]
+  },
+  {
+    route: 'https://koutquekout.ymag.cloud/index.php/preinscription/',
+    keywords: [
+      'https:',
+      'koutquekout.ymag.cloud',
+      'index.php',
+      'preinscription'
+    ]
+  },
+  {
+    route: 'https://www.linkedin.com/in/abdourahmaneseye/',
+    keywords: [ 'https:', 'www.linkedin.com', 'in', 'abdourahmaneseye' ]
+  },
+  {
+    route: 'https://fr.linkedin.com/company/pricemoov?trk=public_profile_topcard-current-company',
+    keywords: [
+      'https:',
+      'fr.linkedin.com',
+      'company',
+      'pricemoov?trk=public_profile_topcard-current-company'
+    ]
+  },
+  {
+    route: 'https://fr.linkedin.com/in/hakimjakhjoukh',
+    keywords: [ 'https:', 'fr.linkedin.com', 'in', 'hakimjakhjoukh' ]
+  },
+  {
+    route: 'https://www.linkedin.com/in/corannebechlem/',
+    keywords: [ 'https:', 'www.linkedin.com', 'in', 'corannebechlem' ]
+  },
+  {
+    route: 'https://www.linkedin.com/in/benjamin-zirah/',
+    keywords: [ 'https:', 'www.linkedin.com', 'in', 'benjamin-zirah' ]
+  },
+  {
+    route: 'https://www.linkedin.com/in/mrahmoune/',
+    keywords: [ 'https:', 'www.linkedin.com', 'in', 'mrahmoune' ]
+  },
+  {
+    route: 'https://www.linkedin.com/in/imane-lafkiri-13254a71/',
+    keywords: [ 'https:', 'www.linkedin.com', 'in', 'imane-lafkiri-13254a71' ]
+  },
+  {
+    route: 'https://www.linkedin.com/in/maxime-prunier/',
+    keywords: [ 'https:', 'www.linkedin.com', 'in', 'maxime-prunier' ]
+  },
+  {
+    route: 'https://www.linkedin.com/in/yanis-wahabi/',
+    keywords: [ 'https:', 'www.linkedin.com', 'in', 'yanis-wahabi' ]
+  },
+  {
+    route: 'https://www.linkedin.com/in/myriam-khamar-43b589a1/',
+    keywords: [ 'https:', 'www.linkedin.com', 'in', 'myriam-khamar-43b589a1' ]
+  },
+  {
+    route: 'https://www.linkedin.com/in/jpbarre/',
+    keywords: [ 'https:', 'www.linkedin.com', 'in', 'jpbarre' ]
+  },
+  {
+    route: 'https://www.linkedin.com/in/mohamed-fanoui-b1ab36107/',
+    keywords: [ 'https:', 'www.linkedin.com', 'in', 'mohamed-fanoui-b1ab36107' ]
+  },
+  {
+    route: 'https://www.linkedin.com/in/morald-chibout-1064b894/?original_referer=',
+    keywords: [
+      'https:',
+      'www.linkedin.com',
+      'in',
+      'morald-chibout-1064b894',
+      '?original_referer='
+    ]
+  },
+  {
+    route: 'https://www.linkedin.com/in/samira-riaze/',
+    keywords: [ 'https:', 'www.linkedin.com', 'in', 'samira-riaze' ]
+  },
+  {
+    route: 'https://www.koutquekout.com/mentions-legales',
+    keywords: [ 'https:', 'www.koutquekout.com', 'mentions-legales' ]
+  },
+  {
+    route: 'https://www.koutquekout.com/conditions-generales-de-ventes',
+    keywords: [
+      'https:',
+      'www.koutquekout.com',
+      'conditions-generales-de-ventes'
+    ]
+  },
+  {
+    route: 'https://www.koutquekout.com/politique-de-protection-des-donnees-personnelles',
+    keywords: [
+      'https:',
+      'www.koutquekout.com',
+      'politique-de-protection-des-donnees-personnelles'
+    ]
+  },
+  {
+    route: 'https://www.linkedin.com/school/kout-que-kout/',
+    keywords: [ 'https:', 'www.linkedin.com', 'school', 'kout-que-kout' ]
+  },
+
+  {
+    route: 'https://www.linkedin.com/in/leslie-gabriel-roset',
+    keywords: [ 'https:', 'www.linkedin.com', 'in', 'leslie-gabriel-roset' ]
+  },
+  {
+    route: 'https://www.tiktok.com/@koutquekout_',
+    keywords: [ 'https:', 'www.tiktok.com', '@koutquekout_' ]
+  },
+  {
+    route: 'https://www.instagram.com/koutquekout__/',
+    keywords: [ 'https:', 'www.instagram.com', 'koutquekout__' ]
+  }
+]
+
+
 export const scenarios = {
   initial: {
-    // question: (
-    //   <div>
-    //     <h1>Bonjour 👋</h1>
-    //     <p>Nous avons déjà discuté ensemble 🙂</p>
-    //   </div>
-    // ),
-    // options: [
-    //   { label: "👍 Oui", next: "talk_before" },
-    //   { label: "👎 Non", next: "not_talk" },
-    // ],
-    // botRes: "Pardon, j'ai confondu 😌",
-    // botResponse: "Re-bonjour 👋",
     question: (
       <div>
         <h1>
@@ -45,7 +187,7 @@ export const scenarios = {
     question: "Alors tu voudrais…",
     options: [
       { label: "que je te renseigne ?", next: "remmberme" },
-      { label: "poser une question ?", next: "pose_question" },
+      // { label: "poser une question ?", next: "pose_question" },
       { label: "être contacté 📞", next: "contact" },
     ],
     botResponse: "D'accord 🙂",
@@ -63,21 +205,21 @@ export const scenarios = {
     )
   },
   
-  pose_question: {
-   question: (
-    <div>
-        <h1>Si je ne suis pas en mesure de te donner une réponse immédiate, je vais contacter l’établissement afin de trouver une solution à ta question.</h1>
-        <p>Donc avant de poser ta question, j’aurais besoin de quelques informations pour que l'établissement te réponde au mieux.</p>
-    </div>
-    ),
-    options: [{label: "Ok", next: "request_name"}],
-    botResponse: "Merci pour ta compréhension 😊",
-},
+//   pose_question: {
+//    question: (
+//     <div>
+//         <h1>Si je ne suis pas en mesure de te donner une réponse immédiate, je vais contacter l’établissement afin de trouver une solution à ta question.</h1>
+//         <p>Donc avant de poser ta question, j’aurais besoin de quelques informations pour que l'établissement te réponde au mieux.</p>
+//     </div>
+//     ),
+//     options: [{label: "Ok", next: "request_name"}],
+//     botResponse: "Merci pour ta compréhension 😊",
+// },
   not_talk: {
     question: (
       <div>
         <h1>
-         Salut 👋, Bienvenue sur le chatbot de BrainAI Academy. 
+         Salut 👋, Bienvenue sur le chatbot de BotGenerationAi. 
          Welcome 🙏🏻 Je m'appelle John 🤖 et je suis là pour t'aider. 😌
         </h1>
         <p>Je voudrais savoir si tu es…</p>
@@ -131,7 +273,7 @@ export const scenarios = {
     question: "Tu es là pour…",
     options: [
       { label: "que je te renseigne ?", next: "infor" },
-      { label: "poser une question ?", next: "pose_question" },
+      // { label: "poser une question ?", next: "pose_question" },
       { label: "être contacté 📞", next: "contact" },
     ],
     botResponse: "D'accord 🙂",
@@ -253,7 +395,7 @@ export const scenarios = {
     question: "Alors tu voudrais…",
     options: [
       { label: "que je te renseigne ?", next: "informtions" },
-      { label: "poser une question ?", next: "pose_question" },
+      // { label: "poser une question ?", next: "pose_question" },
       { label: "être contacté 📞", next: "contact" },
     ],
     botResponse: "D'accord 🙂",
@@ -412,7 +554,7 @@ export const scenarios = {
     options: [
       { label: "Découvrir nos formations", next: "découvrir" },
       { label: "Former tes équipes", next: "découvrir" },
-      { label: "Poser des questions", next: "pose_question" },
+      // { label: "Poser des questions", next: "pose_question" },
       { label: "Être contacté", next: "contact" },
       { label: "Recruter en alternance", next: "découvrir" },
 
