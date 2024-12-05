@@ -7,7 +7,7 @@ const createChatbotWidget = () => {
   container.id = "chatbot-root";
   document.body.appendChild(container);
 
-  ReactDOM.render(<Chatbot />, container);  // JSX syntax should work fine here
+  ReactDOM.render(<Chatbot />, container);
 };
 
 window.createChatbotWidget = createChatbotWidget
