@@ -1,12 +1,12 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
+// import { defineConfig } from 'vite'
+// import react from '@vitejs/plugin-react'
 
-// https://vite.dev/config/
-export default defineConfig({
-  plugins: [react()],
-assetsInclude: ['**/*.PNG'],
+// // https://vite.dev/config/
+// export default defineConfig({
+//   plugins: [react()],
+// assetsInclude: ['**/*.PNG'],
 
-})
+// })
 
 
 
@@ -48,11 +48,47 @@ assetsInclude: ['**/*.PNG'],
 //     lib: {
 //       entry: path.resolve(__dirname, 'src/chatbot-widget.jsx'),
 //       name: 'ChatbotWidget',
-//       fileName: (format) => `chatbot-widgt.${format}.js`,
+//       fileName: (format) => `chatbot-widget.${format}.js`,
 //       formats: ['umd', 'es'], // UMD for global scope, ES for modern imports
 //     },
 //   },
 // })
+
+
+
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
+import path from 'path';
+
+export default defineConfig({
+  plugins: [react()],
+  assetsInclude: ['**/*.PNG'],
+  define: {
+    'process.env': {}, // Avoid process.env errors
+  },
+  resolve: {
+    alias: {
+      '@': path.resolve(__dirname, 'src'),
+    },
+  },
+  build: {
+    // Build configuration for the website (standard web app)
+    rollupOptions: {
+      input: {
+        main: path.resolve(__dirname, 'index.html'), // Main entry for website
+      },
+    },
+    outDir: 'dist', // Build directory for the website
+  },
+  // Separate configuration for building the chatbot widget
+  lib: {
+    entry: path.resolve(__dirname, 'src/chatbot-widget.jsx'),
+    name: 'ChatbotWidget',
+    fileName: (format) => `chatbot-widget.${format}.js`,
+    formats: ['umd', 'es'], // UMD for embedding and ES for imports
+  },
+})
+
 
 
 
