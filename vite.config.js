@@ -54,47 +54,57 @@
 //   },
 // })
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import path from 'path';
 
-// Vite configuration for building the website and chatbot widget
+// Vite configuration for building both the website and the chatbot widget
 export default defineConfig({
   plugins: [react()],
   assetsInclude: ['**/*.PNG'],
   define: {
-    'process.env': {}, // Prevent process.env errors
+    'process.env': {}, // Define process.env to prevent errors
   },
   resolve: {
     alias: {
-      '@': path.resolve(__dirname, 'src'),
+      '@': path.resolve(__dirname, 'src'), // Alias for cleaner imports
     },
   },
   build: {
-    outDir: 'dist', // Output directory for the Vercel build (use the default dist folder)
-    lib: {
-      entry: path.resolve(__dirname, 'src/chatbot-widget.jsx'),
-      name: 'ChatbotWidget',
-      fileName: (format) => `chatbot-widget.${format}.js`,
-      formats: ['es'], // Only ES format for code splitting (UMD is incompatible)
-    },
     rollupOptions: {
+      // Define multiple entry points: one for the website and one for the widget
       input: {
         main: path.resolve(__dirname, 'index.html'), // Website entry point
         widget: path.resolve(__dirname, 'src/chatbot-widget.jsx'), // Widget entry point
       },
       output: {
-        inlineDynamicImports: false,
-        entryFileNames: 'assets/[name].[hash].js',
-        chunkFileNames: 'assets/[name].[hash].js',
-        assetFileNames: 'assets/[name].[hash].[ext]',
-        dir: 'dist',
+        entryFileNames: 'assets/[name].[hash].js', // Output for JS files
+        chunkFileNames: 'assets/[name].[hash].js', // Output for chunks
+        assetFileNames: 'assets/[name].[hash].[ext]', // Output for assets
       },
     },
+    outDir: 'dist', // Specify the output directory
   },
 });
-
-
-
-
-
