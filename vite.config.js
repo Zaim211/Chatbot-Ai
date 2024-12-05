@@ -58,37 +58,38 @@ import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import path from 'path';
 
-// Vite configuration for building the website and chatbot widget
 export default defineConfig({
   plugins: [react()],
   assetsInclude: ['**/*.PNG'],
   define: {
-    'process.env': {}, // This will define process.env as an empty object, preventing the error
+    'process.env': {}, // Define process.env to avoid errors
   },
   resolve: {
     alias: {
-      '@': path.resolve(__dirname, 'src'), // Alias for imports
+      '@': path.resolve(__dirname, 'src'), // Alias for imports in the src folder
     },
   },
   build: {
-    // Build the website entry point from index.html
+    // Output directory for everything in the build process
+    outDir: 'dist',  // The output directory for both the website and widget builds
+    
     rollupOptions: {
-      input: path.resolve(__dirname, 'index.html'), // Main website entry point
+      input: path.resolve(__dirname, 'index.html'), // Main entry point for the website
       output: {
-        dir: 'dist/website', // Specify a separate output directory for the website
-        entryFileNames: '[name].[hash].js',
-        chunkFileNames: '[name].[hash].js',
-        assetFileNames: '[name].[hash].[ext]',
+        // Configure the output filenames for the website build
+        entryFileNames: 'website/[name].[hash].js', // Put website JS files in 'website' subfolder
+        chunkFileNames: 'website/[name].[hash].js',  // Put chunks in 'website' subfolder
+        assetFileNames: 'website/[name].[hash].[ext]', // Put assets in 'website' subfolder
       },
     },
-    // Build the chatbot widget as a separate library
+    
+    // For building the chatbot widget as a library
     lib: {
       entry: path.resolve(__dirname, 'src/chatbot-widget.jsx'), // Chatbot widget entry point
-      name: 'ChatbotWidget',
-      fileName: (format) => `chatbot-widget.${format}.js`,
-      formats: ['umd', 'es'], // Export both ES module and UMD for flexibility
+      name: 'ChatbotWidget', // Global name for the widget
+      fileName: (format) => `chatbot-widget.${format}.js`, // Output file names
+      formats: ['umd', 'es'], // Formats for the widget (UMD and ES)
     },
-    outDir: 'dist', // General output directory for the entire build
   },
 });
 
