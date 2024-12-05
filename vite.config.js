@@ -76,6 +76,9 @@ import path from 'path';
 export default defineConfig({
   plugins: [react()],
   assetsInclude: ['**/*.PNG'],
+  define: {
+    'process.env': {}, // This will define process.env as an empty object, preventing the error
+  },
   resolve: {
     alias: {
       '@': path.resolve(__dirname, 'src'), // Alias for imports
