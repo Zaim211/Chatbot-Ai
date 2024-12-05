@@ -273,8 +273,7 @@ const Chatbot = () => {
         setIsTyping(false); // Hide typing indicator
       }, 2000); // Simulate typing delay
     }
-  };
-
+  }
   // const handleAISubmit = async () => {
   //   if (!inputValue.trim()) return;
 
