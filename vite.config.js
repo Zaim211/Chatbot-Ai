@@ -71,23 +71,24 @@ export default defineConfig({
     },
   },
   build: {
-    // For building the website (assuming the main entry point is index.html)
+    // Build the website entry point from index.html
     rollupOptions: {
       input: path.resolve(__dirname, 'index.html'), // Main website entry point
       output: {
-        // Configure the output filenames for the website
-        entryFileNames: 'assets/[name].[hash].js',
-        chunkFileNames: 'assets/[name].[hash].js',
-        assetFileNames: 'assets/[name].[hash].[ext]',
+        dir: 'dist/website', // Specify a separate output directory for the website
+        entryFileNames: '[name].[hash].js',
+        chunkFileNames: '[name].[hash].js',
+        assetFileNames: '[name].[hash].[ext]',
       },
     },
-    // For building the chatbot widget
+    // Build the chatbot widget as a separate library
     lib: {
       entry: path.resolve(__dirname, 'src/chatbot-widget.jsx'), // Chatbot widget entry point
       name: 'ChatbotWidget',
       fileName: (format) => `chatbot-widget.${format}.js`,
       formats: ['umd', 'es'], // Export both ES module and UMD for flexibility
     },
+    outDir: 'dist', // General output directory for the entire build
   },
 });
 
