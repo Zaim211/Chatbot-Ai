@@ -72,23 +72,21 @@ export default defineConfig({
     },
   },
   build: {
+    // For building the website (assuming the main entry point is index.html)
+    rollupOptions: {
+      input: path.resolve(__dirname, 'index.html'), // Main website entry point
+      output: {
+        // Configure the output filenames
+        entryFileNames: 'assets/[name].[hash].js',
+        chunkFileNames: 'assets/[name].[hash].js',
+        assetFileNames: 'assets/[name].[hash].[ext]',
+      },
+    },
     lib: {
-      entry: path.resolve(__dirname, 'src/chatbot-widget.jsx'),
+      entry: path.resolve(__dirname, 'src/chatbot-widget.jsx'), // Chatbot widget entry point
       name: 'ChatbotWidget',
       fileName: (format) => `chatbot-widget.${format}.js`,
-      formats: ['es'], // Only ES format for code splitting (No UMD for multi-entry)
-    },
-    rollupOptions: {
-      input: {
-        main: path.resolve(__dirname, 'index.html'), // Your website's entry point
-        widget: path.resolve(__dirname, 'src/chatbot-widget.jsx'), // The widget entry point
-      },
-      output: {
-        inlineDynamicImports: false,
-        entryFileNames: '[name].js',
-        chunkFileNames: '[name].[hash].js',
-        assetFileNames: '[name].[hash].[ext]',
-      },
+      formats: ['es', 'umd'], // Export both ES module and UMD for flexibility
     },
   },
 });
