@@ -72,14 +72,12 @@ export default defineConfig({
     },
   },
   build: {
-    // Build for the widget (library)
     lib: {
       entry: path.resolve(__dirname, 'src/chatbot-widget.jsx'),
       name: 'ChatbotWidget',
       fileName: (format) => `chatbot-widget.${format}.js`,
       formats: ['umd', 'es'], // UMD for global scope, ES for modern imports
     },
-    // Output for the website
     outDir: 'dist', // The folder where both the widget and website will be bundled
     rollupOptions: {
       input: {
@@ -87,7 +85,8 @@ export default defineConfig({
         widget: path.resolve(__dirname, 'src/chatbot-widget.jsx'), // The widget entry point
       },
       output: {
-        // For multiple entries, specify how files will be outputted
+        // Disable inline dynamic imports to resolve conflict
+        inlineDynamicImports: false,
         entryFileNames: '[name].js',
         chunkFileNames: '[name].[hash].js',
         assetFileNames: '[name].[hash].[ext]',
