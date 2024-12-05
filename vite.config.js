@@ -58,37 +58,40 @@ import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import path from 'path';
 
+// Vite configuration for building the website and chatbot widget
 export default defineConfig({
   plugins: [react()],
   assetsInclude: ['**/*.PNG'],
   define: {
-    'process.env': {}, // Define process.env to avoid errors
+    'process.env': {}, // Prevent process.env errors
   },
   resolve: {
     alias: {
-      '@': path.resolve(__dirname, 'src'), // Alias for imports in the src folder
+      '@': path.resolve(__dirname, 'src'),
     },
   },
   build: {
-    // Output directory for everything in the build process
-    outDir: 'dist',  // The output directory for both the website and widget builds
-    
-    rollupOptions: {
-      input: path.resolve(__dirname, 'index.html'), // Main entry point for the website
-      output: {
-        // Configure the output filenames for the website build
-        entryFileNames: 'website/[name].[hash].js', // Put website JS files in 'website' subfolder
-        chunkFileNames: 'website/[name].[hash].js',  // Put chunks in 'website' subfolder
-        assetFileNames: 'website/[name].[hash].[ext]', // Put assets in 'website' subfolder
-      },
-    },
-    
-    // For building the chatbot widget as a library
+    // Specify the build output directory for both website and widget
+    outDir: 'dist/website', // For the website build (if you want to keep the website in 'dist/website')
     lib: {
-      entry: path.resolve(__dirname, 'src/chatbot-widget.jsx'), // Chatbot widget entry point
-      name: 'ChatbotWidget', // Global name for the widget
-      fileName: (format) => `chatbot-widget.${format}.js`, // Output file names
-      formats: ['umd', 'es'], // Formats for the widget (UMD and ES)
+      entry: path.resolve(__dirname, 'src/chatbot-widget.jsx'),
+      name: 'ChatbotWidget',
+      fileName: (format) => `chatbot-widget.${format}.js`,
+      formats: ['umd', 'es'], // UMD for global scope, ES for modern imports
+    },
+    rollupOptions: {
+      input: {
+        main: path.resolve(__dirname, 'index.html'), // Website entry point
+        widget: path.resolve(__dirname, 'src/chatbot-widget.jsx'), // Widget entry point
+      },
+      output: {
+        inlineDynamicImports: false,
+        entryFileNames: 'assets/[name].[hash].js',
+        chunkFileNames: 'assets/[name].[hash].js',
+        assetFileNames: 'assets/[name].[hash].[ext]',
+        // If you want to output widget in a separate folder like 'dist/widget'
+        dir: 'dist/widget', // Set output directory for widget build here
+      },
     },
   },
 });
