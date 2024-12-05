@@ -99,12 +99,12 @@ export default defineConfig({
         main: path.resolve(__dirname, 'index.html'), // Website entry point
         widget: path.resolve(__dirname, 'src/chatbot-widget.jsx'), // Widget entry point
       },
-      output: {
-        entryFileNames: 'assets/[name].[hash].js', // Output for JS files
-        chunkFileNames: 'assets/[name].[hash].js', // Output for chunks
-        assetFileNames: 'assets/[name].[hash].[ext]', // Output for assets
-      },
+      // output: {
+      //   entryFileNames: 'assets/[name].[hash].js', // Output for JS files
+      //   chunkFileNames: 'assets/[name].[hash].js', // Output for chunks
+      //   assetFileNames: 'assets/[name].[hash].[ext]', // Output for assets
+      // },
     },
-    outDir: 'dist', // Specify the output directory
+    outDir: 'dist',
   },
 });
