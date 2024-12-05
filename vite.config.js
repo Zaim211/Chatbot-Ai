@@ -59,52 +59,54 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import path from 'path';
 
-// Vite configuration for building both the website and the chatbot widget
+// Vite configuration for building the website and chatbot widget
 export default defineConfig({
   plugins: [react()],
   assetsInclude: ['**/*.PNG'],
   define: {
-    'process.env': {}, // Define process.env to prevent errors
+    'process.env': {}, // This will define process.env as an empty object, preventing the error
   },
   resolve: {
     alias: {
-      '@': path.resolve(__dirname, 'src'), // Alias for cleaner imports
+      '@': path.resolve(__dirname, 'src'), // Alias for imports
     },
   },
   build: {
+    // Build for both the chatbot widget and website
     rollupOptions: {
-      // Define multiple entry points: one for the website and one for the widget
       input: {
-        main: path.resolve(__dirname, 'index.html'), // Website entry point
-        widget: path.resolve(__dirname, 'src/chatbot-widget.jsx'), // Widget entry point
+        main: path.resolve(__dirname, 'index.html'), // Your main website entry point
+        chatbotWidget: path.resolve(__dirname, 'src/chatbot-widget.jsx'), // Chatbot widget entry point
       },
-      // output: {
-      //   entryFileNames: 'assets/[name].[hash].js', // Output for JS files
-      //   chunkFileNames: 'assets/[name].[hash].js', // Output for chunks
-      //   assetFileNames: 'assets/[name].[hash].[ext]', // Output for assets
-      // },
+      output: {
+        entryFileNames: '[name].js',
+        format: 'esm', // Ensuring the output is in modern format
+      },
     },
-    outDir: 'dist',
   },
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
