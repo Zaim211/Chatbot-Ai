@@ -1,0 +1,1 @@
+import{b as o,j as e,C as a}from"./assets/index-DFv8xPVv.js";const n=()=>{const t=document.createElement("div");t.id="chatbot-root",document.body.appendChild(t),o.createRoot(t).render(e.jsx(a,{}))};window.createChatbotWidget=n;
