@@ -11,7 +11,7 @@ dotenv.config();
 
 // Middlewares
 app.use(cors({
-    origin: "http://localhost:5173",
+    origin: "https://chatbot-ai-wine.vercel.app",
     credentials: true,
 }));
 
