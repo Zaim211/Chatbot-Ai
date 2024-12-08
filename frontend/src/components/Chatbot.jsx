@@ -2,6 +2,8 @@ import React, { useState, useEffect, useRef } from "react";
 import botImage from "../assets/bot.png";
 import imgbot from "../assets/imgbot.png";
 import { scenarios, routes } from "../constants/scénario";
+import axios from "axios";
+
 
 import { sendChatData } from "../api/sendChatData";
 
@@ -188,155 +190,139 @@ const Chatbot = () => {
 
     sendData(currentScenario, userInfo[scenarios[currentScenario].inputType]);
   };
-  const handleAISubmit = async () => {
-    if (!inputValue.trim()) return;
 
-    // Add user's message to the chat
-    setMessages([...messages, { sender: "user", text: inputValue }]);
-    setInputValue(""); // Clear the input
-    setIsTyping(true); // Show typing indicator
-
-    // Check for matching routes
-    const matchedRoute = routes.find((route) =>
-      route.keywords.some((keyword) =>
-        inputValue.toLowerCase().includes(keyword.toLowerCase())
-      )
-    );
-
-    if (matchedRoute) {
-      // If a matching route is found, display the URL as the bot's response
-      setTimeout(() => {
-        // const responseMessage = `Pour plus d'informations concernant "${inputValue.trim()}", veuillez visiter le lien suivant : ${matchedRoute.route}`;
-        const responseMessage = (
-          <span>
-            Pour plus d'informations concernant "
-            <strong>{inputValue.trim()}</strong>
-            ", veuillez visiter le lien suivant :{" "}
-            <a
-              href={matchedRoute.route}
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{ color: "blue", textDecoration: "underline" }}
-            >
-              {matchedRoute.route}
-            </a>
-          </span>
-        );
-
-        setMessages((prevMessages) => [
-          ...prevMessages,
-          { sender: "bot", text: responseMessage },
-        ]);
-        setIsTyping(false); // Hide typing indicator
-      }, 2000); // Simulate typing delay
-      return; // Stop further execution
-    }
-
-    // If no route matched, proceed to ChatGPT API request
-    try {
-      const response = await fetch(
-        "https://api.openai.com/v1/chat/completions",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer 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`,
-          },
-          body: JSON.stringify({
-            model: "gpt-4",
-            messages: [{ role: "user", content: inputValue }],
-          }),
-        }
-      );
-
-      const data = await response.json();
-      const chatGPTResponse = data.choices[0].message.content;
-
-      // Add ChatGPT's response to the chat
-      setTimeout(() => {
-        setMessages((prevMessages) => [
-          ...prevMessages,
-          { sender: "bot", text: chatGPTResponse },
-        ]);
-        setIsTyping(false); // Hide typing indicator
-      }, 2000); // Simulate typing delay
-    } catch (error) {
-      console.error("Error communicating with ChatGPT:", error);
-      setTimeout(() => {
-        setMessages((prevMessages) => [
-          ...prevMessages,
-          {
-            sender: "bot",
-            text: "Désolé, une erreur s'est produite. Veuillez réessayer plus tard.",
-          },
-        ]);
-        setIsTyping(false); // Hide typing indicator
-      }, 2000); // Simulate typing delay
-    }
-  }
-  // const handleAISubmit = async () => {
-  //   if (!inputValue.trim()) return;
-
+  // const handleAISubmit = async () => { 
+  //   if (!inputValue.trim()) return; // Prevent empty submissions
+  
   //   // Add user's message to the chat
-  //   setMessages([...messages, { sender: "user", text: inputValue }]);
-
-  //   // Loop through each route and check if the input contains any of its keywords
-  //   const matchedRoute = routes.find((route) =>
-  //     route.keywords.some((keyword) =>
-  //       inputValue.toLowerCase().includes(keyword.toLowerCase())
-  //     )
-  //   );
-
-  //   if (matchedRoute) {
-  //     // If a matching route is found, display the URL as the bot's response
-  //     const responseMessage = `For more information, please visit the following link: ${matchedRoute.route}`;
-  //     setMessages((prevMessages) => [
-  //       ...prevMessages,
-  //       { sender: "bot", text: responseMessage },
-  //     ]);
-  //     setInputValue(""); // Clear the input
-  //     return; // Stop further execution (no need to call ChatGPT API)
-  //   }
-
-  //   // If no route matched, proceed to ChatGPT API request
+  //   setMessages((prevMessages) => [...prevMessages, { sender: "user", text: inputValue }]);
+  //   setInputValue(""); // Clear the input
+  //   setIsTyping(true); // Show typing indicator
+  
+  //   // Prepare the routes for GPT
+  //   const formattedRoutes = JSON.stringify(routes, null, 2);
+  
+  //   // Send the input and routes to GPT
   //   try {
-  //     const response = await fetch(
-  //       "https://api.openai.com/v1/chat/completions",
-  //       {
-  //         method: "POST",
-  //         headers: {
-  //           "Content-Type": "application/json",
-  //           Authorization: `Bearer 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`,
-  //         },
-  //         body: JSON.stringify({
-  //           model: "gpt-4",
-  //           messages: [{ role: "user", content: inputValue }],
-  //         }),
-  //       }
-  //     );
-
+  //     const response = await fetch("https://api.openai.com/v1/chat/completions", {
+  //       method: "POST",
+  //       headers: {
+  //         "Content-Type": "application/json",
+  //         Authorization: `Bearer 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`, // Ensure to replace it with your actual API key
+  //       },
+  //       body: JSON.stringify({
+  //         model: "gpt-4",
+  //         messages: [
+  //           {
+  //             role: "system",
+  //             content: `
+  // You are a chatbot integrated into an application. You are provided with a list of routes and their associated keywords. 
+  // If a user's query matches any of the keywords, you must respond with a message suggesting the associated route in the following format:
+  
+  // "Pour plus d'informations concernant '<user query>', veuillez visiter le lien suivant : <route>."
+  
+  // If the user asks for more details about a specific route, you must read précisely the spécified routes by the user. Based on the keyword or query, provide a richer and more detailed answer, similar to a content of the route, without needing predefined details. For example, if the user asks about 'les métiers', you could explain that 'les métiers' covers various professional sectors, job descriptions, or opportunities.
+  
+  // If no route matches, respond naturally using your conversational abilities.
+  
+  // Here is the list of routes and keywords:
+  // ${formattedRoutes}
+  //             `,
+  //           },
+  //           { role: "user", content: inputValue },
+  //         ],
+  //       }),
+  //     });
+  
   //     const data = await response.json();
   //     const chatGPTResponse = data.choices[0].message.content;
-
-  //     // Add ChatGPT's response to the chat
-  //     setMessages((prevMessages) => [
-  //       ...prevMessages,
-  //       { sender: "bot", text: chatGPTResponse },
-  //     ]);
+  
+  //     // Add GPT's response to the chat
+  //     setTimeout(() => {
+  //       setMessages((prevMessages) => [
+  //         ...prevMessages,
+  //         { sender: "bot", text: chatGPTResponse },
+  //       ]);
+  //       setIsTyping(false); // Hide typing indicator
+  //     }, 2000); // Simulate typing delay
   //   } catch (error) {
   //     console.error("Error communicating with ChatGPT:", error);
-  //     setMessages((prevMessages) => [
-  //       ...prevMessages,
-  //       {
-  //         sender: "bot",
-  //         text: "Désolé, une erreur s'est produite. Veuillez réessayer plus tard.",
-  //       },
-  //     ]);
+  //     setTimeout(() => {
+  //       setMessages((prevMessages) => [
+  //         ...prevMessages,
+  //         {
+  //           sender: "bot",
+  //           text: "Désolé, une erreur s'est produite. Veuillez réessayer plus tard.",
+  //         },
+  //       ]);
+  //       setIsTyping(false); // Hide typing indicator
+  //     }, 2000); // Simulate typing delay
   //   }
-
-  //   // Clear the user input
-  //   setInputValue("");
   // };
+
+
+
+
+const handleAISubmit = async () => {
+  if (!inputValue.trim()) return; // Prevent empty submissions
+
+  // Show user message
+  setMessages((prevMessages) => [...prevMessages, { sender: "user", text: inputValue }]);
+  setInputValue(""); // Clear the input
+
+  // Show typing indicator
+  setIsTyping(true);
+
+  try {
+    // Send the user input to the backend
+    const response = await axios.post("http://localhost:5000/bot", {
+      input: inputValue, // Send the input value directly
+    });
+
+    const data = response.data; // Use response.data instead of response.json()
+
+    // Simulate typing delay for GPT's response
+    setTimeout(() => {
+      if (data.route) {
+        setMessages((prevMessages) => [
+          ...prevMessages,
+          { sender: "bot", text: "Here is the URL you requested: ", htmlContent: data.route },
+        ]);
+      } else if (data.details) {
+        setMessages((prevMessages) => [
+          ...prevMessages,
+          { sender: "bot", text: "Voici les détails: ", htmlContent: data.details},
+        ]);
+      } else if (data.message) { // Handle general GPT responses
+        setMessages((prevMessages) => [
+          ...prevMessages,
+          { sender: "bot", text: data.message },
+        ]);
+      } else {
+        setMessages((prevMessages) => [
+          ...prevMessages,
+          { sender: "bot", text: "I'm sorry, I couldn't find any relevant information." },
+        ]);
+      }
+
+      setIsTyping(false); // Hide typing indicator
+    }, 2000); // Simulate typing delay
+
+  } catch (error) {
+    console.error("Error communicating with the server:", error);
+    setMessages((prevMessages) => [
+      ...prevMessages,
+      { sender: "bot", text: "Sorry, an error occurred. Please try again later." },
+    ]);
+    setIsTyping(false); // Hide typing indicator on error
+  }
+};
+
+  
+  
+  
+
+  
 
   const displayMessageWithTypingIndicator = (message, sender) => {
     setIsTyping(true);
@@ -750,15 +736,22 @@ const Chatbot = () => {
                     />
                   )}
 
-                  <div
-                    className={`p-2 max-w-xs text-xs rounded-lg ${
-                      msg.sender === "user"
-                        ? "bg-blue-500 text-white text-sm"
-                        : "bg-gray-200 text-gray-800"
-                    }`}
-                  >
-                    {msg.text}
-                  </div>
+                   {msg.htmlContent ? (
+        <div
+        className={`p-2 max-w-xs text-xs rounded-lg ${
+          msg.sender === "user"
+            ? "bg-blue-500 text-white text-sm"
+            : "bg-gray-200 text-gray-800"
+        }`}
+          dangerouslySetInnerHTML={{ __html: msg.htmlContent }} // Render HTML safely
+        />
+      ) : (
+        <span  className={`p-2 max-w-xs text-xs rounded-lg ${
+          msg.sender === "user"
+            ? "bg-blue-500 text-white text-sm"
+            : "bg-gray-200 text-gray-800"
+        }`}>{msg.text}</span> // Otherwise, render the plain text
+      )}
                 </div>
               ))}
 
