@@ -29,7 +29,7 @@ const Pricing = () => {
         </div>
 
         <Title
-  tag="Commencez avec Brainwave"
+  tag="Commencez avec BotGeneration.Ai"
   title="Payez une fois, utilisez pour toujours"
 />
 

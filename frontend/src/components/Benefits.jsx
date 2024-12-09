@@ -11,7 +11,7 @@ const Benefits = () => {
       <div className="container relative z-2">
         <Title
           className="md:max-w-md text-black lg:max-w-2xl text-center lg:text-xl text-md"
-          title="Optimisez votre service client avec ConverBot"
+          title="Optimisez votre service client avec BotGeneration.Ai"
         />
 
         <div className="grid grid-cols-1 sm:grid-cols-2 mt-4 lg:grid-cols-3 borde border-gray-300 gap-10">
@@ -33,10 +33,10 @@ const Benefits = () => {
                     height={48}
                     alt={item.title}
                   />
-                  <p className="ml-auto font-code text-xs font-bold text-n-1 uppercase tracking-wider">
+                  {/* <p className="ml-auto font-code text-xs font-bold text-n-1 uppercase tracking-wider">
                     Explore more
-                  </p>
-                  <Arrow />
+                  </p> */}
+                  {/* <Arrow /> */}
                 </div>
               </div>
 

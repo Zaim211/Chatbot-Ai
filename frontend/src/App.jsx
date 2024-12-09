@@ -8,9 +8,13 @@ import Footer from "./components/Footer";
 import Header from "./components/Header";
 import Hero from "./components/Hero";
 import Services from "./components/Services";
+import Pricing from "./components/Pricing";
 import Blog from "./pages/Blog";
 import BlogDetails from "./pages/BlogDetails";
 import axios from "axios";
+import Cgu from "./pages/cgu";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
+import About from "./components/About";
 
 axios.defaults.baseURL = import.meta.env.VITE_API_BASE_URL;
 axios.defaults.withCredentials = true;
@@ -25,9 +29,11 @@ const App = () => {
             element={
               <>
                 <Hero />
+                <About />
                 <Services />
                 <Benefits />
                 <Faq />
+                <Pricing />
                 <Contact />
                 <Footer />
                 <Chatbot />
@@ -36,6 +42,8 @@ const App = () => {
           />
           <Route path="/blog" element={<Blog />} />
           <Route path="/Blog/:title" element={<BlogDetails />} />
+          <Route path='/cgu' element={<Cgu />} />
+          <Route path='/politique-de-confidentialité' element={<PrivacyPolicy />} />
         </Routes>
         <ButtonGradient />
         

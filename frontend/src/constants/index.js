@@ -71,12 +71,7 @@ export const navigation = [
     title: "Blog",
     url: "/blog",
   },
-  {
-    id: "5",
-    title: "Sign in",
-    url: "#login",
-    onlyMobile: true,
-  },
+  
 ];
 
 export const categories = {
@@ -156,26 +151,22 @@ export const categories = {
 
 export  const faqData = [
     {
-      question: "Qu'est-ce que MyBot.Chat ?",
+      question: "Qu'est ce que Botgeneration.ai ?",
       answer:
-        "MyBot.Chat est une plateforme SaaS de création de chatbot qui utilise ChatGPT ou Llama 3 comme backend pour vous aider à construire un chatbot IA spécialisé aussi intelligent que ChatGPT pour mieux servir vos clients. Aucune compétence en programmation n'est requise pour créer un chatbot sur cette plateforme. Cela prend environ 5 minutes pour voir un chatbot en fonctionnement.",
+        "Botgeneration.ai vous aide à construire un chatbot IA spécialisé aussi intelligent que ChatGPT pour mieux servir vos clients. Aucune c programmation n'est requise pour créer un chatbot sur votre site web. Cela prend environ 5 minutes pour voir un chatbot en fonctionnement.",
     },
     {
       question: "Comment ça fonctionne ?",
       answer:
-        "MyBot.Chat utilise la puissance de ChatGPT (ou Llama 3) pour entraîner un chatbot avec les données que vous fournissez, qu'elles proviennent d'un site web, de documents PDF, de contenu texte, de fichiers Word, Excel ou de vos données FAQ. Le produit final est un chatbot aussi intelligent que ChatGPT qui comprend bien votre entreprise et peut parler aux utilisateurs en votre nom.",
+        "Le chatbot Botgeneration.ia s'adapte à toutes les données que vous fournissez, qu'elles proviennent d'un site web, de documents PDF, de contenu texte, de fichiers Word, Excel ou de vos données FAQ. Le produit final est un chatbot aussi intelligent que ChatGPT qui comprend parfaitement le fonctionnement de votre entreprise et peut en parler aux utilisateurs en votre nom.",
     },
     {
       question:
         "J'ai besoin d'une fonctionnalité que vous n'avez pas, cela m'aidera dans mon activité ou mon cas d'utilisation, pouvez-vous la développer ?",
       answer:
-        "Oui, j'aime créer des produits utiles pour les utilisateurs. Veuillez utiliser le formulaire de contact pour m'envoyer les détails sur votre cas d'utilisation, vos besoins professionnels, et discutons de comment je peux vous aider.",
+        "Botgeneration.ia repond a toute vos demandes de personnalisation. Vous pouvez utiliser le formulaire de contact pour envoyer les détails sur votre cas d'utilisation, vos besoins professionnels, et discutons de voter projet.",
     },
-    {
-      question: "Puis-je obtenir un remboursement si je n'aime pas le service ?",
-      answer:
-        "Vous pouvez essayer le plan gratuit avec des fonctionnalités limitées pour voir si cela vous convient avant d'acheter. Une fois que vous avez acheté un plan, vous pouvez l'utiliser jusqu'à la fin du mois. Ensuite, vous pouvez arrêter de l'utiliser. Aucun remboursement partiel ou complet.",
-    },
+   
 ];
 
 
@@ -317,96 +308,46 @@ export const collabApps = [
 export const pricing = [
   {
     id: "0",
-    title: "Basic",
-    description: "AI chatbot, personalized recommendations",
+    title: "Basique",
+    description: "Chatbot IA, recommandations personnalisées",
     price: "0",
     features: [
-      "An AI chatbot that can understand your queries",
-      "Personalized recommendations based on your preferences",
-      "Ability to explore the app and its features without any cost",
+      "Un chatbot IA capable de comprendre vos requêtes",
+      "Recommandations personnalisées basées sur vos préférences",
+      "Possibilité d'explorer l'application et ses fonctionnalités sans frais",
     ],
   },
   {
     id: "1",
     title: "Premium",
-    description: "Advanced AI chatbot, priority support, analytics dashboard",
+    description: "Chatbot IA avancé, support prioritaire, tableau de bord analytique",
     price: "9.99",
     features: [
-      "An advanced AI chatbot that can understand complex queries",
-      "An analytics dashboard to track your conversations",
-      "Priority support to solve issues quickly",
+      "Un chatbot IA avancé capable de comprendre des requêtes complexes",
+      "Un tableau de bord analytique pour suivre vos conversations",
+      "Support prioritaire pour résoudre les problèmes rapidement",
     ],
   },
   {
     id: "2",
-    title: "Enterprise",
-    description: "Custom AI chatbot, advanced analytics, dedicated account",
+    title: "Entreprise",
+    description: "Chatbot IA personnalisé, analyses avancées, gestionnaire de compte dédié",
     price: null,
     features: [
-      "An AI chatbot that can understand your queries",
-      "Personalized recommendations based on your preferences",
-      "Ability to explore the app and its features without any cost",
+      "Un chatbot IA personnalisé pour répondre à vos besoins spécifiques",
+      "Analyses avancées pour un suivi précis",
+      "Gestionnaire de compte dédié pour un service optimal",
     ],
   },
 ];
 
-// export const benefits = [
-//   {
-//     id: "0",
-//     title: "Ask anything",
-//     text: "Lets users quickly find answers to their questions without having to search through multiple sources.",
-//     backgroundUrl: "./src/assets/benefits/card-1.svg",
-//     iconUrl: benefitIcon1,
-//     imageUrl: benefitImage2,
-//   },
-//   {
-//     id: "1",
-//     title: "Improve everyday",
-//     text: "The app uses natural language processing to understand user queries and provide accurate and relevant responses.",
-//     backgroundUrl: "./src/assets/benefits/card-2.svg",
-//     iconUrl: benefitIcon2,
-//     imageUrl: benefitImage2,
-//     light: true,
-//   },
-//   {
-//     id: "2",
-//     title: "Connect everywhere",
-//     text: "Connect with the AI chatbot from anywhere, on any device, making it more accessible and convenient.",
-//     backgroundUrl: "./src/assets/benefits/card-3.svg",
-//     iconUrl: benefitIcon3,
-//     imageUrl: benefitImage2,
-//   },
-//   {
-//     id: "3",
-//     title: "Fast responding",
-//     text: "Lets users quickly find answers to their questions without having to search through multiple sources.",
-//     backgroundUrl: "./src/assets/benefits/card-4.svg",
-//     iconUrl: benefitIcon4,
-//     imageUrl: benefitImage2,
-//     light: true,
-//   },
-//   {
-//     id: "4",
-//     title: "Ask anything",
-//     text: "Lets users quickly find answers to their questions without having to search through multiple sources.",
-//     backgroundUrl: "./src/assets/benefits/card-5.svg",
-//     iconUrl: benefitIcon1,
-//     imageUrl: benefitImage2,
-//   },
-//   {
-//     id: "5",
-//     title: "Improve everyday",
-//     text: "The app uses natural language processing to understand user queries and provide accurate and relevant responses.",
-//     backgroundUrl: "./src/assets/benefits/card-6.svg",
-//     iconUrl: benefitIcon2,
-//     imageUrl: benefitImage2,
-//   },
-// ];
+
+
 export const benefits = [
   {
     id: "0",
-    title: "Intégration facile du chatbot",
-    text: "Ajoutez facilement un chatbot à votre site web pour interagir avec vos utilisateurs et collecter des données précieuses.",
+    title: "Fonctionnalites",
+    text: "Chatbot sur mesure adapté à votre site internet pour interragir en IA et generer des leads",
     backgroundUrl: benefitCard1,
     iconUrl: benefitIcon1,
     imageUrl: benefitImage2,
@@ -440,7 +381,7 @@ export const benefits = [
   {
     id: "4",
     title: "Amélioration continue",
-    text: "Grâce à l'analyse des données collectées, le chatbot s'améliore constamment pour offrir une meilleure expérience utilisateur.",
+    text: "Grace à l'analyse de données collectées en IA, le chatbot s'améliore constament pour offrir une meilleure experience utilisateurs",
     backgroundUrl: benefitCard5,
     iconUrl: benefitIcon1,
     imageUrl: benefitImage2,

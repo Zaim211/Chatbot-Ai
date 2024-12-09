@@ -44,10 +44,14 @@ const Hero = () => {
 
           {/* Right Content */}
           <div className="w-full max-w-[300px] mb-12 md:max-w-[300px]  lg:max-w-[400px] relative rounded-lg shadow-md">
-            <div className="rounded-lg overflow-hidden">
-             <p>Image here</p>
-            </div>
-          </div>
+
+        <img
+          src="https://via.placeholder.com/500" // Replace with your image URL
+          alt="Botgeneration Assistant"
+          className="rounded-lg shadow-lg w-full h-auto"
+        />
+      </div>
+  
         </div>
       </div>
     </Section>

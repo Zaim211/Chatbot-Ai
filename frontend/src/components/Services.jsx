@@ -39,7 +39,7 @@ const Services = () => {
 
             {/* Explanation about how the chatbot works on the right */}
             <div className="relative z-10 mt-2 w-full lg:w-1/2">
-              <h1 className="md:max-w-md text-black mt-2 lg:max-w-2xl text-start mb-6 lg:text-2xl text-md">
+              <h1 className="md:max-w-md text-black mt-2 lg:max-w-2xl text-start mb-2 lg:text-2xl text-md">
                 Comment fonctionne notre Chatbot ?
               </h1>
 

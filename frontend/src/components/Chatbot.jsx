@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import botImage from "../assets/bot.png";
+import aibot from '../assets/aibot.png'
 import imgbot from "../assets/imgbot.png";
 import { scenarios, routes } from "../constants/scénario";
 import axios from "axios";
@@ -275,25 +276,16 @@ const handleAISubmit = async () => {
 
   try {
     // Send the user input to the backend
-    const response = await axios.post("http://localhost:5000/bot", {
+    const response = await axios.post("/bot", {
       input: inputValue, // Send the input value directly
     });
+    console.log("response", response);
 
     const data = response.data; // Use response.data instead of response.json()
 
     // Simulate typing delay for GPT's response
     setTimeout(() => {
-      if (data.route) {
-        setMessages((prevMessages) => [
-          ...prevMessages,
-          { sender: "bot", text: "Here is the URL you requested: ", htmlContent: data.route },
-        ]);
-      } else if (data.details) {
-        setMessages((prevMessages) => [
-          ...prevMessages,
-          { sender: "bot", text: "Voici les détails: ", htmlContent: data.details},
-        ]);
-      } else if (data.message) { // Handle general GPT responses
+      if (data.message) { // Handle general GPT responses
         setMessages((prevMessages) => [
           ...prevMessages,
           { sender: "bot", text: data.message },
@@ -701,8 +693,9 @@ const handleAISubmit = async () => {
           {/* Chat Window */}
           <div className="fixed bottom-16 right-4 bg-gray-200 border border-gray-600 rounded-lg mb-2 pb-2 w-[95%] sm:w-[90%] md:w-[80%] lg:max-w-md max-w-sm z-50">
             {/* Header */}
-            <div className="flex items-center bg-[#97d197] text-white p-2 rounded-t-lg">
-              <img src={botImage} alt="Bot Logo" className="w-12 h-12 mr-3" />
+            <div className="flex items-center justify-start bg-[#97d197] text-white p-2 rounded-t-lg">
+              <img src={aibot} alt="BotLogo" className="w-16 object-cover h-16 mt-2" />
+              {/* <h1 className="text-white border rounded-full p-2 border-white font-extralight text-2xl">AI</h1> */}
               <div>
                 <div className="flex items-center gap-2">
                   <span className="text-sm font-semibold">BotGenerationAI</span>
