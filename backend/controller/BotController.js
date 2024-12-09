@@ -1,8 +1,5 @@
 const { OpenAI } = require('openai'); // Import OpenAI SDK
-const axios = require('axios');
-const cheerio = require('cheerio');
 const dotenv = require('dotenv');
-const { routes } = require('../constants/index'); // Import the routes list
 
 // Load environment variables
 dotenv.config();
@@ -11,21 +8,6 @@ dotenv.config();
 const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY, // Ensure your API key is in your .env file
 });
-
-// Scrape the website for route details
-async function scrapeWebsite(url) {
-  try {
-    const response = await axios.get(url);
-    const $ = cheerio.load(response.data);
-    const content = $('main').text(); // Adjust this selector as per your structure
-    return content;
-  } catch (error) {
-    console.error("Error scraping website:", error);
-    return null;
-  }
-}
-
-
 
 class BotController {
   static async Botgenai(req, res) {
@@ -37,107 +19,86 @@ class BotController {
 
     let response = {};
 
-    // Log the incoming input for debugging
-    console.log(`Received input: ${input}`);
+    try {
+      // Check if the user is asking about "how the bot works"
+      if (input.toLowerCase().includes('comment ça fonctionne')) {
+        // Define the prompt to explain why BotAI is used for your project
+        // const prompt = `
+        //   You are an AI assistant designed to explain how BotAI works for a project. 
+        //   The user is asking how BotAI functions in their specific project, which is focused on improving business efficiency, 
+        //   answering client inquiries, and generating leads for growth. You need to explain that BotAI helps respond to client questions 
+        //   and generate leads by automatically identifying key information and sending it to the dashboard. Make it clear that this 
+        //   process helps save time and enhances productivity by handling routine tasks and helping to capture business opportunities.
 
-    // Check if the input mentions a route URL or contains keywords related to routes
-    let routeMatch = false;
-    for (let route of routes) {
-      for (let keyword of route.keywords) {
-        if (input.toLowerCase().includes(keyword.toLowerCase())) {
-          routeMatch = true;
-          console.log(`Found route match for keyword: ${keyword}`);
-
-          // If the user asks for details about a route or mentions the route
-          if (input.toLowerCase().includes('details' || 'information' || 'plus informations') || input.toLowerCase().includes(route.route)) {
-            console.log(`Scraping details for route: ${route.route}`);
-
-            const scrapedData = await scrapeWebsite(route.route);
-            if (scrapedData) {
-              // Send scraped data to GPT for a more natural response
-              const gptResponse = await openai.chat.completions.create({
-                model: 'gpt-4',
-                messages: [
-                  {
-                    role: 'system',
-                    content: `
-                         Vous êtes un chatbot conçu pour extraire uniquement les informations les plus importantes et pertinentes à partir de divers contenus en ligne. 
-                  Lorsque l'utilisateur demande des détails, vous devez fournir un résumé clair et concis, en excluant les informations superflues.
-
-                  Instructions :
-                  - Fournissez **uniquement les informations clés**.
-                  - Organisez les informations de manière concise et structurée, en évitant les répétitions et les détails inutiles.
-                  - Si la page contient des liens ou des sections spécifiques, extrayez les points pertinents pour le sujet demandé.
-                  - Ignorez les informations secondaires, comme les détails non nécessaires.
-
-                  Contenu : 
-                  ${scrapedData}
-
-                    `
-                  },
-                  {
-                    role: 'user',
-                    content: `Provide a detailed response based on the following scraped data:\n\n${scrapedData} but organize it in a user-friendly way using css and html`
-                  }
-                ]
-              });
-
-              response.details = gptResponse.choices[0].message.content;
-            } else {
-              response.details = "Désolé, je n'ai pas pu récupérer les détails pour le moment.";
-            }
-          } else {
-            // Just give the route URL if no details are asked
-            response.route = '<div>' +
-                    '<span>Vous pouvez trouver plus d\'informations sur cet itinéraire en suivant ce lien :</span>' +
-                    '<a href="' + route.route + '" target="_blank" style="color: blue; text-decoration: underline;">' + route.route + '</a>' +
-                 '</div>';
+        //   Respond with this specific information, emphasizing the role of AI in automating customer interactions and lead generation.
+        // `;
+        const prompt = `
+        You are an AI assistant designed to explain how BotAI works for a project. 
+        The user is asking how BotGeneration.Ai functions in their specific project, which is focused on improving business efficiency, 
+        answering client inquiries, and generating leads for growth. Your response must:
+        1. Be **organized**: Provide a clear explanation with each point on a separate line.
+        2. Be **concise**: Use short sentences to deliver information without unnecessary details.
+      
+        Explain in this format:
+        - **Purpose**: Describe the main goal of BotGeneration.Ai in one line.
+        - **Feature 1**: How it answers client questions (in one line).
+        - **Feature 2**: How it generates leads (in one line).
+        - **Feature 3**: How it provides insights to the dashboard (in one line).
+        - **Value**: Summarize how it saves time, increases productivity, and supports business growth (in one or two lines).
+      
+        Example Response:
+        - **Purpose**: BotGeneration.Ai improves business efficiency through AI-driven automation.
+        - **Feature 1**: It answers client inquiries quickly and accurately.
+        - **Feature 2**: It identifies and collects key information for lead generation.
+        - **Feature 3**: It sends organized data to the company dashboard for decision-making.
+        - **Value**: This automation saves time, boosts productivity, and captures growth opportunities.
+      `;
+      
 
 
-          }
+        // Send the prompt to GPT for response
+        const gptResponse = await openai.chat.completions.create({
+          model: 'gpt-4',
+          messages: [
+            { role: 'system', content: 'You are a helpful assistant for BotAI, focusing on explaining the project-specific use of the bot.' },
+            { role: 'user', content: input }, // Send the user input directly to GPT
+            { role: 'assistant', content: prompt }, // Include the project-specific prompt as guidance for GPT
+          ],
+        });
 
-          break; // Stop checking after finding a match
-        }
-      }
-      if (routeMatch) break; // Exit the outer loop once a match is found
-    }
+        console.log("GPT response:", gptResponse.choices[0].message.content);
 
-    if (!routeMatch) {
-      // If no route match, send the query to GPT for normal response
-      try {
-        console.log(`No route match, sending query to GPT: ${input}`); // Log user input for debugging
+        // Set the GPT response to the message
+        response.message = gptResponse.choices[0].message.content;
+      } else {
+        // If no predefined match, send the input to GPT to generate a general response
+        console.log(`No predefined match, sending query to GPT: ${input}`);
         const gptResponse = await openai.chat.completions.create({
           model: 'gpt-4',
           messages: [
             {
               role: 'system',
-              content: `
-                You are a chatbot integrated into an application. Respond naturally to the user's input. If the input relates to a specific route, provide details or the route URL as appropriate.
-                Otherwise, provide a helpful response to the query.
-              `
+              content: 'You are a helpful assistant for BotGeneration.Ai. If the user’s question relates to predefined scenarios, provide the corresponding answer or options. Otherwise, generate a helpful, context-appropriate response.',
             },
             {
               role: 'user',
-              content: input // Send the user's input directly to GPT for processing
-            }
-          ]
+              content: `The user is asking: "${input}". Respond in a helpful and informative way.`,
+            },
+          ],
         });
 
-        // Log GPT's response for debugging
         console.log("GPT response:", gptResponse.choices[0].message.content);
 
+        // Return the GPT-generated response to the frontend
         response.message = gptResponse.choices[0].message.content;
-      } catch (error) {
-        console.error("Error with GPT:", error);
-        response.message = "I'm sorry, I couldn't generate a response at the moment.";
       }
+    } catch (error) {
+      console.error("Error with GPT:", error);
+      response.message = "I'm sorry, I couldn't generate a response at the moment.";
     }
 
-    // Return the response to the frontend
-    res.json(response);
+    res.json(response); // Return the response to the frontend
   }
 }
 
 module.exports = BotController;
-
-
