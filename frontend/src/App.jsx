@@ -12,8 +12,8 @@ import Pricing from "./components/Pricing";
 import Blog from "./pages/Blog";
 import BlogDetails from "./pages/BlogDetails";
 import axios from "axios";
-import Cgu from "./pages/cgu";
-import PrivacyPolicy from "./pages/PrivacyPolicy";
+import Cgu from "./pages/Cgu";
+import PrivacyPolicy from "./pages/PrivacyPolicy"
 import About from "./components/About";
 
 axios.defaults.baseURL = import.meta.env.VITE_API_BASE_URL;
