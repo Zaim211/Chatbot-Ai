@@ -13,7 +13,7 @@ import Blog from "./pages/Blog";
 import BlogDetails from "./pages/BlogDetails";
 import axios from "axios";
 import Cgu from "./pages/Cgu";
-import PrivacyPolicy from "./pages/PrivacyPolicy"
+import PrivacyPolicy from "./pages/PrivacyPolicy";
 import About from "./components/About";
 
 axios.defaults.baseURL = import.meta.env.VITE_API_BASE_URL;
@@ -21,33 +21,35 @@ axios.defaults.withCredentials = true;
 
 const App = () => {
   return (
-      <div className="pt-[4.75rem] lg:pt-[0.25rem] overflow-hidden">
-        <Header />
-        <Routes>
-          <Route
-            path="/"
-            element={
-              <>
-                <Hero />
-                <About />
-                <Services />
-                <Benefits />
-                <Faq />
-                <Pricing />
-                <Contact />
-                <Footer />
-                <Chatbot />
-              </>
-            }
-          />
-          <Route path="/blog" element={<Blog />} />
-          <Route path="/Blog/:title" element={<BlogDetails />} />
-          <Route path='/cgu' element={<Cgu />} />
-          <Route path='/politique-de-confidentialité' element={<PrivacyPolicy />} />
-        </Routes>
-        <ButtonGradient />
-        
-      </div>
+    <div className="pt-[4.75rem] lg:pt-[0.25rem] overflow-hidden">
+      <Header />
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <>
+              <Hero />
+              <About />
+              <Services />
+              <Benefits />
+              <Faq />
+              <Pricing />
+              <Contact />
+              <Footer />
+              <Chatbot />
+            </>
+          }
+        />
+        <Route path="/blog" element={<Blog />} />
+        <Route path="/Blog/:title" element={<BlogDetails />} />
+        <Route path="/cgu" element={<Cgu />} />
+        <Route
+          path="/politique-de-confidentialité"
+          element={<PrivacyPolicy />}
+        />
+      </Routes>
+      <ButtonGradient />
+    </div>
   );
 };
 
