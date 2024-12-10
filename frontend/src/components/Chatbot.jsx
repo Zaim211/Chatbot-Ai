@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import botImage from "../assets/bot.png";
 import aibot from '../assets/aibot.png'
 import imgbot from "../assets/imgbot.png";
+import botimg from '../assets/botimg.jpg'
 import { scenarios, routes } from "../constants/scénario";
 import axios from "axios";
 
@@ -23,12 +24,12 @@ const Chatbot = () => {
 
   const [courses] = useState([
     {
-      title: "Digital Marketing Course",
-      image: imgbot,
-      link: "https://www.coursera.org/learn/foundations-of-digital-marketing-and-e-commerce",
+      title: "Tout sur les chatbots : usages et avantages",
+      image: botimg,
+      link: "https://chatbot-ai-wine.vercel.app/Blog/tous-sur-les-chatbots-:-usages-et-avantages-!",
       details:
-        "Learn the fundamentals of digital marketing and e-commerce to grow your business or career.",
-    },
+        "Découvrez tout ce qu'il faut savoir sur les chatbots, leurs usages variés et les avantages qu'ils offrent pour améliorer vos interactions avec les clients et optimiser vos processus.",
+    }    
   ]);
 
   const isValidEmail = (email) => {
@@ -390,7 +391,7 @@ const handleAISubmit = async () => {
           "bot"
         );
         setCurrentScenario(nextScenario);
-      }, 3000);
+      }, 5000);
     } else if (nextScenario === "pose_question") {
       displayMessageWithTypingIndicator(
         scenarios[currentScenario].botResponse,
@@ -488,7 +489,7 @@ const handleAISubmit = async () => {
   const displaycardcourse = () => {
     const courseCard = (
       <div className="bg-white rounded-lg shadow-md p-4 border border-gray-300 mb-4">
-        <h2 className="text-xl font-bold mb-4">Cours</h2>
+        {/* <h2 className="text-xl font-bold mb-4">Cours</h2> */}
         <div className="flex overflow-x-auto space-x-4 mb-4">
           {courses.map((course, index) => (
             <div key={index} className="course-card flex-shrink-0 w-64">
@@ -510,12 +511,12 @@ const handleAISubmit = async () => {
                 Plus Details
               </a>
               {/* Additional Lines Below the Button */}
-              <p className="text-xs text-gray-500 mt-2">
+              {/* <p className="text-xs text-gray-500 mt-2">
                 Commencez aujourd'hui pour transformer votre carrière.
               </p>
               <p className="text-xs text-gray-500">
                 Obtenez un certificat après l'achèvement.
-              </p>
+              </p> */}
             </div>
           ))}
         </div>
@@ -576,7 +577,7 @@ const handleAISubmit = async () => {
           setIsTyping(false);
           setHasShownInitialMessage(true);
           setHasInteracted(true);
-        }, 1000);
+        }, 2000);
       }
     }
   }, [isChatVisible, isTyping]);
@@ -693,9 +694,8 @@ const handleAISubmit = async () => {
           {/* Chat Window */}
           <div className="fixed bottom-16 right-4 bg-gray-200 border border-gray-600 rounded-lg mb-2 pb-2 w-[95%] sm:w-[90%] md:w-[80%] lg:max-w-md max-w-sm z-50">
             {/* Header */}
-            <div className="flex items-center justify-start bg-[#97d197] text-white p-2 rounded-t-lg">
-              <img src={aibot} alt="BotLogo" className="w-16 object-cover h-16 mt-2" />
-              {/* <h1 className="text-white border rounded-full p-2 border-white font-extralight text-2xl">AI</h1> */}
+            <div className="flex items-center bg-[#97d197] text-white p-2 gap-4 rounded-t-lg">
+              <img src={aibot} alt="BotLogo" className="w-16 object-cover h-12" />
               <div>
                 <div className="flex items-center gap-2">
                   <span className="text-sm font-semibold">BotGenerationAI</span>
@@ -816,7 +816,7 @@ const handleAISubmit = async () => {
                           handleInputSubmit(); // Trigger submission on Enter
                         }
                       }}
-                      className="bg-white border rounded-md p-2 w-full focus:outline-none focus:ring-2 focus:ring-blue-200"
+                      className="bg-white border text-sm rounded-md p-2 w-full focus:outline-none focus:ring-2 focus:ring-blue-200"
                     />
                     <button
                       onClick={handleInputSubmit}

@@ -10,8 +10,9 @@ const Benefits = () => {
     <Section id="features">
       <div className="container relative z-2">
         <Title
+          title="Optimisez votre service client avec BotGeneration.AI"
           className="md:max-w-md text-black lg:max-w-2xl text-center lg:text-xl text-md"
-          title="Optimisez votre service client avec BotGeneration.Ai"
+          text="Améliorez l'efficacité de votre service client grâce à notre solution intelligente d'automatisation. Offrez un support 24/7 et optimisez l'interaction avec vos clients pour mieux répondre à leurs besoins."
         />
 
         <div className="grid grid-cols-1 sm:grid-cols-2 mt-4 lg:grid-cols-3 borde border-gray-300 gap-10">
