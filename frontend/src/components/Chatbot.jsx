@@ -24,13 +24,17 @@ const Chatbot = () => {
 
   const [courses] = useState([
     {
-      title: "Tout sur les chatbots : usages et avantages",
+      title: "Comment fonctionne notre Chatbot ?",
       image: botimg,
-      link: "https://chatbot-ai-wine.vercel.app/Blog/tous-sur-les-chatbots-:-usages-et-avantages-!",
-      details:
-        "Découvrez tout ce qu'il faut savoir sur les chatbots, leurs usages variés et les avantages qu'ils offrent pour améliorer vos interactions avec les clients et optimiser vos processus.",
-    }    
+      link: "#Comment-fonctionne",
+      details: `
+        Intégrez facilement notre chatbot sur votre site pour générer des prospects. 
+        Profitez d'une conversation fluide, une intégration rapide, et la génération 
+        automatique de leads dans votre tableau de bord.
+      `,
+    },
   ]);
+  
 
   const isValidEmail = (email) => {
     const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -277,7 +281,7 @@ const handleAISubmit = async () => {
 
   try {
     // Send the user input to the backend
-    const response = await axios.post("https://chatbot-ai-e081.onrender.com/bot", {
+    const response = await axios.post("/bot", {
       input: inputValue, // Send the input value directly
     });
     console.log("response", response);
@@ -502,21 +506,30 @@ const handleAISubmit = async () => {
                 {course.title}
               </div>
               <p className="text-sm text-gray-600 mt-2">{course.details}</p>
-              <a
-                href={course.link}
-                target="_blank"
-                rel="noopener noreferrer"
+              {/* <button
+              onClick={() => {
+                window.location.href = courses[0].link; // Redirects to the #features section
+              }}
+            
+                // href={course.link}
+                // target="_blank"
+                // rel="noopener noreferrer"
                 className="mt-2 inline-block bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600"
               >
                 Plus Details
-              </a>
-              {/* Additional Lines Below the Button */}
-              {/* <p className="text-xs text-gray-500 mt-2">
-                Commencez aujourd'hui pour transformer votre carrière.
-              </p>
-              <p className="text-xs text-gray-500">
-                Obtenez un certificat après l'achèvement.
-              </p> */}
+              </button> */}
+             <button
+                onClick={() => {
+                  setChatVisible(false); // Close the chat
+                  const section = document.querySelector(course.link);
+                  if (section) {
+                    section.scrollIntoView({ behavior: "smooth" }); // Scroll to the section
+                  }
+                }}
+                className="mt-2 inline-block bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600"
+              >
+                Plus Details
+              </button>
             </div>
           ))}
         </div>

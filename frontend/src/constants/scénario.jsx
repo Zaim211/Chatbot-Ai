@@ -843,109 +843,86 @@ export const routes = [
 //     },
   
 // };
-
+// verifier les informations recquises à integrer au dashboard pour la bonne qualification du contact
 export const scenarios = {
   initial: {
     question: (
       <div>
         <h1>👋 Bienvenue sur le chatbot BotGeneration.Ai!</h1>
-        <p>Je suis Alex 🤖, votre assistant intelligent. Quelle est votre objectif principal ?</p>
+        <p>Je suis Alex 🤖, votre assistant intelligent. Que puis-je faire pour vous ?</p>
       </div>
     ),
     options: [
-      { label: "Explorer les fonctionnalités 🔍", next: "explore_features" },
-      { label: "Trouver une formation 🎓", next: "find_training" },
-      { label: "Obtenir de l'aide 🤝", next: "get_help" },
+      { label: "demande de renseignements 🔍", next: "information_request" },
+      { label: "être rappeler 📞", next: "request_name" },
     ],
     botResponse: "D'accord, allons-y ! 😊",
   },
-  explore_features: {
-    question: (
-      <div>
-        <h1>🔧 Fonctionnalités BotAI</h1>
-        <p>Voici ce que vous pouvez faire :</p>
-      </div>
-    ),
+  information_request: {
+    question: "Pouvez-vous préciser votre demande de renseignements ?",
     options: [
-      { label: "Découvrir les capacités IA 🤖", next: "ai_capabilities" },
-      { label: "Automatisation des tâches ⚙️", next: "task_automation" },
+      { label: "Produits et services", next: "request_name" },
+      { label: "Tarifs", next: "request_name" },
+      { label: "Support technique", next: "request_name" },
+      { label: "Autre", next: "request_name" },
     ],
-    botResponse: "Dites-moi ce qui vous intéresse !",
+    botResponse:
+      "Merci pour votre demande ! Pouvez-vous suivre les demandes suivantes pour que nous puissions vous contacter ? 😊"
   },
-  find_training: {
-    question: (
-      <div>
-        <h1>🎓 Trouvons votre formation idéale !</h1>
-        <p>Quel domaine vous intéresse ?</p>
-      </div>
-    ),
+    request_name: {
+    question: "Peux-tu me donner ton prénom, s’il te plaît ?",
+    botResponse: (name) => `Merci, ${name} ! D'accord, continuons !`,
+    inputType: "name",
+    next: "request_email",
+  },
+  request_email: {
+    question: (name) => `S'il te plaît ${name}, entre ton email ci-dessous.`,
+    botResponse: "Merci pour l'information 📧",
+    inputType: "email",
+    next: "verification_email",
+    invalidResponse: ["Désolé ! L'email que tu viens de rentrer ne semble pas être valide !."],
+  },
+  request_add_email: { 
+    question: "Peux-tu me donner ton correct email, s’il te plaît ?",
+    botResponse: "Merci pour l'information 📧",
+    inputType: "email",
+    next: "request_phone",
+    invalidResponse: ["Désolé ! L'email que tu viens de rentrer ne semble pas être valide !."],
+  },
+  verification_email: {
+    question: "Est-ce que l'email 📧 est correct ?",
     options: [
-      { label: "Informatique 💻", next: "training_details" },
-      { label: "Marketing 📈", next: "training_details" },
-      { label: "Design 🎨", next: "training_details" },
+      {label: "Oui", next: "request_phone"},
+      {label: "Non", next: "request_add_email"}
     ],
-    botResponse: "Un excellent choix !",
+    botResponse: "Merci pour l'information 📧",
   },
-  get_help: {
-    question: (
-      <div>
-        <h1>🤝 Comment puis-je vous aider ?</h1>
-        <p>Sélectionnez une option :</p>
-      </div>
-    ),
+  verification_phone: {
+    question: "Est-ce que le numéro de téléphone 📱 est correct ?",
     options: [
-      { label: "FAQ ❓", next: "faq" },
-      { label: "Contact 📞", next: "contact_support" },
+      {label: "Oui", next: "final_response"},
+      {label: "Non", next: "request_phone"}
     ],
-    botResponse: "Je suis là pour vous !",
+    botResponse: "Merci pour l'information 📧",
   },
-  training_details: {
-    question: "Pouvez-vous préciser votre niveau actuel d'études ?",
-    options: [
-      { label: "Débutant 🌱", next: "next_steps" },
-      { label: "Intermédiaire 🚀", next: "next_steps" },
-      { label: "Avancé 🌟", next: "next_steps" },
-    ],
-    botResponse: "Merci pour l'info !",
+  
+  request_phone: {
+    question: 'S\'il te plaît, entre ton numéro de téléphone 📱 ci-dessous.',
+    botResponse: "Parfait!",
+    inputType: "phone",
+    next: "verification_phone",
+    invalidResponse: ["Désolé ! le numéro de téléphone que tu viens de rentrer ne semble pas être valide !."],
   },
-  next_steps: {
-    question: "Super ! Voulez-vous plus d'informations ou passer à une action ?",
-    options: [
-      { label: "En savoir plus 📝", next: "more_info" },
-      { label: "Commencer 🚀", next: "start_journey" },
-    ],
-    botResponse: "Dis-moi ce que tu préfères !",
+ 
+
+  final_response: {
+    question: "Nous vous contacterons bientôt! Et Merci d'avoir pris le temps de discuter avec moi, À bientôt ! 😊",
+    options: [],
+    next: "",
+      botResponse:
+        "Merci d'avoir pris le temps de discuter avec moi, À bientôt ! 😊",
   },
-  ai_capabilities: {
-    question: "BotAI peut répondre à vos questions, automatiser des tâches et bien plus. Voulez-vous un exemple ?",
-    options: [
-      { label: "Oui, montrez-moi ! ✅", next: "example_capabilities" },
-      { label: "Non, merci. 🚫", next: "initial" },
-    ],
-    botResponse: "D'accord, voici un exemple !",
-  },
-  example_capabilities: {
-    question: "BotAI peut automatiser l'organisation de vos tâches. Testez-le en me demandant quelque chose !",
-    inputType: "text",
-    botResponse: "Allez-y, écrivez une commande !",
-  },
-  contact_support: {
-    question: "Quel est votre besoin spécifique ?",
-    inputType: "text",
-    botResponse: "Merci ! Un membre de notre équipe vous contactera bientôt.",
-  },
-  more_info: {
-    question: "Visitez notre site Web pour plus d'informations ou contactez-nous pour des détails spécifiques.",
-    options: [
-      { label: "Visitez le site 🌐", next: "initial" },
-      { label: "Contactez-nous 📞", next: "contact_support" },
-    ],
-    botResponse: "Merci de votre intérêt !",
-  },
-  start_journey: {
-    question: "C'est parti ! Créez un compte pour commencer à explorer BotAI.",
-    options: [{ label: "Créer un compte 📝", next: "initial" }],
-    botResponse: "Bienvenue à bord ! 🚀",
-  },
+
+ 
 };
 

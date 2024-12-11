@@ -11,6 +11,7 @@ const Header = () => {
   const pathname = useLocation();
   const [openNavigation, setOpenNavigation] = useState(false);
 
+
   const toggleNavigation = () => {
     if (openNavigation) {
       setOpenNavigation(false);
@@ -27,6 +28,11 @@ const Header = () => {
     enablePageScroll();
     setOpenNavigation(false);
   };
+
+  const handleRedirect = () => {
+    window.open('https://app.iclosed.io/e/Amar/rendez-vous', '_blank');
+  };
+  
 
   return (
     <div
@@ -78,11 +84,13 @@ const Header = () => {
 
           <HamburgerMenu />
         </nav>
-        {/* 
         
-        <Button className="hidden text-white lg:flex" href="#login">
-          Sign in
-        </Button> */}
+        
+        <Button
+        onClick={handleRedirect}
+         className="hidden text-black lg:flex">
+          Schedule a Meeting
+        </Button>
 
         <Button
           className="ml-auto lg:hidden bg-black rounded-md"

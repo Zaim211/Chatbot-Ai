@@ -3,7 +3,7 @@ import Section from "./Section";
 
 const About = () => {
   return (
-    <Section className="flex mt-6 flex-col lg:flex-row items-center lg:items-start justify-between  px-6 lg:px-20 py-10">
+    <Section className="flex mt-6 flex-col lg:flex-row items-center lg:items-start justify-between px-20 lg:px-32 py-10">
       {/* Image Section */}
       <div className="w-full max-w-[300px] mb-12 md:max-w-[300px]  lg:max-w-[400px] relative rounded-lg shadow-md">
         <img
