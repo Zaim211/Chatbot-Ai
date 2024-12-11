@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import botImage from "../assets/bot.png";
 import aibot from '../assets/aibot.png'
-import imgbot from "../assets/imgbot.png";
+// import imgbot from "../assets/imgbot.png";
 import botimg from '../assets/botimg.jpg'
 import { scenarios, routes } from "../constants/scénario";
 import axios from "axios";
@@ -277,7 +277,7 @@ const handleAISubmit = async () => {
 
   try {
     // Send the user input to the backend
-    const response = await axios.post("/bot", {
+    const response = await axios.post("https://chatbot-ai-e081.onrender.com/bot", {
       input: inputValue, // Send the input value directly
     });
     console.log("response", response);
