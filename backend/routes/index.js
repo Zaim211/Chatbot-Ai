@@ -9,4 +9,5 @@ router.get("/", AppController.test);
 router.post('/bot', BotController.Botgenai);
 
 
+
 module.exports = router
