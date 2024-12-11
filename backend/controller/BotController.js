@@ -173,9 +173,12 @@
 const { OpenAI } = require('openai'); // Import OpenAI SDK
 const puppeteer = require('puppeteer'); // Import Puppeteer for scraping dynamic content
 const dotenv = require('dotenv');
+const axios = require('axios');
 
 // Load environment variables
 dotenv.config();
+
+const ICLOSED_API_KEY = "your-api-key-here";
 
 // Set up OpenAI client
 const openai = new OpenAI({
@@ -357,6 +360,7 @@ class BotController {
     // Return the response to the frontend
     res.json(response);
   }
+
 }
 
 module.exports = BotController;
