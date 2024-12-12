@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import botImage from "../assets/bot.png";
 import aibot from '../assets/aibot.png'
-// import imgbot from "../assets/imgbot.png";
+import bull from "../assets/bull.png";
 import botimg from '../assets/botimg.jpg'
 import { scenarios } from "../constants/scénario";
 import axios from "axios";
@@ -668,8 +668,8 @@ const handleAISubmit = async () => {
           {/* Chat Window */}
           <div className="fixed bottom-16 right-4 bg-gray-200 border border-gray-600 rounded-lg mb-2 pb-2 w-[95%] sm:w-[90%] md:w-[80%] lg:max-w-md max-w-sm z-50">
             {/* Header */}
-            <div className="flex items-center bg-[#97d197] text-white p-2 gap-4 rounded-t-lg">
-              <img src={aibot} alt="BotLogo" className="w-16 object-cover h-12" />
+            <div className="flex items-center bg-[#97d197] text-white p-2  rounded-t-lg">
+              <img src={bull} alt="BotLogo" className="w-18 object-contain h-12" />
               <div>
                 <div className="flex items-center gap-2">
                   <span className="text-sm font-semibold">BotGenerationAI</span>
@@ -697,9 +697,9 @@ const handleAISubmit = async () => {
                 >
                   {msg.sender === "bot" && (
                     <img
-                      src={botImage}
+                      src={bull}
                       alt="Bot"
-                      className="w-8 h-8 rounded-full mr-2"
+                      className="w-12 h-12  object-contain mr-2"
                     />
                   )}
 
@@ -725,9 +725,9 @@ const handleAISubmit = async () => {
               {isTyping && (
                 <div className="flex items-center">
                   <img
-                    src={botImage}
+                    src={bull}
                     alt="Typing..."
-                    className="w-8 h-8 rounded-full mr-2"
+                    className="w-12 h-12 object-contain mr-2"
                   />
                   <div className="text-gray-500 text-xs font-bold">
                     Bot est en train d'écrire...
