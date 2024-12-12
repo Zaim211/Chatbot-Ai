@@ -57,7 +57,21 @@ const Header = () => {
           } fixed top-[5rem] left-0 right-0 bottom-0 bg-[#86ad86] lg:static lg:flex lg:mx-auto lg:bg-transparent`}
         >
           <div className="relative z-2 flex flex-col items-center gap-0 justify-center m-auto lg:flex-row">
+          <Button
+              onClick={handleRedirect}
+              className="bg-[#5ba85b] mb-6 text-white font-bold text-lg rounded-lg flex items-center hover:bg-[#e6ece6] transition lg:hidden"
+            >
+              Planifier une Réunion
+              <FontAwesomeIcon
+                icon={faCalendarAlt}
+                style={{
+                  fontSize: "20px",
+                }}
+                className="ml-2"
+              />
+            </Button>
             {navigation.map((item) => (
+            
               <a
                 key={item.id}
                 href={item.url}
@@ -80,21 +94,19 @@ const Header = () => {
                 </span>
               </a>
             ))}
+          
+          
+     
           </div>
 
           <HamburgerMenu />
         </nav>
 
-        {/*         
-        <Button
-        onClick={handleRedirect}
-         className="bg-green-500 text-white font-bold text-md rounded-lg flex items-center  hover:bg-green-300 transition"
-        >
-          Planifier une Réunion
-        </Button> */}
+     
         <Button 
   onClick={handleRedirect} 
-  className="bg-[#5ba85b] text-white font-bold hover:text-black text-md rounded-lg flex items-center hover:bg-[#e6ece6] transition"
+  className="bg-[#5ba85b] text-white font-bold hover:text-black text-md rounded-lg  items-center hover:bg-[#e6ece6] transition hidden lg:flex"
+
 >
   Planifier une Réunion
   <FontAwesomeIcon 
@@ -103,7 +115,6 @@ const Header = () => {
     className="ml-2"  // Adds space to the left of the icon
   />
 </Button>
-
 
         <Button
           className="ml-auto lg:hidden bg-black rounded-md"
