@@ -854,29 +854,46 @@ export const scenarios = {
     ),
     options: [
       { label: "demande de renseignements 🔍", next: "information_request" },
-      { label: "être rappeler 📞", next: "request_name" },
+      { label: "être rappeler 📞", next: "request_who" },
     ],
     botResponse: "D'accord, allons-y ! 😊",
   },
   information_request: {
     question: "Pouvez-vous préciser votre demande de renseignements ?",
     options: [
-      { label: "Produits et services", next: "request_name" },
-      { label: "Tarifs", next: "request_name" },
-      { label: "Support technique", next: "request_name" },
-      { label: "Autre", next: "request_name" },
+      { label: "Produits et services", next: "request_who" },
+      { label: "Support technique", next: "request_who" },
+      { label: "Autre", next: "request_who" },
+      { label: "Tarifs", next: "request_who" },
     ],
     botResponse:
       "Merci pour votre demande ! Pouvez-vous suivre les demandes suivantes pour que nous puissions vous contacter ? 😊"
   },
+  request_who: {
+    question: "Pouvez-vous m'indiquer votre type d'utilisateur ? (e.g., Entreprise, Entrepreneur, Particulier)",
+    options: [
+      { label: "Entreprise", next: "request_lastname" },
+      { label: "Entrepreneur", next: "request_lastname" },
+      { label: "Particulier", next: "request_lastname" },
+      { label: "Autre", next: "request_lastname" },
+    ],
+    botResponse: "Merci pour votre réponse ! 😊",
+  },
+  request_lastname: {
+    question: "Peux-tu me donner ton prenom, s’il te plaît ?",
+    botResponse: "D'accord, continuons !",
+    inputType: "lastname",
+    next: "request_name",
+  },
     request_name: {
-    question: "Peux-tu me donner ton prénom, s’il te plaît ?",
-    botResponse: (name) => `Merci, ${name} ! D'accord, continuons !`,
+    question: "Peux-tu me donner ton nom, s’il te plaît ?",
+    botResponse: (lastname) => `Merci, ${lastname} ! D'accord, continuons !`,
     inputType: "name",
     next: "request_email",
   },
+
   request_email: {
-    question: (name) => `S'il te plaît ${name}, entre ton email ci-dessous.`,
+    question: "S'il te plaît, entre ton email ci-dessous.",
     botResponse: "Merci pour l'information 📧",
     inputType: "email",
     next: "verification_email",

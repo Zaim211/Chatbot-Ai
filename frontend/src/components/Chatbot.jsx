@@ -3,7 +3,7 @@ import botImage from "../assets/bot.png";
 import aibot from '../assets/aibot.png'
 // import imgbot from "../assets/imgbot.png";
 import botimg from '../assets/botimg.jpg'
-import { scenarios, routes } from "../constants/scénario";
+import { scenarios } from "../constants/scénario";
 import axios from "axios";
 
 
@@ -21,6 +21,7 @@ const Chatbot = () => {
   const [hasInteracted, setHasInteracted] = useState(false);
   const [hasShownInitialMessage, setHasShownInitialMessage] = useState(false);
   const [groupedData, setGroupedData] = useState({});
+ 
 
   const [courses] = useState([
     {
@@ -62,7 +63,7 @@ const Chatbot = () => {
   };
   const isFinalScenario = (scenario) => {
     // Define your final scenarios, where you want to send data
-    return ["new_question", "Goodbye"].includes(scenario);
+    return ["final_response", "verification_phone"].includes(scenario);
   };
 
   const handleInputSubmit = () => {
@@ -108,64 +109,64 @@ const Chatbot = () => {
         }));
         return;
       }
-    } else if (currentScenario === "request_add_email") {
-      if (!isValidEmail(userResponse)) {
-        scenarios[currentScenario].invalidResponse.forEach((message) => {
-          displayMessageWithTypingIndicator(message, "bot");
-        });
-
-        displayMessageWithTypingIndicator(
-          scenarios[currentScenario].question,
-          "bot"
-        );
-
-        setUserInfo((prevUserInfo) => ({
-          ...prevUserInfo,
-          [scenarios[currentScenario].inputType]: "",
-        }));
-        return;
-      }
     }
 
     const nextScenario = scenarios[currentScenario].next;
 
     if (currentScenario === "request_name") {
+      setTimeout(() => {
       displayMessageWithTypingIndicator(
         scenarios[currentScenario].botResponse(userResponse),
         "bot"
-      );
+      );}, 2000);
+      setTimeout(() => {
       displayMessageWithTypingIndicator(
-        scenarios[nextScenario].question(userResponse),
+        scenarios[nextScenario].question,
         "bot"
-      );
+      );}, 4000);
+      setUserInfo((prevUserInfo) => ({
+        ...prevUserInfo,
+        [scenarios[currentScenario].inputType]: "",
+      }));
+    } else if ((currentScenario === "request_lastname")) {
+       setTimeout(() => {
+      displayMessageWithTypingIndicator(
+        scenarios[currentScenario].botResponse,
+        "bot"
+      );}, 2000);
+      setTimeout(() => {
+      displayMessageWithTypingIndicator(
+        scenarios[nextScenario].question,
+        "bot"
+      );}, 4000);
+      setUserInfo((prevUserInfo) => ({
+        ...prevUserInfo,
+        [scenarios[currentScenario].inputType]: "",
+      }));
+      setCurrentScenario(nextScenario)
     } else if (currentScenario === "request_email") {
-      // displayMessageWithTypingIndicator(
-      //   scenarios[currentScenario].botResponse,
-      //   "bot"
-      // );
-
       displayMessageWithTypingIndicator(
         scenarios[nextScenario].question,
         "bot"
       );
+      setUserInfo((prevUserInfo) => ({
+        ...prevUserInfo,
+        [scenarios[currentScenario].inputType]: "",
+      }));
       // setCurrentScenario(nextScenario)
     } else if (currentScenario === "request_add_email") {
+      setTimeout(() => {
       displayMessageWithTypingIndicator(
         scenarios[currentScenario].botResponse,
         "bot"
-      );
-
-      // displayMessageWithTypingIndicator(
-      //   scenarios[nextScenario].question,
-      //   "bot"
-      // );
+      );}, 2000)
       setTimeout(() => {
         displayMessageWithTypingIndicator(
           scenarios[nextScenario].question,
           "bot"
         );
         setCurrentScenario(nextScenario);
-      }, 3000);
+      }, 4000);
     } else if (currentScenario === "request_phone") {
       displayMessageWithTypingIndicator(
         scenarios[currentScenario].botResponse,
@@ -178,15 +179,7 @@ const Chatbot = () => {
         );
         setCurrentScenario(nextScenario);
       }, 3000);
-    } else if (currentScenario === "entreprise") {
-      setTimeout(() => {
-        displayMessageLineByLine(scenarios[currentScenario].botResponse, "bot");
-      }, 3000);
-    } else if (currentScenario === "contact") {
-      setTimeout(() => {
-        displayMessageLineByLine(scenarios[currentScenario].botResponse, "bot");
-      }, 3000);
-    }
+    } 
     setUserInfo((prevUserInfo) => ({
       ...prevUserInfo,
       [scenarios[currentScenario].inputType]: "",
@@ -195,7 +188,7 @@ const Chatbot = () => {
     setCurrentScenario(nextScenario);
 
     sendData(currentScenario, userInfo[scenarios[currentScenario].inputType]);
-  };
+  }
 
   // const handleAISubmit = async () => { 
   //   if (!inputValue.trim()) return; // Prevent empty submissions
@@ -332,47 +325,35 @@ const handleAISubmit = async () => {
     }, 3000);
   };
 
+  
+  
+  
+
   const handleOptionClick = (selectedOptionLabel, nextScenario) => {
     setMessages((prevMessages) => [
       ...prevMessages,
       { text: selectedOptionLabel, sender: "user" },
     ]);
-
-    // selectedOptionLabel === "COMMERCE & MARKETING" ||
-    // selectedOptionLabel === "INFORMATIQUE" ||
-    // selectedOptionLabel === "COMMUNICATION"
+    
     if (
-      selectedOptionLabel === "Étudiant 📚" ||
-      selectedOptionLabel === "Salarié en activité 💼" ||
-      selectedOptionLabel === "Demandeur d'emploi 🔎" ||
-      selectedOptionLabel === "Une entreprise 🏢" ||
-      selectedOptionLabel === "Un parent 👨‍👩‍👧‍👦"
+      selectedOptionLabel === "Entrepreneur" ||
+      selectedOptionLabel === "Autre" ||
+      selectedOptionLabel === "Particulier" ||
+      selectedOptionLabel === "Entreprise" ||
+      selectedOptionLabel === "Un p"
     ) {
       displayMessageWithTypingIndicator(
         scenarios[currentScenario].botResponse,
         "bot"
       );
       setTimeout(() => {
-        displayResourcesCard();
         displayMessageWithTypingIndicator(
           scenarios[nextScenario].question,
           "bot"
         );
         setCurrentScenario(nextScenario);
       }, 3000);
-    } else if (nextScenario === "not_talk") {
-      displayMessageWithTypingIndicator(
-        scenarios[currentScenario].botRes,
-        "bot"
-      );
-      setTimeout(() => {
-        displayResourcesCard();
-      }, 3000);
-      setTimeout(() => {
-        displayMessageLineByLine(scenarios.not_talk.question, "bot");
-        setCurrentScenario(nextScenario);
-      }, 3000);
-    } else if (nextScenario === "talk_before") {
+    }  else if (nextScenario === "verification_phone") {
       displayMessageWithTypingIndicator(
         scenarios[currentScenario].botResponse,
         "bot"
@@ -383,28 +364,7 @@ const handleAISubmit = async () => {
           "bot"
         );
         setCurrentScenario(nextScenario);
-      }, 3000);
-    } else if (nextScenario === "verification_phone") {
-      displayMessageWithTypingIndicator(
-        scenarios[currentScenario].botResponse,
-        "bot"
-      );
-      setTimeout(() => {
-        displayMessageWithTypingIndicator(
-          scenarios[nextScenario].question,
-          "bot"
-        );
-        setCurrentScenario(nextScenario);
-      }, 5000);
-    } else if (nextScenario === "pose_question") {
-      displayMessageWithTypingIndicator(
-        scenarios[currentScenario].botResponse,
-        "bot"
-      );
-      setTimeout(() => {
-        displayMessageLineByLine(scenarios.pose_question.question, "bot");
-        setCurrentScenario(nextScenario);
-      }, 3000);
+      }, 6000);
     } else {
       displayMessageWithTypingIndicator(
         scenarios[currentScenario].botResponse,
@@ -417,6 +377,7 @@ const handleAISubmit = async () => {
         );
         setCurrentScenario(nextScenario);
       }, 3000);
+      
     }
     sendData(
       currentScenario,
@@ -590,7 +551,7 @@ const handleAISubmit = async () => {
           setIsTyping(false);
           setHasShownInitialMessage(true);
           setHasInteracted(true);
-        }, 2000);
+        }, 900);
       }
     }
   }, [isChatVisible, isTyping]);
@@ -606,7 +567,7 @@ const handleAISubmit = async () => {
 
         setCurrentScenario("initial");
         setIsTyping(false);
-      }, 3000);
+      }, 2000);
     } else if (!isChatVisible) {
       setTimeout(() => {
         if (chatContainerRef.current) {
@@ -778,7 +739,7 @@ const handleAISubmit = async () => {
             {/* Options or Input */}
             <div className="mt-4 px-4">
               <div className="border-b border-gray-500 mb-2"></div>
-              {scenarios[currentScenario].options && (
+              {!isTyping && scenarios[currentScenario]?.options && (
                 <div className="flex flex-row items-end space-x-1 mb-4">
                   {scenarios[currentScenario].options.map((option, index) => (
                     <button
@@ -803,16 +764,13 @@ const handleAISubmit = async () => {
                         scenarios[currentScenario].inputType === "email"
                           ? "email"
                           : scenarios[currentScenario].inputType === "name"
-                          ? "nom"
+                          ? "prenom"
+                          : scenarios[currentScenario].inputType === "lastname"
+                          ? 'nom'
                           : scenarios[currentScenario].inputType ===
                             "phone (+33 xxxxxxxxx)"
                           ? "numéro de téléphone"
-                          : scenarios[currentScenario].inputType === "contact"
-                          ? "contact"
-                          : scenarios[currentScenario].inputType ===
-                            "entreprise"
-                          ? "entreprise"
-                          : ""
+                          : ''
                       }`}
                       value={
                         userInfo[scenarios[currentScenario].inputType] || ""
