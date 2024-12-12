@@ -11,7 +11,7 @@ const Faq = () => {
 
   return (
     <Section id="faq">
-      <div className="container relative z-2 grid grid-cols-1 mt-12 md:grid-cols-2 gap-8">
+      <div className="container relative z-2 grid grid-cols-1 mt-32 md:grid-cols-2 gap-8">
         {/* Left Panel */}
         <div className="flex items-center justify-center">
           <div>

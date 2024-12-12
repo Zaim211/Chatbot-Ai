@@ -41,12 +41,12 @@ benefitCard4,
 benefitCard5,
 benefitCard6
 } from "../assets";
-
+import { faCheckCircle, faStar, faCrown } from "@fortawesome/free-solid-svg-icons";
 
 export const navigation = [
   {
     id: "0",
-    title: "Features",
+    title: "Services",
     url: "#features",
   },
   
@@ -71,6 +71,7 @@ export const navigation = [
     title: "Blog",
     url: "/blog",
   },
+ 
   
 ];
 
@@ -312,21 +313,26 @@ export const pricing = [
     description: "Chatbot IA, recommandations personnalisées",
     price: "0",
     features: [
-      "Un chatbot IA capable de comprendre vos requêtes",
-      "Recommandations personnalisées basées sur vos préférences",
-      "Possibilité d'explorer l'application et ses fonctionnalités sans frais",
+      "Toutes fonctionnalités Publication du chatbot",
+      "Solution d’Analytics",
+      "Support pour vous assister Mises à jour incluses",
+      "Accès à un tableau de bord intuitif pour suivre vos interactions",
     ],
+    icon: faCheckCircle,
   },
   {
     id: "1",
-    title: "Premium",
+    title: "Pro",
     description: "Chatbot IA avancé, support prioritaire, tableau de bord analytique",
-    price: "9.99",
+    // price: "9.99",
     features: [
-      "Un chatbot IA avancé capable de comprendre des requêtes complexes",
-      "Un tableau de bord analytique pour suivre vos conversations",
-      "Support prioritaire pour résoudre les problèmes rapidement",
+      "Toutes fonctionnalités Publication du chatbot",
+      "Solution d’Analytics",
+      "Support pour vous assister Mises à jour incluses",
+      "Intégration IA",
+      "Accès à un tableau de bord intuitif pour suivre vos interactions",
     ],
+    icon: faStar,
   },
   {
     id: "2",
@@ -334,10 +340,13 @@ export const pricing = [
     description: "Chatbot IA personnalisé, analyses avancées, gestionnaire de compte dédié",
     price: null,
     features: [
-      "Un chatbot IA personnalisé pour répondre à vos besoins spécifiques",
-      "Analyses avancées pour un suivi précis",
-      "Gestionnaire de compte dédié pour un service optimal",
+      "Gestionnaire dédié Onboarding personnalisé Support client Premium Création de votre chatbot",
+      "Toutes fonctionnalités Publication du chatbot Solution d’Analytics",
+      "Support pour vous assister Mises à jour incluses",
+      "Accès à un tableau de bord intuitif pour suivre vos interactions",
+      "Intégration IA",
     ],
+    icon: faCrown,
   },
 ];
 
