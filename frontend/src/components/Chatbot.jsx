@@ -637,7 +637,7 @@ const handleAISubmit = async () => {
                 src={botImage}
                 onClick={toggleChatVisibility}
                 alt="Bot Logo"
-                className="w-20 h-20"
+                className="w-16 h-16"
               />
             ) : (
               <div className="bg-[#97d197] shadow-lg rounded-lg p-3">
@@ -791,7 +791,7 @@ const handleAISubmit = async () => {
                     />
                     <button
                       onClick={handleInputSubmit}
-                      className="text-white bg-green-500 px-4 py-2 rounded-lg hover:bg-green-400"
+                      className="text-white bg-[#97d197] px-4 py-2 rounded-lg hover:bg-[#97d197]"
                     >
                       Envoyer
                     </button>
@@ -813,7 +813,7 @@ const handleAISubmit = async () => {
                     />
                     <button
                       onClick={handleAISubmit}
-                      className="text-white bg-green-500 px-4 py-2 rounded-lg hover:bg-green-400"
+                      className="text-white bg-[#97d197] px-4 py-2 rounded-lg hover:bg-green-400"
                     >
                       Envoyer
                     </button>
