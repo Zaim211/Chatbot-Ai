@@ -8,7 +8,6 @@ import axios from "axios";
 
 
 import { sendChatData } from "../api/sendChatData";
-
 const Chatbot = () => {
   const chatContainerRef = useRef(null);
   const [messages, setMessages] = useState([]);
