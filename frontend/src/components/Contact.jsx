@@ -94,7 +94,7 @@ const Contact = () => {
             <Button
               className="bg-green-600 text-white text-lg rounded-lg flex items-center  hover:bg-green-400 transition"
             >
-              <span className="mr-2">Formulaire</span>
+              <span className="mr-2 font-semibold">Formulaire</span>
               <FontAwesomeIcon icon={faEnvelope} className="text-white" />
               
             </Button>
