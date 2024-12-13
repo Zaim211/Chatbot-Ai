@@ -290,7 +290,7 @@ const handleAISubmit = async () => {
       } else {
         setMessages((prevMessages) => [
           ...prevMessages,
-          { sender: "bot", text: "I'm sorry, I couldn't find any relevant information." },
+          { sender: "bot", text: "Je suis désolé, je n'ai pas pu trouver d'informations pertinentes." },
         ]);
       }
 
