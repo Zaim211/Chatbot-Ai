@@ -109,7 +109,6 @@ class BotController {
   input.toLowerCase().includes('ai') || input.toLowerCase().includes('Politique de confidentialité'))
     {
     
-
       const scrapedData = await scrapeTargetWebsite();
 
       if (scrapedData) {
