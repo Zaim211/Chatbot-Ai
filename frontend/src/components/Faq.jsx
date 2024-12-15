@@ -17,7 +17,7 @@ const Faq = () => {
           <div>
             <h2 className="md:max-w-md text-black lg:max-w-2xl text-center lg:text-xl text-md">Questions Fréquemment Posées</h2>
             <p className="text-gray-700 mb-4 md:max-w-md  lg:max-w-2xl text-center lg:text-xl text-md">
-              Pour plus de questions, contactez-nous via <br /> L'email.
+              Pour plus de questions, contactez-nous via <br /> L'email où Formulaire.
             </p>
           </div>
         </div>

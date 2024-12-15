@@ -41,8 +41,8 @@ const Contact = () => {
         text="Pour toute question ou assistance, n'hésitez pas à nous contacter via notre formulaire en ligne ou par email. Nous sommes là pour vous aider !"
       />
 
-      <div className="container mx-auto px-6 md:px-12 lg:px-20 grid grid-cols-1 md:grid-cols-2 gap-10 mt-10">
-        {/* Left Section with Image */}
+      <div className="container  mx-auto px-6 md:px-12 lg:px-20 grid grid-cols-1 md:grid-cols-2 gap-10 mt-10">
+  
         <div className="flex justify-center items-center">
           <img
             src={service1}
@@ -51,9 +51,9 @@ const Contact = () => {
           />
         </div>
 
-        {/* Right Section with Contact Information */}
+ 
         <div className="bg-white p-8 rounded-lg shadow-md flex flex-col justify-center space-y-8">
-          {/* Company Information */}
+  
           <div className="space-y-4">
             <div>
               <h5 className="text-xl font-semibold text-black">Notre Adresse</h5>
@@ -69,12 +69,12 @@ const Contact = () => {
             </div>
           </div>
 
-          {/* Social Media Icons */}
+
           <div>
             <h5 className="text-xl font-semibold text-black mb-4">Suivez-nous</h5>
             <div className="flex space-x-6">
               <a
-                href="https://facebook.com"
+                href="https://www.facebook.com/people/Botgenerationia/61569901421109/?mibextid=LQQJ4d&rdid=PaLOYCueA8SQzb1R&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F19VpNpmHaX%2F%3Fmibextid%3DLQQJ4d"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-black hover:text-blue-600"
@@ -82,7 +82,7 @@ const Contact = () => {
                 <FontAwesomeIcon icon={faFacebook} size="2x" />
               </a>
               <a
-                href="https://instagram.com"
+                href="https://www.instagram.com/botgeneration.ia/?igsh=YWVjNmNyb3FzeDMx&utm_source=qr"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-600 hover:text-pink-500"
@@ -97,18 +97,18 @@ const Contact = () => {
               >
                 <FontAwesomeIcon icon={faYoutube} size="2x" />
               </a>
-              <a
+              {/* <a
                 href="https://microsoft.com"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-600 hover:text-blue-700"
               >
                 <FontAwesomeIcon icon={faMicrosoft} size="2x" />
-              </a>
+              </a> */}
             </div>
           </div>
 
-          {/* Call to Action Button */}
+
           <div className="flex justify-start">
             <Button
               className="bg-green-600 text-white text-lg rounded-lg flex items-center  hover:bg-green-400 transition"
