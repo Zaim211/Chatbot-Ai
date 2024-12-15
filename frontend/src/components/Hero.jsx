@@ -1,17 +1,17 @@
 import { useRef, useState } from "react";
 import { curve } from "../assets";
-import dash from "../assets/dashbot.png";
-import scan from "../assets/scanurl.png";
-import bot from '../assets/genai.png'
+import dashbot from "../assets/dashbot.png";
+import scanurl from "../assets/scanurl.png";
+import genai from '../assets/genai.png'
 import Button from "./Button";
 import Section from "./Section";
 
 const Hero = () => {
   const sliderRef = useRef(null);
   const [currentIndex, setCurrentIndex] = useState(0);
-  const images = [bot, dash, scan];
+  const images = [scanurl, dashbot, genai];
 
-  const scrollToIndex = (index) => {
+  function scrollToIndex(index) {
     if (sliderRef.current) {
       const sliderWidth = sliderRef.current.offsetWidth;
       sliderRef.current.scrollTo({
@@ -20,7 +20,7 @@ const Hero = () => {
       });
       setCurrentIndex(index);
     }
-  };
+  }
 
   const handlePrev = () => {
     const newIndex = currentIndex > 0 ? currentIndex - 1 : images.length - 1;
