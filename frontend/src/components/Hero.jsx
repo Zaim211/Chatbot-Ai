@@ -1,8 +1,8 @@
 import { useRef, useState } from "react";
 import { curve } from "../assets";
-import dashbot from "../assets/dashbot.jpg";
-import scanurl from "../assets/scanurl.jpg";
-import genai from '../assets/genai.jpg'
+import dashbot from "../../src/assets/dashbot.jpg";
+import scanurl from "../../src/assets/scanurl.jpg";
+import genai from "../../src/assets/genai.jpg";
 import Button from "./Button";
 import Section from "./Section";
 
