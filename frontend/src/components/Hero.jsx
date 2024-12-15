@@ -1,6 +1,6 @@
 import { useRef, useState } from "react";
 import { curve } from "../assets";
-import dash from "../assets/dashbot.png";
+import dash from "../assets/dashbot.PNG";
 import scan from "../assets/scanurl.png";
 import bot from '../assets/genai.png'
 import Button from "./Button";
