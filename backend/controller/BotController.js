@@ -56,7 +56,11 @@ async function scrapeTargetWebsite() {
     console.log(`[INFO] Starting to scrape the target URL: ${TARGET_URL}`);
 
     // Launch headless browser
-    const browser = await puppeteer.launch({ headless: true });
+    const browser = await puppeteer.launch({ 
+      headless: true,
+      executablePath: '/opt/render/.cache/puppeteer/chrome-linux',
+      args: ['--no-sandbox', '--disable-setuid-sandbox']
+    });
     const page = await browser.newPage();
     
     // Visit the website
