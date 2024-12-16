@@ -1,15 +1,17 @@
 import React from "react";
 import Section from "./Section";
 
+import aibotgen from "../../src/assets/aibotgen.png";
+
 const About = () => {
   return (
-    <Section className="flex mt-6 flex-col lg:flex-row items-center lg:items-start justify-between px-20 lg:px-32 py-10">
+    <Section className="flex mt-6 flex-col text-center lg:flex-row items-center lg:items-start justify-between px-4 lg:px-32 py-10">
       {/* Image Section */}
-      <div className="w-full max-w-[300px] mb-12 md:max-w-[300px]  lg:max-w-[400px] relative rounded-lg shadow-md">
+      <div className="w-full mb-12 md:max-w-[300px]  lg:max-w-[600px] relative">
         <img
-          src="https://via.placeholder.com/500" // Replace with your image URL
+         src={aibotgen}
           alt="Botgeneration Assistant"
-          className="rounded-lg shadow-lg w-full h-auto"
+          className="w-full h-full"
         />
       </div>
 
