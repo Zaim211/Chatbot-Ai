@@ -9,10 +9,7 @@ COPY package*.json ./
 RUN npm ci
 COPY . .
 
-# Expose the port Render uses
-EXPOSE 3000
-
-# Use the PORT environment variable provided by Render
-ENV PORT=3000
+EXPOSE 5000
+ENV PORT=5000
 
 CMD [ "node", "server.js" ]
