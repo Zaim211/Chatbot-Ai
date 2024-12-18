@@ -44,8 +44,8 @@ const Header = () => {
         <a className="block w-[12rem] xl:mr-8" href="/">
           <div className="flex items-center ">
             {/* <img src={bot} width={32} height={32} alt="Chat AI" /> */}
-            <p className="font-bold text-black text-3xl">
-              <span className="text-[#77be89]">Bot</span>Generation.
+            <p className="font-bold text-black lg:text-3xl text-xl">
+              <span className="text-[#77be89]">Leads</span>Generation.
               <span className="text-[#77be89]">Ai</span>
             </p>
           </div>
@@ -56,10 +56,10 @@ const Header = () => {
             openNavigation ? "flex" : "hidden"
           } fixed top-[5rem] left-0 right-0 bottom-0 bg-[#86ad86] lg:static lg:flex lg:mx-auto lg:bg-transparent`}
         >
-          <div className="relative z-2 flex flex-col items-center gap-0 justify-center m-auto lg:flex-row">
-          <Button
+          <div className="relative z-0 flex flex-col items-center lg:mt-0 mt-4 justify-start m-auto lg:flex-row">
+            <Button
               onClick={handleRedirect}
-              className="bg-[#5ba85b] mb-6 text-white font-bold text-lg rounded-lg flex items-center hover:bg-[#e6ece6] transition lg:hidden"
+              className="bg-[#5ba85b] mb-2 text-white font-bold text-sm rounded-lg flex items-center hover:bg-[#e6ece6] transition lg:hidden"
             >
               Planifier une Réunion
               <FontAwesomeIcon
@@ -71,50 +71,39 @@ const Header = () => {
               />
             </Button>
             {navigation.map((item) => (
-            
               <a
                 key={item.id}
                 href={item.url}
                 onClick={handleClick}
-                className={`block relative font-bold text-2xl uppercase text-black transition-colors hover:text-[#228B22] ${
+                className={`block relative font-bold text-xl uppercase text-black transition-colors  ${
                   item.onlyMobile ? "lg:hidden" : ""
-                } px-6 py-6 md:py-8 lg:-mr-0.25 lg:text-sm lg:font-semibold ${
+                } px-6 py-2 md:py-8 lg:-mr-0.25 lg:text-sm text-lg lg:font-semibold ${
                   item.url === pathname.hash
-                    ? "z-2 lg:text-black"
-                    : "lg:text-black underline"
-                } lg:leading-5 xl:text-md lg:hover:text-n-1 xl:px-6`}
+                    ? "z-0 lg:text-black py-0"
+                    : "lg:text-black"
+                } lg:leading-0 xl:text-sm  xl:px-3`}
               >
-                <span className="inline-block relative">
-                  {item.title}
-                  <img
-                    src={curve}
-                    className="absolute top-full left-0 w-full xl:-mb-4"
-                    alt="Curve"
-                  />
+                <span className="inline-block space-x-6 gap-6 text-sm relative">
+                  <span className="underline mb-4 lg:mb-0">{item.title}</span>
                 </span>
               </a>
             ))}
-          
-          
-     
           </div>
 
           <HamburgerMenu />
         </nav>
 
-     
-        <Button 
-  onClick={handleRedirect} 
-  className="bg-[#5ba85b] text-white font-bold hover:text-black text-md rounded-lg  items-center hover:bg-[#e6ece6] transition hidden lg:flex"
-
->
-  Planifier une Réunion
-  <FontAwesomeIcon 
-    icon={faCalendarAlt} 
-    style={{ fontSize: "20px" }} 
-    className="ml-2"  // Adds space to the left of the icon
-  />
-</Button>
+        <Button
+          onClick={handleRedirect}
+          className="bg-[#5ba85b] text-white font-bold hover:text-black text-md rounded-lg mr-4 items-center hover:bg-[#e6ece6] transition hidden lg:flex"
+        >
+          Planifier un rendez-vous
+          <FontAwesomeIcon
+            icon={faCalendarAlt}
+            style={{ fontSize: "20px" }}
+            className="ml-2" // Adds space to the left of the icon
+          />
+        </Button>
 
         <Button
           className="ml-auto lg:hidden bg-black rounded-md"

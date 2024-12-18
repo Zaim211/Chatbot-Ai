@@ -5,7 +5,7 @@ import aibotgen from "../../src/assets/aibotgen.png";
 
 const About = () => {
   return (
-    <Section className="flex mt-6 flex-col text-center lg:flex-row items-center lg:items-start justify-between px-4 lg:px-32 py-10">
+    <Section className="flex mt-6 flex-col lg:flex-row items-center lg:items-start justify-between px-4 lg:px-32 py-10">
       {/* Image Section */}
       <div className="w-full mb-12 md:max-w-[300px]  lg:max-w-[600px] relative">
         <img

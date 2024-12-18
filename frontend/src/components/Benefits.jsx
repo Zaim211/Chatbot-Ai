@@ -1,30 +1,50 @@
 import { benefits } from "../constants";
 import Section from "./Section";
-import Arrow from "../assets/svg/Arrow";
 import { GradientLight } from "./design/Benefits";
 import ClipPath from "../assets/svg/ClipPath";
 import Title from "./Title";
+
 
 const Benefits = () => {
   return (
     <Section id="features">
       <div className="container relative z-2">
         <Title
-          title="Optimisez votre service client avec BotGeneration.AI"
+          title="Optimisez votre service client avec LeadsGeneration.AI"
           className="md:max-w-md text-black lg:max-w-2xl text-center lg:text-xl text-md"
           text="Améliorez l'efficacité de votre service client grâce à notre solution intelligente d'automatisation. Offrez un support 24/7 et optimisez l'interaction avec vos clients pour mieux répondre à leurs besoins."
         />
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 mt-4 lg:grid-cols-3 borde border-gray-300 gap-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 mt-4 lg:grid-cols-3  gap-10">
           {benefits.map((item) => (
             <div
-              className="block relative p-0.5 bg-no-repeat bg-[length:100%_100%] md:max-w-[24rem] ${`url(${item.backgroundUrl})`}"
-              style={{
-                backgroundImage: `url(${item.backgroundUrl})`,
-              }}
               key={item.id}
+              className="group relative block p-0.5 bg-no-repeat bg-cover bg-center transition-all duration-300 hover:scale-105"
+              style={{
+                height: "22rem", // Adjust height as per your design
+                width: "100%", // Ensure the width is consistent
+                borderRadius: "8px", // Optional: Rounded corners
+                padding: "1rem",
+                position: "relative",
+                overflow: "hidden", 
+              }}
             >
-              <div className="relative z-2 flex flex-col min-h-[22rem] p-[2.4rem] pointer-events-none">
+              {/* Initially Display Image */}
+              <div className="absolute inset-0 opacity-100 transition-opacity duration-300 group-hover:opacity-0">
+                {item.imageUrl && (
+                  <img
+                    src={item.imageUrl}
+                    width={380}
+                    height={362}
+                    alt={item.title}
+                    className="w-full h-full object-contain border border-md rounded-md"
+                  />
+                )}
+              </div>
+
+              {/* Content that becomes visible on hover */}
+
+              <div className="absolute inset-0 border border-md rounded-md flex flex-col min-h-[22rem] p-[2.4rem] pointer-events-non  pointer-events-none opacity-0 transition-opacity duration-300 group-hover:opacity-100 bg-white bg-opacity-50 z-10">
                 <h5 className="h5 mb-5">{item.title}</h5>
                 <p className="body-2 mb-6 text-n-3">{item.text}</p>
                 <div className="flex items-center mt-auto">
@@ -34,32 +54,14 @@ const Benefits = () => {
                     height={48}
                     alt={item.title}
                   />
-                  {/* <p className="ml-auto font-code text-xs font-bold text-n-1 uppercase tracking-wider">
-                    Explore more
-                  </p> */}
-                  {/* <Arrow /> */}
+             
                 </div>
               </div>
 
-              {item.light && <GradientLight />}
+{/*         
+              {item.light && <GradientLight />} */}
 
-              <div
-                className="absolute inset-0.5 bg-n-8"
-                style={{ clipPath: "url(#benefits)" }}
-              >
-                <div className="absolute inset-0 opacity-0 transition-opacity hover:opacity-10">
-                  {item.imageUrl && (
-                    <img
-                      src={item.imageUrl}
-                      width={380}
-                      height={362}
-                      alt={item.title}
-                      className="w-full h-full object-cover"
-                    />
-                  )}
-                </div>
-              </div>
-
+              {/* Optional Clip Path */}
               <ClipPath />
             </div>
           ))}

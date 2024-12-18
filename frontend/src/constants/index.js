@@ -39,7 +39,13 @@ benefitCard2,
 benefitCard3,
 benefitCard4,
 benefitCard5,
-benefitCard6
+benefitCard6,
+fonc,
+analy,
+scen,
+resp,
+botb,
+table
 } from "../assets";
 import { faCheckCircle, faStar, faCrown } from "@fortawesome/free-solid-svg-icons";
 
@@ -67,7 +73,12 @@ export const navigation = [
     url: "#contact",
   },
   {
-    id: "1",
+  
+    title: "Nos offres",
+    url: "/offres",
+  },
+  {
+
     title: "Blog",
     url: "/blog",
   },
@@ -359,7 +370,7 @@ export const benefits = [
     text: "Chatbot sur mesure adapté à votre site internet pour interragir en IA et generer des leads",
     backgroundUrl: benefitCard1,
     iconUrl: benefitIcon1,
-    imageUrl: benefitImage2,
+    imageUrl: fonc,
   },
   {
     id: "1",
@@ -367,7 +378,7 @@ export const benefits = [
     text: "Notre chatbot collecte des informations en temps réel et les envoie à votre tableau de bord pour une analyse approfondie.",
     backgroundUrl: benefitCard2,
     iconUrl: benefitIcon2,
-    imageUrl: benefitImage2,
+    imageUrl: analy,
     light: true,
   },
   {
@@ -376,7 +387,7 @@ export const benefits = [
     text: "Choisissez le scénario de chatbot adapté à vos besoins pour offrir une expérience utilisateur optimale et dynamique.",
     backgroundUrl: benefitCard3,
     iconUrl: benefitIcon3,
-    imageUrl: benefitImage2,
+    imageUrl: botb,
   },
   {
     id: "3",
@@ -384,7 +395,7 @@ export const benefits = [
     text: "Le chatbot répond immédiatement aux demandes des utilisateurs, améliorant ainsi l'efficacité de votre service client.",
     backgroundUrl: benefitCard4,
     iconUrl: benefitIcon4,
-    imageUrl: benefitImage2,
+    imageUrl: resp,
     light: true,
   },
   {
@@ -393,7 +404,7 @@ export const benefits = [
     text: "Grace à l'analyse de données collectées en IA, le chatbot s'améliore constament pour offrir une meilleure experience utilisateurs",
     backgroundUrl: benefitCard5,
     iconUrl: benefitIcon1,
-    imageUrl: benefitImage2,
+    imageUrl: scen,
   },
   {
     id: "5",
@@ -401,7 +412,7 @@ export const benefits = [
     text: "Consultez des rapports détaillés sur les interactions de votre chatbot avec les utilisateurs, directement dans votre tableau de bord.",
     backgroundUrl: benefitCard6,
     iconUrl: benefitIcon2,
-    imageUrl: benefitImage2,
+    imageUrl: table,
   },
 ];
 
