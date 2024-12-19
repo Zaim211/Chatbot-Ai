@@ -1,16 +1,35 @@
-const axios = require('axios');
-const cheerio = require('cheerio');
+const puppeteer = require('puppeteer');
 
 async function scrapeWebsite(url) {
-    const response = await axios.get(url);
-    const $ = cheerio.load(response.data);
+    try {
+        console.log(`[INFO] Starting to scrape the website: ${url}`);
+        
+        // Launch headless browser
+        const browser = await puppeteer.launch({ headless: true });
+        const page = await browser.newPage();
+        
+        // Visit the website
+        await page.goto(url, { waitUntil: 'networkidle2' });  // Wait for network to be idle (fully loaded)
 
-    // Extract content from the page
-    const content = $('main').text(); // Adjust the selector as per your structure
-    return content;
+        // Get the content after JavaScript has rendered
+        const content = await page.evaluate(() => {
+            // Here we get the inner HTML of the body or any other content
+            const mainContent = document.querySelector('body').innerText;
+            return mainContent ? mainContent.trim() : 'No content found';
+        });
+
+        console.log(`[INFO] Extracted content: ${content}`);
+        
+        await browser.close();
+        
+        return content || 'No content could be scraped from the website.';
+    } catch (error) {
+        console.error(`[ERROR] Failed to scrape the website: ${error.message}`);
+        return 'An error occurred while scraping the website.';
+    }
 }
 
-// Example usage:
-scrapeWebsite('https://www.koutquekout.com/metiers').then((data) => {
-    console.log(data); // Log or send the extracted content back to the user
+// Example usage
+scrapeWebsite('https://chatbot-ai-wine.vercel.app/').then((data) => {
+    console.log(`[RESULT] Scraped data:\n${data}`);
 });

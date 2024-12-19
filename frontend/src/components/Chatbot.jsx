@@ -20,20 +20,20 @@ const Chatbot = () => {
   const [hasInteracted, setHasInteracted] = useState(false);
   const [hasShownInitialMessage, setHasShownInitialMessage] = useState(false);
   const [groupedData, setGroupedData] = useState({});
+  const [ads, setAds] = useState([]);
  
-
-  const [courses] = useState([
-    {
-      title: "Comment fonctionne notre Chatbot ?",
-      image: botimg,
-      link: "#Comment-fonctionne",
-      details: `
-        Intégrez facilement notre chatbot sur votre site pour générer des prospects. 
-        Profitez d'une conversation fluide, une intégration rapide, et la génération 
-        automatique de leads dans votre tableau de bord.
-      `,
-    },
-  ]);
+useEffect(() => {
+  const fetchAds = async () => {
+    try {
+      const response = await axios.get("/pub");
+      console.log("ads:", response.data);
+      setAds(response.data);
+    } catch (error) {
+      console.error(error);
+    } 
+  };
+  fetchAds();
+}, []);
   
 
   const isValidEmail = (email) => {
@@ -415,73 +415,28 @@ const handleAISubmit = async () => {
     displayNextLine(0);
   };
 
-  const displayResourcesCard = () => {
-    const whatsAppCard = (
-      <div
-        className="bg-green-100 rounded-lg shadow-md p-4 border border-green-300 mb-4 cursor-pointer hover:bg-green-200 transition"
-        onClick={() => {
-          window.open("https://wa.me/0673967062", "_blank");
-        }}
-      >
-        <div className="flex items-center space-x-4">
-          <img
-            src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
-            alt="WhatsApp"
-            className="w-12 h-12 rounded-full"
-          />
-          <div>
-            <h1 className="text-md font-semibold text-black">
-              Salut 👋, Bienvenue sur le chatbot de Botgeneration.AI
-            </h1>
-            <h2 className="text-sm font-bold text-gray-800">
-              Contactez-nous directement
-            </h2>
 
-            <p className="text-gray-600">
-              Cliquez ici pour discuter avec nous sur WhatsApp.
-            </p>
-          </div>
-        </div>
-      </div>
-    );
-    setMessages((prevMessages) => [
-      ...prevMessages,
-      { text: whatsAppCard, sender: "bot" },
-    ]);
-  };
 
   const displaycardcourse = () => {
     const courseCard = (
       <div className="bg-white rounded-lg shadow-md p-4 border border-gray-300 mb-4">
         {/* <h2 className="text-xl font-bold mb-4">Cours</h2> */}
         <div className="flex overflow-x-auto space-x-4 mb-4">
-          {courses.map((course, index) => (
+          {ads?.map((a, index) => (
             <div key={index} className="course-card flex-shrink-0 w-64">
               <img
-                src={course.image}
-                alt={course.title}
+                src={a.imageUrl}
+                alt=""
                 className="w-full h-40 object-cover rounded-lg"
               />
               <div className="text-gray-800 mt-2 font-semibold">
-                {course.title}
+                {a.title}
               </div>
-              <p className="text-sm text-gray-600 mt-2">{course.details}</p>
-              {/* <button
-              onClick={() => {
-                window.location.href = courses[0].link; // Redirects to the #features section
-              }}
-            
-                // href={course.link}
-                // target="_blank"
-                // rel="noopener noreferrer"
-                className="mt-2 inline-block bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600"
-              >
-                Plus Details
-              </button> */}
+              <p className="text-sm text-gray-600 mt-2">{a.mainText}</p>
              <button
                 onClick={() => {
                   setChatVisible(false); // Close the chat
-                  const section = document.querySelector(course.link);
+                  const section = document.querySelector(a.link);
                   if (section) {
                     section.scrollIntoView({ behavior: "smooth" }); // Scroll to the section
                   }

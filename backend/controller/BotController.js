@@ -6,8 +6,6 @@ const axios = require('axios');
 // Load environment variables
 dotenv.config();
 
-
-
 // Set up OpenAI client
 const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY, // Ensure your API key is in your .env file
@@ -55,19 +53,9 @@ async function scrapeTargetWebsite() {
   try {
     console.log(`[INFO] Starting to scrape the target URL: ${TARGET_URL}`);
 
-    // Launch headless browser
-    const browser = await puppeteer.launch({ 
+    const browser = await puppeteer.launch({
+      executablePath: '/usr/bin/google-chrome-stable',
       headless: true,
-      args: [
-        "--disable-setuid-sandbox",
-        "--no-sandbox",
-        "--single-process",
-        "--no-zygote",
-      ],
-      executablePath:
-        process.env.NODE_ENV === "production"
-          ? process.env.PUPPETEER_EXECUTABLE_PATH
-          : puppeteer.executablePath(),
     });
     const page = await browser.newPage();
     
