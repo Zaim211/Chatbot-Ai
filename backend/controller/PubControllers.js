@@ -37,7 +37,7 @@ class PubController {
 //   }
 static async createPub(req, res) {
     try {
-      const { title, mainText, imageUrl } = req.body;
+      const { title, mainText, imageUrl, link } = req.body;
   
       // Check if there's already an existing publicité in the database
       const existingPub = await Ads.findOne();
