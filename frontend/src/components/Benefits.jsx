@@ -19,7 +19,7 @@ const Benefits = () => {
           {benefits.map((item) => (
             <div
               key={item.id}
-              className="group relative block p-0.5 bg-no-repeat bg-cover bg-center transition-all duration-300 hover:scale-105"
+              className="group relative block border border-gray-600 p-0.5 bg-no-repeat bg-cover bg-center transition-all duration-300 hover:scale-105"
               style={{
                 height: "22rem", // Adjust height as per your design
                 width: "100%", // Ensure the width is consistent
@@ -30,16 +30,22 @@ const Benefits = () => {
               }}
             >
               {/* Initially Display Image */}
-              <div className="absolute inset-0 opacity-100 transition-opacity duration-300 group-hover:opacity-0">
+              <div className="realtive inset-0  transition-opacity duration-300 group-hover:opacity-0">
+              
                 {item.imageUrl && (
                   <img
                     src={item.imageUrl}
                     width={380}
                     height={362}
                     alt={item.title}
-                    className="w-full h-full object-contain border border-md rounded-md"
+                    className="w-full h-[50%] object-contain opacity-70 border border-md rounded-md"
                   />
                 )}
+                 <div className="absolute inset-0 mb-2  flex items-end justify-center">
+    <h5 className="h5 text-center bg-opacity-40 bg-white px-3 py-1 rounded">
+      {item.title}
+    </h5>
+  </div>
               </div>
 
               {/* Content that becomes visible on hover */}
