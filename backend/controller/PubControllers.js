@@ -49,7 +49,7 @@ static async createPub(req, res) {
       }
   
       // Create and save a new publicité
-      const newPub = new Ads({ title, mainText, imageUrl });
+      const newPub = new Ads({ title, mainText, imageUrl, link });
       await newPub.save();
   
       res.status(201).json({ message: "Publicité created successfully", pub: newPub });
