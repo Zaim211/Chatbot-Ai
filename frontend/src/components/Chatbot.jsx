@@ -433,7 +433,7 @@ const handleAISubmit = async () => {
                 {a.title}
               </div>
               <p className="text-sm text-gray-600 mt-2">{a.mainText}</p>
-             <button
+             {/* <button
                 onClick={() => {
                   setChatVisible(false); // Close the chat
                   const section = document.querySelector(a.link);
@@ -444,7 +444,28 @@ const handleAISubmit = async () => {
                 className="mt-2 inline-block bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600"
               >
                 Plus Details
-              </button>
+              </button> */}
+              <button
+  onClick={() => {
+    setChatVisible(false); // Close the chat
+    if (a.link.startsWith("http")) {
+      // Open external links
+      window.open(a.link, "_blank");
+    } else {
+      // Scroll to internal section
+      const section = document.querySelector(a.link);
+      if (section) {
+        section.scrollIntoView({ behavior: "smooth" });
+      } else {
+        console.warn("Section not found:", a.link);
+      }
+    }
+  }}
+  className="mt-2 inline-block bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600"
+>
+  Plus Details
+</button>
+
             </div>
           ))}
         </div>
