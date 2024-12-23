@@ -615,17 +615,23 @@ const handleAISubmit = async () => {
                 className="w-16 h-16"
               />
             ) : (
-              <div className="bg-[#97d197] shadow-lg rounded-lg p-3">
-                <span className="text-sm font-semibold">
-                  Bonjour 👋, besoin d'aide ? 😃
-                </span>
-                <p
-                  onClick={toggleChatVisibility}
-                  className="text-sm mt-1 cursor-pointer text-center rounded-lg w-48 py-4 bg-gray-200 text-black hover:bg-black hover:text-white"
-                >
-                  👉 Par ici la démo 😀
-                </p>
-              </div>
+              // <div className="bg-[#97d197] shadow-lg rounded-lg p-3">
+              //   <span className="text-sm font-semibold">
+              //     Bonjour 👋, besoin d'aide ? 😃
+              //   </span>
+              //   <p
+              //     onClick={toggleChatVisibility}
+              //     className="text-sm mt-1 cursor-pointer text-center rounded-lg w-48 py-4 bg-gray-200 text-black hover:bg-black hover:text-white"
+              //   >
+              //     👉 Par ici la démo 😀
+              //   </p>
+              // </div>
+              <img
+                src={botImage}
+                onClick={toggleChatVisibility}
+                alt="Bot Logo"
+                className="w-16 h-16"
+              />
             )}
           </div>
         )}
