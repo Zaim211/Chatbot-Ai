@@ -10,7 +10,8 @@ const Benefits = () => {
     <Section id="features">
       <div className="container relative z-2">
         <Title
-          title="Optimisez votre service client avec LeadsGeneration.AI"
+          title="Optimisez votre service client"
+          tag=' LeadsGeneration.AI'
           className="md:max-w-md text-black lg:max-w-2xl text-center lg:text-xl text-md"
           text="Améliorez l'efficacité de votre service client grâce à notre solution intelligente d'automatisation. Offrez un support 24/7 et optimisez l'interaction avec vos clients pour mieux répondre à leurs besoins."
         />

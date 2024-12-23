@@ -15,6 +15,8 @@ import axios from "axios";
 import Cgu from "./pages/Cgu";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import About from "./components/About";
+import Form from "./pages/Form";
+import ThankYouPage from "./pages/ThankYouPage";
 
 axios.defaults.baseURL = import.meta.env.VITE_API_BASE_URL;
 axios.defaults.withCredentials = true;
@@ -33,7 +35,7 @@ const App = () => {
               <Services />
               <Benefits />
               <Faq />
-              <Pricing />
+              {/* <Pricing /> */}
               <Contact />
               <Footer />
               <Chatbot />
@@ -41,6 +43,9 @@ const App = () => {
           }
         />
         <Route path="/blog" element={<Blog />} />
+        <Route path="/offres" element={<Pricing />} />
+        <Route path="/formaulaire" element={<Form />} />
+        <Route path="/thank-you" element={<ThankYouPage />} />
         <Route path="/Blog/:title" element={<BlogDetails />} />
         <Route path="/cgu" element={<Cgu />} />
         <Route

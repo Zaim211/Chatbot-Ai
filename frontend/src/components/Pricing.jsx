@@ -2,11 +2,17 @@ import Section from "./Section";
 import PricingList from "./PricingList";
 import { LeftLine, RightLine } from "./design/Pricing";
 import Title from "./Title";
+import Footer from "./Footer";
 
 const Pricing = () => {
   return (
-    <Section className="overflow-hidden mt-32" id="pricing">
-      <div className="container relative z-2">
+    <Section
+    className="pt-8 md:pt-20"
+    crosses
+    crossesOffset="lg:translate-y-[5.25rem]"
+    customPaddings
+     >
+      <div className="container relative mt-32 mb-12 z-2">
         <Title
           tag="Commencez avec BotGeneration.Ai"
           title="Payez une fois, utilisez pour toujours"
@@ -18,6 +24,8 @@ const Pricing = () => {
           <RightLine />
         </div>
       </div>
+     
+      <Footer />
     </Section>
   );
 };

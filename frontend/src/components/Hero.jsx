@@ -20,7 +20,8 @@ const Hero = () => {
               Optimisez Votre Productivité
               <br />& Transformez l'Interaction <br /> Client avec 
               <span className="relative inline-block">
-                &nbsp;LeadsGeneration.AI
+                &nbsp;<span className="text-[#77be89]">Leads</span>Generation.
+                <span className="text-[#77be89]">AI</span>
                 <img
                   src={curve}
                   className="absolute top-full left-0 w-full xl:-mt-2"
@@ -29,7 +30,8 @@ const Hero = () => {
               </span>
             </h1>
             <p className="text-black text-sm md:text-lg mb-6 leading-relaxed">
-              Libérez le pouvoir de l'IA avec LeadsGeneration.AI <br />
+              Libérez le pouvoir de l'IA avec <strong className="text-[#5ba85b]">
+              LeadsGeneration.AI</strong>  <br />
               Améliorez votre expérience utilisateur et optimisez<br /> votre
               service client grâce à notre chatbot intelligent.
             </p>

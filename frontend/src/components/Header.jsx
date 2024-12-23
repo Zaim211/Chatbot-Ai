@@ -6,7 +6,6 @@ import MenuSvg from "../assets/svg/MenuSvg";
 import { HamburgerMenu } from "./design/Header";
 import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { curve } from "../assets";
 import { faCalendarAlt } from "@fortawesome/free-solid-svg-icons";
 
 const Header = () => {
@@ -46,7 +45,7 @@ const Header = () => {
             {/* <img src={bot} width={32} height={32} alt="Chat AI" /> */}
             <p className="font-bold text-black lg:text-3xl text-xl">
               <span className="text-[#77be89]">Leads</span>Generation.
-              <span className="text-[#77be89]">Ai</span>
+              <span className="text-[#77be89]">AI</span>
             </p>
           </div>
         </a>
@@ -95,7 +94,7 @@ const Header = () => {
 
         <Button
           onClick={handleRedirect}
-          className="bg-[#5ba85b] text-white font-bold hover:text-black text-md rounded-lg mr-4 items-center hover:bg-[#e6ece6] transition hidden lg:flex"
+          className="bg-[#77be89] text-white font-bold hover:text-black text-md rounded-lg mr-4 items-center hover:bg-[#5ea76c] transition hidden lg:flex"
         >
           Planifier un rendez-vous
           <FontAwesomeIcon

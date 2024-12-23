@@ -13,6 +13,7 @@ import Button from "./Button";
 import { service1 } from "../assets";
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import { smallSphere, stars } from "../assets";
+import { Link } from "react-router-dom";
 
 const Contact = () => {
   return (
@@ -111,9 +112,9 @@ const Contact = () => {
 
           <div className="flex justify-start">
             <Button
-              className="bg-green-600 text-white text-lg rounded-lg flex items-center  hover:bg-green-400 transition"
+              className="hover:bg-[#5ea76c] text-white text-lg rounded-lg flex items-center  bg-[#77be89] transition"
             >
-              <span className="mr-2 font-semibold">Formulaire</span>
+              <Link className="mr-2 font-semibold" to='/formaulaire'>Formulaire</Link>
               <FontAwesomeIcon icon={faEnvelope} className="text-white" />
               
             </Button>
