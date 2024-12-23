@@ -80,7 +80,7 @@ export const navigation = [
   {
 
     title: "Blog",
-    url: "/blog",
+    // url: "/blog",
   },
  
   
