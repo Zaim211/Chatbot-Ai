@@ -607,7 +607,7 @@ const handleAISubmit = async () => {
           </button>
         ) : (
           <div className="flex items-center  text-black shadow-lg rounded-lg p-3">
-            {hasInteracted ? (
+            {!hasInteracted ? (
               <img
                 src={botImage}
                 onClick={toggleChatVisibility}
