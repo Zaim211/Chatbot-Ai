@@ -1,9 +1,7 @@
 import { benefits } from "../constants";
 import Section from "./Section";
-import { GradientLight } from "./design/Benefits";
 import ClipPath from "../assets/svg/ClipPath";
 import Title from "./Title";
-
 
 const Benefits = () => {
   return (
@@ -11,7 +9,7 @@ const Benefits = () => {
       <div className="container relative z-2">
         <Title
           title="Optimisez votre service client"
-          tag=' LeadsGeneration.AI'
+          tag=" LeadsGeneration.AI"
           className="md:max-w-md text-black lg:max-w-2xl text-center lg:text-xl text-md"
           text="Améliorez l'efficacité de votre service client grâce à notre solution intelligente d'automatisation. Offrez un support 24/7 et optimisez l'interaction avec vos clients pour mieux répondre à leurs besoins."
         />
@@ -27,26 +25,25 @@ const Benefits = () => {
                 borderRadius: "8px", // Optional: Rounded corners
                 padding: "1rem",
                 position: "relative",
-                overflow: "hidden", 
+                overflow: "hidden",
               }}
             >
               {/* Initially Display Image */}
-              <div className="realtive inset-0  transition-opacity duration-300 group-hover:opacity-0">
-              
+              <div className="realtive h-[70%] inset-0 transition-opacity duration-300 group-hover:opacity-0">
                 {item.imageUrl && (
                   <img
                     src={item.imageUrl}
-                    width={380}
-                    height={362}
+                    // width={380}
+                    // height={362}
                     alt={item.title}
-                    className="w-full h-[50%] object-contain opacity-70 border border-md rounded-md"
+                    className="w-full h-full object-contain opacity-70 border border-md rounded-md"
                   />
                 )}
-                 <div className="absolute inset-0 mb-2  flex items-end justify-center">
-    <h5 className="h5 text-center bg-opacity-40 bg-white px-3 py-1 rounded">
-      {item.title}
-    </h5>
-  </div>
+                <div className="absolute inset-0 mb-2  flex items-end justify-center">
+                  <h5 className="h5 text-center bg-opacity-40 bg-white px-3 py-1 rounded">
+                    {item.title}
+                  </h5>
+                </div>
               </div>
 
               {/* Content that becomes visible on hover */}
@@ -61,11 +58,10 @@ const Benefits = () => {
                     height={48}
                     alt={item.title}
                   />
-             
                 </div>
               </div>
 
-{/*         
+              {/*         
               {item.light && <GradientLight />} */}
 
               {/* Optional Clip Path */}
