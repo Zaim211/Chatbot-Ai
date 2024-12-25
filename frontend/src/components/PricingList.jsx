@@ -30,8 +30,10 @@ const PricingList = () => {
                 key={index}
                 className="flex items-start py-5 border-t border-n-6"
               >
-                <img src={check} width={24} height={24} alt="Check" />
-                <p className="body-2 ml-4">{feature}</p>
+                {/* <img src={check} width={24} height={24} alt="Check" />
+                 */}
+                 <img className="w-12 h-12 object-contain" src={check} alt="Check" />
+                <p className="body-2 ml-2  mt-3">{feature}</p>
               </li>
             ))}
           </ul>
