@@ -48,6 +48,7 @@ const Header = () => {
               <span className="text-[#77be89]">AI</span>
             </p>
           </div>
+          
         </a>
 
         <nav

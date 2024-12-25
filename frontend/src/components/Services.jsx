@@ -1,6 +1,5 @@
 import Section from "./Section";
-import Heading from "./Heading";
-import { service2, check, ben } from "../assets";
+import { check, ben } from "../assets";
 import { brainwaveServices } from "../constants";
 import Title from "./Title";
 
@@ -29,9 +28,9 @@ const Services = () => {
               />
               <ul className="body-2 mt-4">
                 {brainwaveServices.map((item, index) => (
-                  <li key={index} className="flex items-start py-4 px-6">
-                    <img width={24} height={24} src={check} alt="Check" />
-                    <p className="ml-4">{item}</p>
+                  <li key={index} className="flex items-start">
+                    <img className="w-12 h-12 object-contain" src={check} alt="Check" />
+                    <p className="ml-2 mt-3 text-black font-medium">{item}</p>
                   </li>
                 ))}
               </ul>
@@ -45,7 +44,7 @@ const Services = () => {
 
               <div className=" text-n-3">
                 <p className="flex sm:flex-row items-start mb-6">
-                  <span className="w-24 h-8 flex items-center justify-center rounded-full bg-[#228B22] text-white mr-4">
+                  <span className="w-24 h-8 flex items-center justify-center rounded-full bg-[#77be89] text-white mr-4">
                     1
                   </span>
                   Notre chatbot utilise des scénarios préconfigurés pour
@@ -55,7 +54,7 @@ const Services = () => {
                 </p>
 
                 <p className="flex sm:flex-row items-start mb-6">
-                  <span className="w-20 h-8 flex items-center justify-center rounded-full bg-[#228B22] text-white mr-4">
+                  <span className="w-20 h-8 flex items-center justify-center rounded-full bg-[#77be89] text-white mr-4">
                     2
                   </span>
                   Il peut orienter les utilisateurs vers les informations
@@ -64,7 +63,7 @@ const Services = () => {
                 </p>
 
                 <p className="flex sm:flex-row items-start">
-                  <span className="w-20 lg:w-20 h-8 flex items-center justify-center rounded-full bg-[#228B22] text-white mr-4">
+                  <span className="w-20 lg:w-20 h-8 flex items-center justify-center rounded-full bg-[#77be89] text-white mr-4">
                     3
                   </span>
                   Notre chatbot peut aussi prendre en charge la génération de
