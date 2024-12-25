@@ -24,7 +24,7 @@ const About = () => {
         </p>
         <p className="text-base md:text-lg leading-relaxed">
           Accélérez le processus de vente grâce à l'assistant personnel{" "}
-          <strong className="text-[#5ba85b]">Leadsgeneration.AI</strong>{" "}
+          <strong className="text-[#77be89]">Leadsgeneration.AI</strong>{" "}
           exclusivement conçu pour les conseillers qui contactent les leads, les
           conseille en temps réel en leur indiquant les bonnes pratiques à
           suivre face à un prospect en ligne. Transformez vos conversations en
@@ -37,7 +37,7 @@ const About = () => {
             {/* Box 1 */}
             <div className="bg-white border border-gray-300 shadow-lg p-6 rounded-lg hover:shadow-xl transition-shadow duration-300">
               <h3 className="text-lg font-bold mb-4">
-                <a href="#feature1" className="text-[#5ba85b] hover:underline">
+                <a href="#feature1" className="text-[#77be89] hover:underline">
                   Analyse en Temps Réel
                 </a>
               </h3>
@@ -50,7 +50,7 @@ const About = () => {
             {/* Box 2 */}
             <div className="bg-white border border-gray-300 shadow-lg p-6 rounded-lg hover:shadow-xl transition-shadow duration-300">
               <h3 className="text-lg font-bold mb-4">
-                <a href="#feature2" className="text-[#5ba85b] hover:underline">
+                <a href="#feature2" className="text-[#77be89] hover:underline">
                   Automatisation Intelligente
                 </a>
               </h3>
@@ -63,7 +63,7 @@ const About = () => {
             {/* Box 3 */}
             <div className="bg-white border border-gray-300 shadow-lg p-6 rounded-lg hover:shadow-xl transition-shadow duration-300">
               <h3 className="text-lg font-bold mb-4">
-                <a href="#feature3" className="text-[#5ba85b] hover:underline">
+                <a href="#feature3" className="text-[#77be89] hover:underline">
                   Support Personnalisé
                 </a>
               </h3>

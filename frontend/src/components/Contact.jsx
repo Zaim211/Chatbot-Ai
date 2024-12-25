@@ -10,7 +10,7 @@ import {
 import Section from "./Section";
 import Title from "./Title";
 import Button from "./Button";
-import { service1 } from "../assets";
+import aibotgen from "../../src/assets/aibotgen.png";
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import { smallSphere, stars } from "../assets";
 import { Link } from "react-router-dom";
@@ -46,9 +46,9 @@ const Contact = () => {
   
         <div className="flex justify-center items-center">
           <img
-            src={service1}
+            src={aibotgen}
             alt="Service"
-            className="w-full max-w-md rounded-lg shadow-lg"
+            className="w-full max-w-md"
           />
         </div>
 

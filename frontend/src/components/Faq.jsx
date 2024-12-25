@@ -5,6 +5,7 @@ import Section from "./Section";
 import { Link } from "react-router-dom"; // Assuming you're using react-router for navigation
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons"; // FontAwesome icon
+import Title from "./Title";
 
 const Faq = () => {
   const [selectedQuestionIndex, setSelectedQuestionIndex] = useState(null);
@@ -14,14 +15,19 @@ const Faq = () => {
   };
 
   return (
-    <Section id="faq">
-      <div className="container relative z-2 grid grid-cols-1 mt-32 md:grid-cols-2 gap-8">
+    <Section id="faq" className="mt-32">
+        <Title
+          title="Questions Fréquemment Posées"
+          className="md:max-w-md text-black lg:max-w-2xl text-center lg:text-xl text-md"
+          text="Trouvez rapidement des réponses à vos questions grâce à notre section dédiée aux Questions Fréquemment Posées. Un support clair et accessible pour vous accompagner à tout moment"
+        />
+      <div className="container relative z-2 grid grid-cols-1 mt-8 md:grid-cols-2 gap-8">
         {/* Left Panel */}
         <div className="flex items-center justify-center">
           <div>
-            <h2 className="md:max-w-md text-black lg:max-w-2xl text-center lg:text-xl text-md">
+            {/* <h2 className="md:max-w-md text-black lg:max-w-2xl text-center lg:text-xl text-md">
               Questions Fréquemment Posées
-            </h2>
+            </h2> */}
             <p className="text-gray-700 mb-4 md:max-w-md lg:max-w-2xl text-center lg:text-xl text-md">
               Pour plus de questions, contactez-nous via <br /> L'email où Formulaire.
             </p>
