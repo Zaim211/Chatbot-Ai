@@ -125,8 +125,9 @@ const ServiceForm = () => {
                 placeholder="Sélectionnez un type"
                 className="w-full border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500"
               >
-                <Option value="entreprise">Entreprise</Option>
-                <Option value="particulier">Particulier</Option>
+                <Option value="entreprise">Artisan</Option>
+                <Option value="particulier">Auto entrepreneur</Option>
+                <Option value="particulier">PME</Option>
                 <Option value="autre">Autre</Option>
               </Select>
             </Form.Item>

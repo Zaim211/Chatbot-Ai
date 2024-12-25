@@ -872,9 +872,9 @@ export const scenarios = {
   request_who: {
     question: "Pouvez-vous m'indiquer votre type d'utilisateur ? (e.g., Entreprise, Entrepreneur, Particulier)",
     options: [
-      { label: "Entreprise", next: "request_lastname" },
-      { label: "Entrepreneur", next: "request_lastname" },
-      { label: "Particulier", next: "request_lastname" },
+      { label: "Auto entrepreneur", next: "request_lastname" },
+      { label: "PME", next: "request_lastname" },
+      { label: "Artisan", next: "request_lastname" },
       { label: "Autre", next: "request_lastname" },
     ],
     botResponse: "Merci pour votre réponse ! 😊",
