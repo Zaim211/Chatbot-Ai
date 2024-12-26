@@ -21,9 +21,13 @@ async function scrapeTargetWebsite() {
 
     // Launch headless browser
     const browser = await puppeteer.launch({ 
-      headless: true, // Run in headless mode
-      executablePath: "C:\\Users\\lenovo\\.cache\\puppeteer\\chrome\\win64-131.0.6778.87\\chrome-win64\\chrome.exe", // Path to Chrome
-      args: ['--no-sandbox', '--disable-setuid-sandbox'], 
+      headless: "new", // Run in headless mode
+      args: [
+        '--no-sandbox',
+        '--disable-setuid-sandbox',
+        '--disable-dev-shm-usage',
+        '--single-process'
+      ]
     });
     const page = await browser.newPage();
     
