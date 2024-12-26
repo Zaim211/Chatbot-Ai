@@ -273,7 +273,7 @@ const handleAISubmit = async () => {
 
   try {
     // Send the user input to the backend
-    const response = await axios.post("/bot", {
+    const response = await axios.post("https://chatbot-ai-e081.onrender.com/bot", {
       input: inputValue, // Send the input value directly
     });
     console.log("response", response);
