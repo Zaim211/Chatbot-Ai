@@ -12,7 +12,7 @@ dotenv.config();
 
 // Middlewares
 app.use(cors({
-    origin: ["https://dash-botgener-ai.vercel.app", "https://chatbot-ai-wine.vercel.app"],
+    origin: ["https://chatbot-ai-wine.vercel.app"],
     credentials: true,
 }));
 
