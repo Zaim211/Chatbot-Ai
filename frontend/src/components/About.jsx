@@ -1,6 +1,7 @@
 import React from "react";
 import Section from "./Section";
-import aibotgen from "../../src/assets/aibotgen.png";
+// import aibotgen from "../../src/assets/aibotgen.png";
+import aimobile from "../../src/assets/aimobile.png";
 
 const About = () => {
   return (
@@ -8,7 +9,7 @@ const About = () => {
       {/* Image Section */}
       <div className="w-full max-w-[300px] md:max-w-[400px] lg:max-w-[600px]">
         <img
-          src={aibotgen}
+          src={aimobile}
           alt="Botgeneration Assistant - Enhance Your Sales"
           className="w-full h-[400px] object-contain mx-auto"
         />
