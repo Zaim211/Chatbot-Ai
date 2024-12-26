@@ -15,48 +15,12 @@ const openai = new OpenAI({
 const TARGET_URL = "https://chatbot-ai-wine.vercel.app";
 
 // Scrape the website for content using Puppeteer
-// async function scrapeTargetWebsite() {
-//   try {
-//     console.log(`[INFO] Starting to scrape the target URL: ${TARGET_URL}`);
-
-//     // Launch headless browser
-//     const browser = await puppeteer.launch({ headless: true });
-//     const page = await browser.newPage();
-    
-//     // Visit the website
-//     await page.goto(TARGET_URL, { waitUntil: 'networkidle2' });  // Wait for network to be idle (fully loaded)
-
-//     // Get the content after JavaScript has rendered
-//     const content = await page.evaluate(() => {
-//       // Extract sections by matching the title text
-//       const sections = {
-//         chatbot: Array.from(document.querySelectorAll('h2')).find(h => h.innerText.includes("Comment ça marche notre Chatbot ?"))?.nextElementSibling?.innerText || "Section not found.",
-//         service: Array.from(document.querySelectorAll('h2')).find(h => h.innerText.includes("Optimisez votre service client avec BotGeneration.AI"))?.nextElementSibling?.innerText || "Section not found.",
-//         contact: Array.from(document.querySelectorAll('h2')).find(h => h.innerText.includes("Contact"))?.nextElementSibling?.innerText || "Section not found."
-//       };
-
-//       return sections;
-//     });
-
-//     console.log(`[INFO] Extracted content: ${JSON.stringify(content)}`);
-    
-//     await browser.close();
-
-//     return content;
-//   } catch (error) {
-//     console.error(`[ERROR] Failed to scrape the website: ${error.message}`);
-//     return null;
-//   }
-// }
-// Scrape the website for content using Puppeteer
 async function scrapeTargetWebsite() {
   try {
     console.log(`[INFO] Starting to scrape the target URL: ${TARGET_URL}`);
 
-    const browser = await puppeteer.launch({
-      executablePath: '/usr/bin/google-chrome-stable',
-      headless: true,
-    });
+    // Launch headless browser
+    const browser = await puppeteer.launch({ headless: true });
     const page = await browser.newPage();
     
     // Visit the website
@@ -67,7 +31,7 @@ async function scrapeTargetWebsite() {
       // Extract sections by matching the title text
       const sections = {
         chatbot: Array.from(document.querySelectorAll('h2')).find(h => h.innerText.includes("Comment ça marche notre Chatbot ?"))?.nextElementSibling?.innerText || "Section not found.",
-        service: Array.from(document.querySelectorAll('h2')).find(h => h.innerText.includes("Optimisez votre service client avec BotGeneration.Ai"))?.nextElementSibling?.innerText || "Section not found.",
+        service: Array.from(document.querySelectorAll('h2')).find(h => h.innerText.includes("Optimisez votre service client avec BotGeneration.AI"))?.nextElementSibling?.innerText || "Section not found.",
         contact: Array.from(document.querySelectorAll('h2')).find(h => h.innerText.includes("Contact"))?.nextElementSibling?.innerText || "Section not found."
       };
 
@@ -86,7 +50,7 @@ async function scrapeTargetWebsite() {
 }
 
 
-let generalQuestionCount = 0; // Global counter for general questions
+let generalQuestionCount = 0;
 
 class BotController {
   static async Botgenai(req, res) {
