@@ -261,51 +261,105 @@ useEffect(() => {
 
 
 
+// const handleAISubmit = async () => {
+//   if (!inputValue.trim()) return; // Prevent empty submissions
+
+//   // Show user message
+//   setMessages((prevMessages) => [...prevMessages, { sender: "user", text: inputValue }]);
+//   setInputValue(""); // Clear the input
+
+//   // Show typing indicator
+//   setIsTyping(true);
+
+//   try {
+//     // Send the user input to the backend
+//     const response = await axios.post("/bot", {
+//       input: inputValue, // Send the input value directly
+//     });
+//     console.log("response", response);
+
+//     const data = response.data; // Use response.data instead of response.json()
+
+//     // Simulate typing delay for GPT's response
+//     setTimeout(() => {
+//       if (data.message) { // Handle general GPT responses
+//         setMessages((prevMessages) => [
+//           ...prevMessages,
+//           { sender: "bot", text: data.message },
+//         ]);
+//       } else {
+//         setMessages((prevMessages) => [
+//           ...prevMessages,
+//           { sender: "bot", text: "Je suis désolé, je n'ai pas pu trouver d'informations pertinentes." },
+//         ]);
+//       }
+
+//       setIsTyping(false); // Hide typing indicator
+//     }, 2000); // Simulate typing delay
+
+//   } catch (error) {
+//     console.error("Error communicating with the server:", error);
+//     setMessages((prevMessages) => [
+//       ...prevMessages,
+//       { sender: "bot", text: "Sorry, an error occurred. Please try again later." },
+//     ]);
+//     setIsTyping(false); // Hide typing indicator on error
+//   }
+// };
 const handleAISubmit = async () => {
   if (!inputValue.trim()) return; // Prevent empty submissions
 
-  // Show user message
-  setMessages((prevMessages) => [...prevMessages, { sender: "user", text: inputValue }]);
-  setInputValue(""); // Clear the input
+  setMessages((prevMessages) => [
+    ...prevMessages,
+    { sender: "user", text: inputValue },
+  ]);
 
-  // Show typing indicator
-  setIsTyping(true);
+  setInputValue(""); // Clear the input field
+  setIsTyping(true); // Show typing indicator
 
   try {
-    // Send the user input to the backend
-    const response = await axios.post("/bot", {
-      input: inputValue, // Send the input value directly
-    });
-    console.log("response", response);
+    const response = await axios.post("/bot", { input: inputValue });
+    const data = response.data;
 
-    const data = response.data; // Use response.data instead of response.json()
+    // Convert backend response to a list or structured format
+    if (data.message) {
+      const structuredContent = data.message
+        .split("\n") // Split the message into lines
+        .map((line) => `<li>${line.trim()}</li>`) // Wrap each line in <li>
+        .join(""); // Join the list items
 
-    // Simulate typing delay for GPT's response
-    setTimeout(() => {
-      if (data.message) { // Handle general GPT responses
-        setMessages((prevMessages) => [
-          ...prevMessages,
-          { sender: "bot", text: data.message },
-        ]);
-      } else {
-        setMessages((prevMessages) => [
-          ...prevMessages,
-          { sender: "bot", text: "Je suis désolé, je n'ai pas pu trouver d'informations pertinentes." },
-        ]);
-      }
-
-      setIsTyping(false); // Hide typing indicator
-    }, 2000); // Simulate typing delay
-
+      setMessages((prevMessages) => [
+        ...prevMessages,
+        {
+          sender: "bot",
+          text: data.message,
+          htmlContent: `<ul>${structuredContent}</ul>`, // Wrap list items in <ul>
+        },
+      ]);
+    } else {
+      setMessages((prevMessages) => [
+        ...prevMessages,
+        {
+          sender: "bot",
+          text: "Je suis désolé, je n'ai pas pu générer de réponse.",
+        },
+      ]);
+    }
   } catch (error) {
-    console.error("Error communicating with the server:", error);
+    console.error("Error fetching bot response:", error);
     setMessages((prevMessages) => [
       ...prevMessages,
-      { sender: "bot", text: "Sorry, an error occurred. Please try again later." },
+      {
+        sender: "bot",
+        text: "Une erreur s'est produite. Veuillez réessayer plus tard.",
+      },
     ]);
-    setIsTyping(false); // Hide typing indicator on error
+  } finally {
+    setIsTyping(false); // Hide typing indicator
   }
 };
+
+
 
   
   
@@ -667,7 +721,7 @@ const handleAISubmit = async () => {
               className="h-[336px] w-full overflow-y-auto flex flex-col px-2"
               ref={chatContainerRef}
             >
-              {messages.map((msg, index) => (
+              {/* {messages.map((msg, index) => (
                 <div
                   key={index}
                   className={`flex ${
@@ -698,10 +752,50 @@ const handleAISubmit = async () => {
           msg.sender === "user"
             ? "bg-blue-500 text-white text-sm"
             : "bg-gray-200 text-gray-800"
-        }`}>{msg.text}</span> // Otherwise, render the plain text
+        }`}>
+          {msg.text}</span> // Otherwise, render the plain text
       )}
                 </div>
-              ))}
+              ))} */}
+     {messages.map((msg, index) => (
+    <div
+      key={index}
+      className={`flex ${
+        msg.sender === "user"
+          ? "justify-end text-xs"
+          : "justify-start text-sm items-center"
+      } mb-2`}
+    >
+      {msg.sender === "bot" && (
+        <img
+          src={bull}
+          alt="Bot"
+          className="w-12 h-12 object-contain mr-2"
+        />
+      )}
+
+      {msg.htmlContent ? (
+        <div
+          className={`p-2 max-w-xs text-xs rounded-lg ${
+            msg.sender === "user"
+              ? "bg-blue-500 text-white text-sm"
+              : "bg-gray-200 text-gray-800"
+          }`}
+          dangerouslySetInnerHTML={{ __html: msg.htmlContent }} // Render structured HTML
+        />
+      ) : (
+        <span
+          className={`p-2 max-w-xs text-xs rounded-lg ${
+            msg.sender === "user"
+              ? "bg-blue-500 text-white text-sm"
+              : "bg-gray-200 text-gray-800"
+          }`}
+        >
+          {msg.text}
+        </span>
+      )}
+    </div>
+  ))}
 
               {isTyping && (
                 <div className="flex items-center">

@@ -1,92 +1,212 @@
+// import React from "react";
+// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+// import {
+//   faFacebook,
+//   faInstagram,
+//   faYoutube,
+// } from "@fortawesome/free-brands-svg-icons"; // Import the needed icons
+// import Section from "./Section";
+// import Title from "./Title";
+// import Button from "./Button";
+// import aibotgen from "../../src/assets/aibotgen.png";
+// import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
+// import { smallSphere, stars } from "../assets";
+// import { Link } from "react-router-dom";
+
+// const Contact = () => {
+//   return (
+//     <Section id="contact" className="mt-12 bg-gradient-to-b from-gray-50 to-white py-12">
+//        <div className="hidden relative justify-center mb-[6.5rem] lg:flex">
+//           <img
+//             src={smallSphere}
+//             className="relative z-1"
+//             width={255}
+//             height={255}
+//             alt="Sphere"
+//           />
+//           <div className="absolute top-1/2 left-1/2 w-[60rem] -translate-x-1/2 -translate-y-1/2 pointer-events-none">
+//             <img
+//               src={stars}
+//               className="w-full"
+//               width={950}
+//               height={400}
+//               alt="Stars"
+//             />
+//           </div>
+//         </div>
+//       <Title
+//         className="text-center max-w-2xl mx-auto"
+//         title="Contact"
+//         text="Pour toute question ou assistance, n'hésitez pas à nous contacter via notre formulaire en ligne ou par email. Nous sommes là pour vous aider !"
+//       />
+
+//       <div className="container  mx-auto px-6 md:px-12 lg:px-20 grid grid-cols-1 md:grid-cols-2 gap-10 mt-10">
+  
+//         <div className="flex justify-center items-center">
+//           <img
+//             src={aibotgen}
+//             alt="Service"
+//             className="w-full max-w-md"
+//           />
+//         </div>
+
+ 
+//         <div className="bg-white p-8 rounded-lg shadow-md flex flex-col justify-center space-y-8">
+  
+//           <div className="space-y-4">
+//             <div>
+//               <h5 className="text-xl font-semibold text-black">Notre Adresse</h5>
+//               <p className="text-gray-600">123 Rue de l'Innovation, Paris, France</p>
+//             </div>
+//             <div>
+//               <h5 className="text-xl font-semibold text-black">Téléphone</h5>
+//               <p className="text-gray-600">+33 1 23 45 67 89</p>
+//             </div>
+//             <div>
+//               <h5 className="text-xl font-semibold text-black">Email</h5>
+//               <p className="text-gray-600">botgeneration.ai@gmail.com</p>
+//             </div>
+//           </div>
+
+
+//           <div>
+//             <h5 className="text-xl font-semibold text-black mb-4">Suivez-nous</h5>
+//             <div className="flex space-x-6">
+//               <a
+//                 href="https://www.facebook.com/people/Botgenerationia/61569901421109/?mibextid=LQQJ4d&rdid=PaLOYCueA8SQzb1R&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F19VpNpmHaX%2F%3Fmibextid%3DLQQJ4d"
+//                 target="_blank"
+//                 rel="noopener noreferrer"
+//                 className="text-black hover:text-blue-600"
+//               >
+//                 <FontAwesomeIcon icon={faFacebook} size="2x" />
+//               </a>
+//               <a
+//                 href="https://www.instagram.com/botgeneration.ia/?igsh=YWVjNmNyb3FzeDMx&utm_source=qr"
+//                 target="_blank"
+//                 rel="noopener noreferrer"
+//                 className="text-gray-600 hover:text-pink-500"
+//               >
+//                 <FontAwesomeIcon icon={faInstagram} size="2x" />
+//               </a>
+//               <a
+//                 href="https://youtube.com"
+//                 target="_blank"
+//                 rel="noopener noreferrer"
+//                 className="text-gray-600 hover:text-red-600"
+//               >
+//                 <FontAwesomeIcon icon={faYoutube} size="2x" />
+//               </a>
+//               {/* <a
+//                 href="https://microsoft.com"
+//                 target="_blank"
+//                 rel="noopener noreferrer"
+//                 className="text-gray-600 hover:text-blue-700"
+//               >
+//                 <FontAwesomeIcon icon={faMicrosoft} size="2x" />
+//               </a> */}
+//             </div>
+//           </div>
+
+
+//           <div className="flex justify-start">
+//             <Button
+//               className="hover:bg-[#5ea76c] text-white text-lg rounded-lg flex items-center  bg-[#77be89] transition"
+//             >
+//               <Link className="mr-2 font-semibold" to='/formaulaire'>Formulaire</Link>
+//               <FontAwesomeIcon icon={faEnvelope} className="text-white" />
+              
+//             </Button>
+//           </div>
+//         </div>
+//       </div>
+//     </Section>
+//   );
+// };
+
+// export default Contact;
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faFacebook,
-  faInstagram,
-  faYoutube,
-  faMicrosoft,
-
-} from "@fortawesome/free-brands-svg-icons"; // Import the needed icons
+import { faFacebook, faInstagram, faYoutube } from "@fortawesome/free-brands-svg-icons"; 
+import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
+import { Link } from "react-router-dom";
 import Section from "./Section";
 import Title from "./Title";
 import Button from "./Button";
 import aibotgen from "../../src/assets/aibotgen.png";
-import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import { smallSphere, stars } from "../assets";
-import { Link } from "react-router-dom";
 
 const Contact = () => {
   return (
     <Section id="contact" className="mt-12 bg-gradient-to-b from-gray-50 to-white py-12">
-       <div className="hidden relative justify-center mb-[6.5rem] lg:flex">
+      {/* Decorative Sphere and Stars */}
+      <div className="hidden relative justify-center mb-16 lg:flex">
+        <img
+          src={smallSphere}
+          className="relative z-10"
+          width={255}
+          height={255}
+          alt="Sphere"
+        />
+        <div className="absolute top-1/2 left-1/2 w-[60rem] -translate-x-1/2 -translate-y-1/2 pointer-events-none">
           <img
-            src={smallSphere}
-            className="relative z-1"
-            width={255}
-            height={255}
-            alt="Sphere"
+            src={stars}
+            className="w-full"
+            width={950}
+            height={400}
+            alt="Stars"
           />
-          <div className="absolute top-1/2 left-1/2 w-[60rem] -translate-x-1/2 -translate-y-1/2 pointer-events-none">
-            <img
-              src={stars}
-              className="w-full"
-              width={950}
-              height={400}
-              alt="Stars"
-            />
-          </div>
         </div>
+      </div>
+
+      {/* Title Section */}
       <Title
         className="text-center max-w-2xl mx-auto"
         title="Contact"
         text="Pour toute question ou assistance, n'hésitez pas à nous contacter via notre formulaire en ligne ou par email. Nous sommes là pour vous aider !"
       />
 
-      <div className="container  mx-auto px-6 md:px-12 lg:px-20 grid grid-cols-1 md:grid-cols-2 gap-10 mt-10">
-  
+      {/* Contact Details and Image */}
+      <div className="container mx-auto px-6 md:px-12 lg:px-20 grid grid-cols-1 md:grid-cols-2 gap-10 mt-10">
+        {/* Image Section */}
         <div className="flex justify-center items-center">
-          <img
-            src={aibotgen}
-            alt="Service"
-            className="w-full max-w-md"
-          />
+          <img src={aibotgen} alt="Service" className="w-full max-w-md rounded-lg shadow-md" />
         </div>
 
- 
-        <div className="bg-white p-8 rounded-lg shadow-md flex flex-col justify-center space-y-8">
-  
-          <div className="space-y-4">
+        {/* Contact Information Section */}
+        <div className="bg-white p-8 rounded-lg shadow-lg flex flex-col justify-between space-y-8">
+          {/* Address, Phone, Email */}
+          <div className="space-y-6">
             <div>
-              <h5 className="text-xl font-semibold text-black">Notre Adresse</h5>
+              <h5 className="text-xl font-semibold text-gray-900">Notre Adresse</h5>
               <p className="text-gray-600">123 Rue de l'Innovation, Paris, France</p>
             </div>
             <div>
-              <h5 className="text-xl font-semibold text-black">Téléphone</h5>
+              <h5 className="text-xl font-semibold text-gray-900">Téléphone</h5>
               <p className="text-gray-600">+33 1 23 45 67 89</p>
             </div>
             <div>
-              <h5 className="text-xl font-semibold text-black">Email</h5>
+              <h5 className="text-xl font-semibold text-gray-900">Email</h5>
               <p className="text-gray-600">botgeneration.ai@gmail.com</p>
             </div>
           </div>
 
-
+          {/* Social Media Links */}
           <div>
-            <h5 className="text-xl font-semibold text-black mb-4">Suivez-nous</h5>
+            <h5 className="text-xl font-semibold text-gray-900 mb-4">Suivez-nous</h5>
             <div className="flex space-x-6">
               <a
-                href="https://www.facebook.com/people/Botgenerationia/61569901421109/?mibextid=LQQJ4d&rdid=PaLOYCueA8SQzb1R&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F19VpNpmHaX%2F%3Fmibextid%3DLQQJ4d"
+                href="https://www.facebook.com/people/Botgenerationia/61569901421109/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-black hover:text-blue-600"
+                className="text-gray-600 hover:text-blue-600 transition duration-200"
               >
                 <FontAwesomeIcon icon={faFacebook} size="2x" />
               </a>
               <a
-                href="https://www.instagram.com/botgeneration.ia/?igsh=YWVjNmNyb3FzeDMx&utm_source=qr"
+                href="https://www.instagram.com/botgeneration.ia/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-600 hover:text-pink-500"
+                className="text-gray-600 hover:text-pink-500 transition duration-200"
               >
                 <FontAwesomeIcon icon={faInstagram} size="2x" />
               </a>
@@ -94,29 +214,20 @@ const Contact = () => {
                 href="https://youtube.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-600 hover:text-red-600"
+                className="text-gray-600 hover:text-red-600 transition duration-200"
               >
                 <FontAwesomeIcon icon={faYoutube} size="2x" />
               </a>
-              {/* <a
-                href="https://microsoft.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-600 hover:text-blue-700"
-              >
-                <FontAwesomeIcon icon={faMicrosoft} size="2x" />
-              </a> */}
             </div>
           </div>
 
-
-          <div className="flex justify-start">
-            <Button
-              className="hover:bg-[#5ea76c] text-white text-lg rounded-lg flex items-center  bg-[#77be89] transition"
-            >
-              <Link className="mr-2 font-semibold" to='/formaulaire'>Formulaire</Link>
-              <FontAwesomeIcon icon={faEnvelope} className="text-white" />
-              
+          {/* Contact Form Button */}
+          <div className="flex">
+            <Button className="hover:bg-[#5ea76c] bg-[#77be89] text-white text-lg rounded-lg flex items-center px-6 py-2 transition duration-300">
+              <Link className="mr-2 font-semibold" to="/formaulaire">
+                Formulaire
+              </Link>
+              <FontAwesomeIcon icon={faEnvelope} />
             </Button>
           </div>
         </div>
