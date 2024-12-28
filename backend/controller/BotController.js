@@ -284,7 +284,7 @@ const gptResponse = await openai.chat.completions.create({
         console.warn("[WARNING] No content scraped from the website.");
         response.message = "Désolé, je n'ai pas pu récupérer les informations nécessaires.";
       }
-    } else if (generalQuestionCount < 3) {
+    } else if (generalQuestionCount < 2) {
       console.log("[INFO] General input detected. Responding directly...");
       const gptPromptGeneral = `Answer this general question: "${input}" in a clear and concise manner.`;
 
@@ -306,7 +306,7 @@ const gptResponse = await openai.chat.completions.create({
       }
     } else {
             console.log("[INFO] Limit reached for general questions. No response will be given.");
-            response.message = "Désolé, vous avez atteint la limite de 4 questions générales. Veuillez poser des questions spécifiques.";
+            response.message = "Je suis ici pour vous aider à en savoir plus sur LeadsGenerationAI. Faites-moi savoir si vous souhaitez de l'aide pour planifier une démo, découvrir notre produit ou vérifier notre contact ou remplir le formulaire !";
         }
       
 
