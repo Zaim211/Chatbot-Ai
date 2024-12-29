@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useRef } from "react";
 import botImage from "../assets/bot.png";
-import aibot from '../assets/aibot.png'
+import ai from '../../src/assets/ai.png';
 import bull from "../assets/bull.png";
-import botimg from '../assets/botimg.jpg'
+
 import { scenarios } from "../constants/scénario";
 import axios from "axios";
 
@@ -660,7 +660,7 @@ const handleAISubmit = async () => {
             </svg>
           </button>
         ) : (
-          <div className="flex items-center  text-black shadow-lg rounded-lg p-3">
+          <div className="flex items-center shadow-2xl bg-gray-900 rounded-full text-black  p-1">
             {!hasInteracted ? (
               <img
                 src={botImage}
@@ -681,10 +681,10 @@ const handleAISubmit = async () => {
               //   </p>
               // </div>
               <img
-                src={botImage}
+                src={ai}
                 onClick={toggleChatVisibility}
                 alt="Bot Logo"
-                className="w-16 h-16"
+                className="w-16 h-16 object-contain"
               />
             )}
           </div>
@@ -707,7 +707,7 @@ const handleAISubmit = async () => {
               <img src={bull} alt="BotLogo" className="w-18 object-contain h-12" />
               <div>
                 <div className="flex items-center gap-2">
-                  <span className="text-sm font-semibold">BotGenerationAI</span>
+                  <span className="text-sm font-semibold">LeadsGenerationAI</span>
                   <div className="w-3 h-3 bg-green-500 rounded-full"></div>
                 </div>
                 <p className="text-sm text-gray-100">
