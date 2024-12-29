@@ -3,7 +3,7 @@ import React from 'react';
 const Cgu = () => {
   return (
     <div className="lg:mt-24 px-6 lg:px-20 py-10 bg-gray-50 text-gray-800">
-      <h1 className="text-2xl font-bold text-center mb-6 text-black">
+      <h1 className="text-2xl font-bold text-center underline mb-6 text-black">
         Conditions Générales d'Utilisation (CGU) de Botgeneration.ai
       </h1>
       <p className="text-center text-gray-600 mb-8">
