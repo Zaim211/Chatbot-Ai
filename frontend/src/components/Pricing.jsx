@@ -18,7 +18,7 @@ const Pricing = () => {
           title="Payez une fois, utilisez pour toujours"
         />
 
-        <div className="relative">
+        <div className="relative mt-4">
           <PricingList />
           <LeftLine />
           <RightLine />
