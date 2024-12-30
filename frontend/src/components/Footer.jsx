@@ -7,7 +7,7 @@ const Footer = () => {
     <Section crosses className="!px-0 !py-4">
       <div className="container flex sm:justify-between justify-start flex-col items-center gap-2 max-sm:flex-col">
         <p className="caption text-n-4 lg:block mr-6">
-          © {new Date().getFullYear()}. All rights reserved.
+        Copyright © {new Date().getFullYear()} LeadsGenerationAI, Tous les droits sont réservés.
         </p>
 
         <ul className="flex gap-5 mt-2 flex-wrap mr-6">
