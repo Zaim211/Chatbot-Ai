@@ -14,7 +14,7 @@ const Pricing = () => {
      >
       <div className="container relative mt-32 mb-12 z-2">
         <Title
-          tag="Commencez avec BotGeneration.Ai"
+          tag="Commencez avec LeadsGenerationAI"
           title="Payez une fois, utilisez pour toujours"
         />
 
