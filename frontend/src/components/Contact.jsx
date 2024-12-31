@@ -134,6 +134,7 @@ import Title from "./Title";
 import Button from "./Button";
 import aibotgen from "../../src/assets/aibotgen.png";
 import { smallSphere, stars } from "../assets";
+import heroai from "../../src/assets/heroai.png";
 
 const Contact = () => {
   return (
@@ -169,7 +170,7 @@ const Contact = () => {
       <div className="container mx-auto px-6 md:px-12 lg:px-20 grid grid-cols-1 md:grid-cols-2 gap-10 mt-10">
         {/* Image Section */}
         <div className="flex justify-center items-center">
-          <img src={aibotgen} alt="Service" className="w-full max-w-md rounded-lg shadow-md" />
+          <img src={heroai} alt="Service" className="w-full max-w-md rounded-lg shadow-md" />
         </div>
 
         {/* Contact Information Section */}

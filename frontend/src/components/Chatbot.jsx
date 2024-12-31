@@ -663,7 +663,7 @@ const handleAISubmit = async () => {
           <div className="flex items-center shadow-2xl bg-gray-900 rounded-full text-black  p-1">
             {!hasInteracted ? (
               <img
-                src={botImage}
+                src={ai}
                 onClick={toggleChatVisibility}
                 alt="Bot Logo"
                 className="w-16 h-16"
