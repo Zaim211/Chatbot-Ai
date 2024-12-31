@@ -3,6 +3,7 @@ import { curve } from "../assets";
 // import aimobile from "../../src/assets/aimobile.png";
 import Button from "./Button";
 import Section from "./Section";
+import heroai from "../../src/assets/heroai.png";
 
 const Hero = () => {
   return (
@@ -60,7 +61,7 @@ const Hero = () => {
           {/* Right Content - Image */}
           <div className="w-full lg:w-1/2 flex justify-center">
             <img
-              src={aibotgen}
+              src={heroai}
               alt="Botgeneration Assistant"
               className="w-full lg:h-[400px] h-[200px] object-contain"
             />
