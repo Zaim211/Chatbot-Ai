@@ -853,8 +853,8 @@ export const scenarios = {
       </div>
     ),
     options: [
-      { label: "demande de renseignements 🔍", next: "information_request" },
-      { label: "être rappeler 📞", next: "request_who" },
+      { label: "Demande de renseignements 🔍", next: "information_request" },
+      { label: "Etre rappeler 📞", next: "request_who" },
     ],
     botResponse: "D'accord, allons-y ! 😊",
   },
@@ -863,19 +863,22 @@ export const scenarios = {
     options: [
       { label: "Produits et services", next: "request_who" },
       { label: "Support technique", next: "request_who" },
-      { label: "Autre", next: "request_who" },
       { label: "Tarifs", next: "request_who" },
+      { label: "Autre", next: "request_who" },
+  
     ],
     botResponse:
       "Merci pour votre demande ! Pouvez-vous suivre les demandes suivantes pour que nous puissions vous contacter ? 😊"
   },
   request_who: {
-    question: "Pouvez-vous m'indiquer votre type d'utilisateur ? (e.g., Entreprise, Entrepreneur, Particulier)",
+    question: "Pouvez-vous m'indiquer votre type d'utilisateur ? (e.g., Entreprise, Auto-entrepreneur, PME...)",
     options: [
       { label: "Auto entrepreneur", next: "request_lastname" },
       { label: "PME", next: "request_lastname" },
       { label: "Artisan", next: "request_lastname" },
       { label: "Autre", next: "request_lastname" },
+    
+      
     ],
     botResponse: "Merci pour votre réponse ! 😊",
   },

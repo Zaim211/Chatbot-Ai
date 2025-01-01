@@ -2,7 +2,6 @@ import React, { useState, useEffect, useRef } from "react";
 import botImage from "../assets/bot.png";
 import ai from '../../src/assets/ai.png';
 import bull from "../assets/bull.png";
-
 import { scenarios } from "../constants/scénario";
 import axios from "axios";
 
@@ -360,13 +359,6 @@ const handleAISubmit = async () => {
 };
 
 
-
-  
-  
-  
-
-  
-
   const displayMessageWithTypingIndicator = (message, sender) => {
     setIsTyping(true);
     setTimeout(() => {
@@ -393,7 +385,7 @@ const handleAISubmit = async () => {
       selectedOptionLabel === "Autre" ||
       selectedOptionLabel === "Particulier" ||
       selectedOptionLabel === "Entreprise" ||
-      selectedOptionLabel === "Un p"
+      selectedOptionLabel === ""
     ) {
       displayMessageWithTypingIndicator(
         scenarios[currentScenario].botResponse,
@@ -471,66 +463,119 @@ const handleAISubmit = async () => {
 
 
 
-  const displaycardcourse = () => {
-    const courseCard = (
-      <div className="bg-white rounded-lg shadow-md p-4 border border-gray-300 mb-4">
-        {/* <h2 className="text-xl font-bold mb-4">Cours</h2> */}
-        <div className="flex overflow-x-auto space-x-4 mb-4">
-          {ads?.map((a, index) => (
-            <div key={index} className="course-card flex-shrink-0 w-64">
-              <img
-                src={a.imageUrl}
-                alt=""
-                className="w-full h-40 object-cover rounded-lg"
-              />
-              <div className="text-gray-800 mt-2 font-semibold">
-                {a.title}
-              </div>
-              <p className="text-sm text-gray-600 mt-2">{a.mainText}</p>
-             {/* <button
-                onClick={() => {
-                  setChatVisible(false); // Close the chat
+//   const displaycardcourse = () => {
+//     const courseCard = (
+//       <div className="bg-white rounded-lg shadow-md p-4 border border-gray-300 mb-4">
+//         {/* <h2 className="text-xl font-bold mb-4">Cours</h2> */}
+//         <div className="flex overflow-x-auto space-x-4 mb-4">
+//           {ads?.map((a, index) => (
+//             <div key={index} className="course-card flex-shrink-0 w-64">
+//               <img
+//                 src={a.imageUrl}
+//                 alt=""
+//                 className="w-full h-40 object-cover rounded-lg"
+//               />
+//               <div className="text-gray-800 mt-2 font-semibold">
+//                 {a.title}
+//               </div>
+//               <p className="text-sm justify-center text-gray-600 mt-2">{a.mainText}</p>
+//              {/* <button
+//                 onClick={() => {
+//                   setChatVisible(false); // Close the chat
+//                   const section = document.querySelector(a.link);
+//                   if (section) {
+//                     section.scrollIntoView({ behavior: "smooth" }); // Scroll to the section
+//                   }
+//                 }}
+//                 className="mt-2 inline-block bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600"
+//               >
+//                 Plus Details
+//               </button> */}
+//               <button
+//   onClick={() => {
+//     setChatVisible(false); // Close the chat
+//     if (a.link.startsWith("http")) {
+//       // Open external links
+//       window.open(a.link, "_blank");
+//     } else {
+//       // Scroll to internal section
+//       const section = document.querySelector(a.link);
+//       if (section) {
+//         section.scrollIntoView({ behavior: "smooth" });
+//       } else {
+//         console.warn("Section not found:", a.link);
+//       }
+//     }
+//   }}
+//   className="mt-2 inline-block bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600"
+// >
+//   Plus Details
+// </button>
+
+//             </div>
+//           ))}
+//         </div>
+//       </div>
+//     );
+
+//     setMessages((prevMessages) => [
+//       ...prevMessages,
+//       { text: courseCard, sender: "bot" },
+//     ]);
+//   };
+const displaycardcourse = () => {
+  const courseCard = (
+    <div className="bg-white rounded-lg shadow-md p-4 border border-gray-300 mb-4">
+      <div className="flex overflow-x-auto space-x-4 mb-4">
+        {ads?.map((a, index) => (
+          <div key={index} className="course-card flex-shrink-0 w-64">
+            <img
+              src={a.imageUrl}
+              alt=""
+              className="w-full h-40 object-cover rounded-lg"
+            />
+            <div className="text-gray-800 mt-2 font-semibold">
+              {a.title}
+            </div>
+            {/* Set a fixed height for mainText */}
+            <p
+              className="text-sm text-gray-600 mt-2 h-12 overflow-hidden text-ellipsis"
+              style={{ display: "-webkit-box", WebkitLineClamp: 2, WebkitBoxOrient: "vertical" }}
+            >
+              {a.mainText}
+            </p>
+            <button
+              onClick={() => {
+                setChatVisible(false); // Close the chat
+                if (a.link.startsWith("http")) {
+                  // Open external links
+                  window.open(a.link, "_blank");
+                } else {
+                  // Scroll to internal section
                   const section = document.querySelector(a.link);
                   if (section) {
-                    section.scrollIntoView({ behavior: "smooth" }); // Scroll to the section
+                    section.scrollIntoView({ behavior: "smooth" });
+                  } else {
+                    console.warn("Section not found:", a.link);
                   }
-                }}
-                className="mt-2 inline-block bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600"
-              >
-                Plus Details
-              </button> */}
-              <button
-  onClick={() => {
-    setChatVisible(false); // Close the chat
-    if (a.link.startsWith("http")) {
-      // Open external links
-      window.open(a.link, "_blank");
-    } else {
-      // Scroll to internal section
-      const section = document.querySelector(a.link);
-      if (section) {
-        section.scrollIntoView({ behavior: "smooth" });
-      } else {
-        console.warn("Section not found:", a.link);
-      }
-    }
-  }}
-  className="mt-2 inline-block bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600"
->
-  Plus Details
-</button>
-
-            </div>
-          ))}
-        </div>
+                }
+              }}
+              className="mt-2 inline-block bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600"
+            >
+              Plus Details
+            </button>
+          </div>
+        ))}
       </div>
-    );
+    </div>
+  );
 
-    setMessages((prevMessages) => [
-      ...prevMessages,
-      { text: courseCard, sender: "bot" },
-    ]);
-  };
+  setMessages((prevMessages) => [
+    ...prevMessages,
+    { text: courseCard, sender: "bot" },
+  ]);
+};
+
   // const displayCardAds = () => {
   //   const courseCards = (
   //     <div className="bg-white rounded-lg shadow-md p-4 border border-gray-300 mb-4">
@@ -703,8 +748,8 @@ const handleAISubmit = async () => {
           {/* Chat Window */}
           <div className="fixed bottom-16 right-4 bg-gray-200 border border-gray-600 rounded-lg mb-2 pb-2 w-[95%] sm:w-[90%] md:w-[80%] lg:max-w-md max-w-sm z-50">
             {/* Header */}
-            <div className="flex items-center bg-[#97d197] text-white p-2  rounded-t-lg">
-              <img src={bull} alt="BotLogo" className="w-18 object-contain h-12" />
+            <div className="flex items-center bg-[#97d197] space-x-2 text-white p-2  rounded-t-lg">
+              <img src={ai} alt="BotLogo" className="w-10 bg-gray-900 items-center justify-center rounded-full object-contain h-10" />
               <div>
                 <div className="flex items-center gap-2">
                   <span className="text-sm font-semibold">LeadsGenerationAI</span>
