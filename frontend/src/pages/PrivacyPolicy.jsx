@@ -1,8 +1,9 @@
 import React from 'react';
+import Section from '../components/Section';
 
 const PrivacyPolicy = () => {
   return (
-    <div className="lg:mt-24 px-6 lg:px-20 py-10 bg-gray-50 text-gray-800">
+    <Section className="lg:mt-24 px-6 lg:px-20 py-10 bg-gray-50 text-gray-800">
       <h1 className="text-2xl underline font-bold text-center mb-6 text-black">
         Politique de Confidentialité de Botgeneration.ia
       </h1>
@@ -150,16 +151,16 @@ const PrivacyPolicy = () => {
         <p className="text-gray-700">
         Si vous avez des questions concernant cette politique de confidentialité ou la manière dont nous traitons vos données personnelles, n'hésitez pas à nous contacter à l'adresse suivante :
         <ul className="list-disc list-inside space-y-2 pl-4 text-gray-700 mt-2">
-          <li><span className='text-black font-semibold'>Adresse :</span> 123 rue de la Liberté, 75000 Paris</li>
-          <li><span className='text-black font-semibold'>E-mail :</span> 
-          <a href="mailto:Botgeneration.ia@gmail.com" className="text-blue-600 hover:underline hover:text-blue-500">
-          Botgeneration.ia@gmail.com
+          <li><span className='text-black font-semibold'>Adresse : </span> 123 rue de la Liberté, 75000 Paris</li>
+          <li><span className='text-black font-semibold'>E-mail : </span> 
+          <a href="mailto:Botgeneration.ia@gmail.com" className="text-gray-700  hover:underline hover:text-gray-900">
+           Botgeneration.ia@gmail.com
           </a>
             </li>
         </ul>
         </p>
       </section>
-    </div>
+    </Section>
   );
 };
 
