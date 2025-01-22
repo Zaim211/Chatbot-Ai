@@ -47,17 +47,23 @@ const Services = () => {
               </h1>
 
               <div className=" text-n-3">
-                <p className="text-pretty  text-justify consistent-spacing leading-relaxed lg:text-md text-sm mb-6">
-                  ❖ Notre chatbot utilise des scénarios préconfigurés pour
-                  interagir avec vos visiteurs en temps réel. Il est conçu pour
-                  répondre rapidement à leurs questions et les guider dans leurs
-                  recherches d'informations.
+                <p className="text-pretty consistent-spacing leading-relaxed lg:text-md text-sm mb-6">
+                  <span className="text-lg">❖</span>
+                  <span className="ml-2">
+                    Notre chatbot utilise des scénarios préconfigurés pour
+                    interagir avec vos visiteurs en temps réel. Il est conçu
+                    pour répondre rapidement à leurs questions et les guider
+                    dans leurs recherches d'informations.
+                  </span>
                 </p>
 
                 <p className="text-pretty consistent-spacing leading-relaxed lg:text-md text-sm mb-6">
-                  ❖ Notre chatbot peut aussi prendre en charge la génération de
-                  prospects, en recueillant les informations clés et en les
-                  envoyant directement dans votre tableau de bord.
+                  <span className="text-lg">❖</span>
+                  <span className="ml-2">
+                    Notre chatbot peut aussi prendre en charge la génération de
+                    prospects, en recueillant les informations clés et en les
+                    envoyant directement dans votre tableau de bord.
+                  </span>
                 </p>
                 <p className="text-pretty  text-start consistent-spacing leading-relaxed lg:text-md text-sm mb-6">
                   <span className="text-lg">❖</span>
