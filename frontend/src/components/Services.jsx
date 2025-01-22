@@ -10,18 +10,18 @@ const Services = () => {
 
       <div className="relative z-10 container">
         <Title
-          title="Comment ça marche notre Chatbot ?"
+          title="Comment ça marche notre Chatbot"
           text="Intégrez facilement notre chatbot intelligent sur votre site web pour générer des prospects"
-          className="md:max-w-md text-black lg:max-w-2xl text-center lg:text-xl text-md"
+          className="md:max-w-md text-black lg:max-w-3xl  text-center lg:text-xl text-md"
         />
 
         <div className="relative">
-          <div className="relative z-10 flex flex-col lg:flex-row  lg:h-[32rem] p-6 lg:p-2 border border-n-1/10 rounded-3xl overflow-hidden gap-8">
+          <div className="relative z-10 flex flex-col lg:flex-row  lg:h-[32rem] px-6 lg:p-6 border border-n-1/10 rounded-3xl overflow-hidden gap-8">
             {/* Image on the left */}
             <div className="w-full lg:w-1/2">
               <img
                 src={ben}
-                className="h-[100px] sm:h-[300px]  w-full object-contain rounded-md"
+                className="h-[200px] sm:h-[300px] w-full object-contain rounded-md"
                 width={630}
                 height={750}
                 alt="Chatbot intégré"
@@ -29,7 +29,11 @@ const Services = () => {
               <ul className="body-2 mt-4">
                 {brainwaveServices.map((item, index) => (
                   <li key={index} className="flex items-start">
-                    <img className="w-12 h-12 object-contain" src={check} alt="Check" />
+                    <img
+                      className="w-12 h-12 object-contain"
+                      src={check}
+                      alt="Check"
+                    />
                     <p className="ml-2 mt-3 text-black font-medium">{item}</p>
                   </li>
                 ))}
@@ -38,37 +42,31 @@ const Services = () => {
 
             {/* Explanation about how the chatbot works on the right */}
             <div className="relative z-10 mt-2  lg:w-1/2 ">
-              <h1 className="md:max-w-md text-black mt-2 lg:max-w-2xl text-start mb-8 lg:text-2xl text-md">
+              <h1 className="md:max-w-md text-black mt-2 lg:max-w-2xl text-start mb-8 lg:text-2xl text-sm">
                 Comment fonctionne notre Chatbot ?
               </h1>
 
               <div className=" text-n-3">
-                <p className="flex sm:flex-row lg:text-justify text-start items-start mb-6">
-                  <span className="w-24 h-8 flex items-center justify-center rounded-full bg-[#77be89] text-white mr-4">
-                    1
-                  </span>
-                  Notre chatbot utilise des scénarios préconfigurés pour
+                <p className="text-pretty  text-justify consistent-spacing leading-relaxed lg:text-md text-sm mb-6">
+                  ❖ Notre chatbot utilise des scénarios préconfigurés pour
                   interagir avec vos visiteurs en temps réel. Il est conçu pour
                   répondre rapidement à leurs questions et les guider dans leurs
                   recherches d'informations.
                 </p>
 
-                <p className="flex sm:flex-row lg:text-justify text-start items-start mb-6">
-                  <span className="w-20 h-8 flex items-center justify-center rounded-full bg-[#77be89] text-white mr-4">
-                    2
-                  </span>
-                  Il peut orienter les utilisateurs vers les informations
-                  pertinentes en fonction des scénarios définis, assurant ainsi
-                  une expérience fluide et efficace pour chaque visiteur.
-                </p>
-
-                <p className="flex sm:flex-row lg:text-justify text-start items-start">
-                  <span className="w-20 lg:w-20 h-8 flex items-center justify-center rounded-full bg-[#77be89] text-white mr-4">
-                    3
-                  </span>
-                  Notre chatbot peut aussi prendre en charge la génération de
+                <p className="text-pretty consistent-spacing leading-relaxed lg:text-md text-sm mb-6">
+                  ❖ Notre chatbot peut aussi prendre en charge la génération de
                   prospects, en recueillant les informations clés et en les
                   envoyant directement dans votre tableau de bord.
+                </p>
+                <p className="text-pretty  text-start consistent-spacing leading-relaxed lg:text-md text-sm mb-6">
+                  <span className="text-lg">❖</span>
+                  <span className="ml-2">
+                    Il peut orienter les utilisateurs vers les informations
+                    pertinentes en fonction des scénarios définis, assurant
+                    ainsi une expérience fluide et efficace pour chaque
+                    visiteur.
+                  </span>
                 </p>
               </div>
             </div>
