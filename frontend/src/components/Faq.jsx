@@ -23,7 +23,7 @@ const Faq = () => {
         />
       <div className="container relative z-2 grid grid-cols-1 mt-8 md:grid-cols-2 gap-8">
         {/* Left Panel */}
-        <div className="flex items-center justify-center">
+        <div className="lg:flex hidden items-center justify-center">
           <div>
             {/* <h2 className="md:max-w-md text-black lg:max-w-2xl text-center lg:text-xl text-md">
               Questions Fréquemment Posées
@@ -72,6 +72,26 @@ const Faq = () => {
               </li>
             ))}
           </ul>
+        </div>
+        <div className="lg:hidden flex  items-center justify-center">
+          <div>
+            {/* <h2 className="md:max-w-md text-black lg:max-w-2xl text-center lg:text-xl text-md">
+              Questions Fréquemment Posées
+            </h2> */}
+            <p className="text-gray-700 mb-4 md:max-w-md lg:max-w-2xl text-center lg:text-xl text-sm">
+              Pour plus de questions, contactez-nous via <br /> L'email où Formulaire.
+            </p>
+
+            {/* Contact Button */}
+            <div className="lg:ml-28 ml-16">
+            <Button className="hover:bg-[#5ea76c] text-white text-lg justify-end rounded-lg flex items-center bg-[#77be89] transition">
+              <Link className="mr-2 font-semibold" to="/formulaire">
+                Formulaire
+              </Link>
+              <FontAwesomeIcon icon={faEnvelope} className="text-white" />
+            </Button>
+            </div>
+          </div>
         </div>
       </div>
     </Section>
