@@ -50,7 +50,7 @@ const Contact = () => {
         {/* Contact Information Section */}
         <div className="bg-white p-8 rounded-lg shadow-lg flex flex-col justify-between space-y-8">
           {/* Address, Phone, Email */}
-          <div className="space-y-6">
+          {/* <div className="space-y-6">
             <div>
               <h5 className="text-xl font-semibold text-gray-900">Notre Adresse</h5>
               <p className="text-gray-600">123 Rue de l'Innovation, Paris, France</p>
@@ -63,7 +63,22 @@ const Contact = () => {
               <h5 className="text-xl font-semibold text-gray-900">Email</h5>
               <p className="text-gray-600">botgeneration.ai@gmail.com</p>
             </div>
-          </div>
+          </div> */}
+          <div className="space-y-6 md:space-y-8">
+  <div className="flex flex-col">
+    <h5 className="lg:text-2xl text-lg font-semibold text-gray-900 mb-2">Notre Adresse</h5>
+    <p className="text-lg text-gray-700">123 Rue de l'Innovation, Paris, France</p>
+  </div>
+  <div className="flex flex-col">
+    <h5 className="lg:text-2xl text-lg font-semibold text-gray-900 mb-2">Téléphone</h5>
+    <p className="text-lg text-gray-700">+33 1 23 45 67 89</p>
+  </div>
+  <div className="flex flex-col">
+    <h5 className="lg:text-2xl text-lg font-semibold text-gray-900 mb-2">Email</h5>
+    <p className="text-lg text-gray-700">botgeneration.ai@gmail.com</p>
+  </div>
+</div>
+
 
           {/* Social Media Links */}
           <div>
