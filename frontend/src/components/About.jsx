@@ -92,18 +92,27 @@ const About = () => {
       <div className="w-full text-center  text-black space-y-4">
       <Title
           title=" Pourquoi Nous ?"
-          className="md:max-w-md text-black lg:max-w-2xl text-center lg:text-xl text-md"
+          className="md:max-w-md text-black lg:max-w-2xl w-full text-center lg:text-xl text-md"
           text="Décuplez vos taux de transformation de leads."
         />
-        
-        <p className="px-0 text-center lg:text-md text-[16px] font-normal">
+{/*         
+        <p className="px-4 flex-col text-justify lg:text-md text-[16px] font-normal">
           Accélérez le processus de vente grâce à l'assistant personnel{" "}
-          <strong className="text-[#77be89]">Leadsgeneration.AI</strong>{" "}
+          <span className="text-[#77be89] flex-col">Leadsgeneration.AI</span>{" "}
           exclusivement conçu pour les conseillers qui contactent les leads, les
           conseille en temps réel en leur indiquant les bonnes pratiques à
           suivre face à un prospect en ligne. Transformez vos conversations en
           ventes potentielles.
-        </p>
+        </p> */}
+        <p className="px-auto text-justify text-[16px] font-normal leading-relaxed">
+  Accélérez le processus de vente grâce à l'assistant personnel{" "}
+  <strong className="text-[#77be89]">Leadsgeneration.AI</strong>{" "}
+  exclusivement conçu pour les conseillers qui contactent les leads, les
+  conseille en temps réel en leur indiquant les bonnes pratiques à
+  suivre face à un prospect en ligne. Transformez vos conversations en
+  ventes potentielles.
+</p>
+
 
         {/* Boxes Section */}
         <div className="w-full mt-16 space-y-12">
