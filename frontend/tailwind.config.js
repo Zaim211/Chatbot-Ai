@@ -78,7 +78,7 @@ export default {
       addBase({});
       addComponents({
         ".container": {
-          "@apply max-w-[77.5rem] mx-auto px-5 md:px-10 lg:px-15 xl:max-w-[87.5rem]":
+          "@apply max-w-[77.5rem] mx-auto px-6 md:px-10 lg:px-12 xl:max-w-[87.5rem]":
             {},
         },
         ".h1": {
@@ -86,7 +86,7 @@ export default {
             {},
         },
         ".h2": {
-          "@apply text-[1.70rem] leading-[2.5rem] md:text-[1rem] md:leading-[2.5rem] lg:text-[2rem] lg:leading-[3.5rem] xl:text-[2rem] xl:leading-tight":
+          "@apply text-[1.12rem] leading-[2.5rem]  md:leading-[2.5rem] lg:text-[3rem] lg:leading-[3.5rem] xl:text-[1rem] xl:leading-tight":
             {},
         },
         ".h3": {
@@ -125,6 +125,10 @@ export default {
       addUtilities({
         ".tap-highlight-color": {
           "-webkit-tap-highlight-color": "rgba(0, 0, 0, 0)",
+        },
+        '.consistent-spacing': {
+          '-webkit-font-smoothing': 'antialiased',
+          '-moz-osx-font-smoothing': 'grayscale',
         },
       });
     }),
