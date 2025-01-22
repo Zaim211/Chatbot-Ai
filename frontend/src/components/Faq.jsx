@@ -18,8 +18,8 @@ const Faq = () => {
     <Section id="faq" className="mt-32">
         <Title
           title="Questions Fréquemment Posées"
-           className="md:max-w-md text-black lg:max-w-2xl text-center lg:text-xl text-md"
-          text="Trouvez rapidement des réponses à vos questions grâce à notre section dédiée aux Questions Fréquemment Posées. Un support clair et accessible pour vous accompagner à tout moment"
+           className="md:max-w-md text-black text-start lg:max-w-3xl lg:text-lg text-md"
+          text="Trouvez rapidement des réponses à vos questions grâce à notre section dédiée aux Questions Fréquemment Posées."
         />
       <div className="container relative z-2 grid grid-cols-1 mt-8 md:grid-cols-2 gap-8">
         {/* Left Panel */}
@@ -28,7 +28,7 @@ const Faq = () => {
             {/* <h2 className="md:max-w-md text-black lg:max-w-2xl text-center lg:text-xl text-md">
               Questions Fréquemment Posées
             </h2> */}
-            <p className="text-gray-700 mb-4 md:max-w-md lg:max-w-2xl text-center lg:text-xl text-md">
+            <p className="text-gray-700 mb-4 md:max-w-md lg:max-w-2xl text-center lg:text-xl text-sm">
               Pour plus de questions, contactez-nous via <br /> L'email où Formulaire.
             </p>
 
