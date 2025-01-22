@@ -104,7 +104,7 @@ const About = () => {
           suivre face à un prospect en ligne. Transformez vos conversations en
           ventes potentielles.
         </p> */}
-        <p className="px-auto text-pretty consistent-spacing text-[16px] font-normal leading-relaxed">
+        <p className="px-auto text-start text-pretty consistent-spacing text-[16px] font-normal leading-relaxed">
   Accélérez le processus de vente grâce à l'assistant personnel{" "}
   <strong className="text-[#77be89]">Leadsgeneration.AI</strong>{" "}
   exclusivement conçu pour les conseillers qui contactent les leads, les
