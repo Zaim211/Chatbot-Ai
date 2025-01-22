@@ -96,7 +96,7 @@ const About = () => {
           text="Décuplez vos taux de transformation de leads."
         />
         
-        <p className="px-0 text-justify lg:text-md text-[16px] font-normal">
+        <p className="px-0 text-center lg:text-md text-[16px] font-normal">
           Accélérez le processus de vente grâce à l'assistant personnel{" "}
           <strong className="text-[#77be89]">Leadsgeneration.AI</strong>{" "}
           exclusivement conçu pour les conseillers qui contactent les leads, les
