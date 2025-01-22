@@ -37,13 +37,13 @@ const Services = () => {
             </div>
 
             {/* Explanation about how the chatbot works on the right */}
-            <div className="relative z-10 mt-2 w-full lg:w-1/2">
+            <div className="relative z-10 mt-2  lg:w-1/2 ">
               <h1 className="md:max-w-md text-black mt-2 lg:max-w-2xl text-start mb-8 lg:text-2xl text-md">
                 Comment fonctionne notre Chatbot ?
               </h1>
 
               <div className=" text-n-3">
-                <p className="flex sm:flex-row items-start mb-6">
+                <p className="flex sm:flex-row lg:text-justify text-start items-start mb-6">
                   <span className="w-24 h-8 flex items-center justify-center rounded-full bg-[#77be89] text-white mr-4">
                     1
                   </span>
@@ -53,7 +53,7 @@ const Services = () => {
                   recherches d'informations.
                 </p>
 
-                <p className="flex sm:flex-row items-start mb-6">
+                <p className="flex sm:flex-row lg:text-justify text-start items-start mb-6">
                   <span className="w-20 h-8 flex items-center justify-center rounded-full bg-[#77be89] text-white mr-4">
                     2
                   </span>
@@ -62,7 +62,7 @@ const Services = () => {
                   une expérience fluide et efficace pour chaque visiteur.
                 </p>
 
-                <p className="flex sm:flex-row items-start">
+                <p className="flex sm:flex-row lg:text-justify text-start items-start">
                   <span className="w-20 lg:w-20 h-8 flex items-center justify-center rounded-full bg-[#77be89] text-white mr-4">
                     3
                   </span>

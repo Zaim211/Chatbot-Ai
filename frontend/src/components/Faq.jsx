@@ -18,7 +18,7 @@ const Faq = () => {
     <Section id="faq" className="mt-32">
         <Title
           title="Questions Fréquemment Posées"
-          className="md:max-w-md text-black lg:max-w-2xl text-center lg:text-xl text-md"
+           className="md:max-w-md text-black lg:max-w-2xl text-center lg:text-xl text-md"
           text="Trouvez rapidement des réponses à vos questions grâce à notre section dédiée aux Questions Fréquemment Posées. Un support clair et accessible pour vous accompagner à tout moment"
         />
       <div className="container relative z-2 grid grid-cols-1 mt-8 md:grid-cols-2 gap-8">
@@ -65,7 +65,7 @@ const Faq = () => {
                   </span>
                 </button>
                 {selectedQuestionIndex === index && (
-                  <div className="p-4 text-gray-700 border-t border-gray-300">
+                  <div className="p-4 lg:text-justify text-start text-sm text-gray-700 border-t border-gray-300">
                     {faq.answer}
                   </div>
                 )}

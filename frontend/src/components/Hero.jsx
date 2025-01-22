@@ -15,10 +15,10 @@ const Hero = () => {
       id="hero"
     >
       <div className="container relative lg:mt-8 mb-16">
-        <div className="flex flex-col-reverse lg:flex-row items-center lg:gap-2 md:px-6">
+        <div className="flex flex-col-reverse lg:flex-row items-center lg:gap-2 md:px-2">
           {/* Left Content */}
-          <div className="text-center lg:text-left w-full lg:w-1/2 sm:px-6">
-            <h1 className="text-black text-[1.3rem] md:text-[2rem] leading-[2rem] md:leading-[3rem] font-bold mb-4">
+          <div className="text-center lg:text-left w-full lg:w-1/2 sm:px-2">
+            <h1 className="text-black block text-[1.3rem] md:text-[2rem] leading-[2rem] md:leading-[3rem] font-bold mb-4">
               Optimisez Votre Productivité
               <span className="hidden lg:inline">
                 <br />
@@ -59,11 +59,11 @@ const Hero = () => {
           </div>
 
           {/* Right Content - Image */}
-          <div className="w-full lg:w-1/2 flex justify-center">
+          <div className="w-full lg:w-1/2 lg:mb-0 mb-4 flex justify-center">
             <img
               src={heroai}
               alt="Botgeneration Assistant"
-              className="w-full lg:h-[400px] h-[200px] object-contain"
+              className="w-full lg:h-[380px] h-[300px] object-contain"
             />
           </div>
         </div>

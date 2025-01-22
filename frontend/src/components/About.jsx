@@ -96,7 +96,7 @@ const About = () => {
           text="Décuplez vos taux de transformation de leads."
         />
         
-        <p className="px-0">
+        <p className="px-0 text-justify lg:text-md text-[16px] font-normal">
           Accélérez le processus de vente grâce à l'assistant personnel{" "}
           <strong className="text-[#77be89]">Leadsgeneration.AI</strong>{" "}
           exclusivement conçu pour les conseillers qui contactent les leads, les
@@ -115,7 +115,7 @@ const About = () => {
                   Analyse en Temps Réel
                 </a>
               </h3>
-              <p className="text-md text-gray-700">
+              <p className="lg:text-sm text-xs lg:text-justify text-center text-gray-700">
                 Recevez des conseils instantanés sur la meilleure approche à
                 adopter pour convertir vos leads en clients.
               </p>
@@ -128,7 +128,7 @@ const About = () => {
                   Automatisation Intelligente
                 </a>
               </h3>
-              <p className="text-md text-center text-gray-700">
+              <p className="lg:text-sm text-xs lg:text-justify text-center text-gray-700">
                 Simplifiez vos tâches quotidiennes grâce à l’automatisation des
                 processus de suivi et d’engagement des prospects.
               </p>
@@ -141,7 +141,7 @@ const About = () => {
                   Support Personnalisé
                 </a>
               </h3>
-              <p className="text-md text-center text-gray-700">
+              <p className="lg:text-sm text-xs lg:text-justify text-center text-gray-700">
                 Bénéficiez d’un support dédié pour vous guider et optimiser vos
                 interactions avec les clients potentiels.
               </p>

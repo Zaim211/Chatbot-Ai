@@ -163,9 +163,9 @@ export const categories = {
 
 export  const faqData = [
     {
-      question: "Qu'est ce que Leadsgeneration.AI ?",
+      question: "Qu'est ce que LeadsGeneration.AI ?",
       answer:
-        "Botgeneration.ai vous aide à construire un chatbot IA spécialisé aussi intelligent que ChatGPT pour mieux servir vos clients. Aucune c programmation n'est requise pour créer un chatbot sur votre site web. Cela prend environ 5 minutes pour voir un chatbot en fonctionnement.",
+        "LeadsGeneration.AI vous aide à construire un chatbot IA spécialisé aussi intelligent que ChatGPT pour mieux servir vos clients. Aucune c programmation n'est requise pour créer un chatbot sur votre site web. Cela prend environ 5 minutes pour voir un chatbot en fonctionnement.",
     },
     {
       question: "Comment ça fonctionne ?",

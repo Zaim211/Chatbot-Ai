@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import botImage from "../assets/bot.png";
 import ai from '../../src/assets/ai.png';
+import iconbot from '../../src/assets/iconbot.png';
 import bull from "../assets/bull.png";
 import { scenarios } from "../constants/scénario";
 import axios from "axios";
@@ -463,84 +464,82 @@ const handleAISubmit = async () => {
 
 
 
-//   const displaycardcourse = () => {
-//     const courseCard = (
-//       <div className="bg-white rounded-lg shadow-md p-4 border border-gray-300 mb-4">
-//         {/* <h2 className="text-xl font-bold mb-4">Cours</h2> */}
-//         <div className="flex overflow-x-auto space-x-4 mb-4">
-//           {ads?.map((a, index) => (
-//             <div key={index} className="course-card flex-shrink-0 w-64">
-//               <img
-//                 src={a.imageUrl}
-//                 alt=""
-//                 className="w-full h-40 object-cover rounded-lg"
-//               />
-//               <div className="text-gray-800 mt-2 font-semibold">
-//                 {a.title}
-//               </div>
-//               <p className="text-sm justify-center text-gray-600 mt-2">{a.mainText}</p>
-//              {/* <button
-//                 onClick={() => {
-//                   setChatVisible(false); // Close the chat
+// const displaycardcourse = () => {
+//   const courseCard = (
+//     <div className="bg-white rounded-lg shadow-md p-4 border border-gray-300 mb-4">
+//       <div className="flex overflow-x-auto space-x-4 mb-4">
+//         {ads?.map((a, index) => (
+//           <div key={index} className="course-card flex-shrink-0 w-64">
+//             <img
+//               src={a.imageUrl}
+//               alt=""
+//               className="w-full h-40 object-cover rounded-lg"
+//             />
+//             <div className="text-gray-800 mt-2 font-semibold">
+//               {a.title}
+//             </div>
+//             {/* Set a fixed height for mainText */}
+//             <p
+//               className="text-sm text-gray-600 mt-2 h-12 overflow-hidden text-ellipsis"
+//               style={{ display: "-webkit-box", WebkitLineClamp: 2, WebkitBoxOrient: "vertical" }}
+//             >
+//               {a.mainText}
+//             </p>
+//             <button
+//               onClick={() => {
+//                 setChatVisible(false); // Close the chat
+//                 if (a.link.startsWith("http")) {
+//                   // Open external links
+//                   window.open(a.link, "_blank");
+//                 } else {
+//                   // Scroll to internal section
 //                   const section = document.querySelector(a.link);
 //                   if (section) {
-//                     section.scrollIntoView({ behavior: "smooth" }); // Scroll to the section
+//                     section.scrollIntoView({ behavior: "smooth" });
+//                   } else {
+//                     console.warn("Section not found:", a.link);
 //                   }
-//                 }}
-//                 className="mt-2 inline-block bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600"
-//               >
-//                 Plus Details
-//               </button> */}
-//               <button
-//   onClick={() => {
-//     setChatVisible(false); // Close the chat
-//     if (a.link.startsWith("http")) {
-//       // Open external links
-//       window.open(a.link, "_blank");
-//     } else {
-//       // Scroll to internal section
-//       const section = document.querySelector(a.link);
-//       if (section) {
-//         section.scrollIntoView({ behavior: "smooth" });
-//       } else {
-//         console.warn("Section not found:", a.link);
-//       }
-//     }
-//   }}
-//   className="mt-2 inline-block bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600"
-// >
-//   Plus Details
-// </button>
-
-//             </div>
-//           ))}
-//         </div>
+//                 }
+//               }}
+//               className="mt-2 inline-block bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600"
+//             >
+//               Plus Details
+//             </button>
+//           </div>
+//         ))}
 //       </div>
-//     );
+//     </div>
+//   );
 
-//     setMessages((prevMessages) => [
-//       ...prevMessages,
-//       { text: courseCard, sender: "bot" },
-//     ]);
-//   };
+//   setMessages((prevMessages) => [
+//     ...prevMessages,
+//     { text: courseCard, sender: "bot" },
+//   ]);
+// };
 const displaycardcourse = () => {
+  if (!ads || ads.length === 0) {
+    // Return nothing if ads data is empty or undefined
+    return null;
+  }
+
   const courseCard = (
     <div className="bg-white rounded-lg shadow-md p-4 border border-gray-300 mb-4">
       <div className="flex overflow-x-auto space-x-4 mb-4">
-        {ads?.map((a, index) => (
+        {ads.map((a, index) => (
           <div key={index} className="course-card flex-shrink-0 w-64">
             <img
               src={a.imageUrl}
               alt=""
               className="w-full h-40 object-cover rounded-lg"
             />
-            <div className="text-gray-800 mt-2 font-semibold">
-              {a.title}
-            </div>
-            {/* Set a fixed height for mainText */}
+            <div className="text-gray-800 mt-2 font-semibold">{a.title}</div>
             <p
               className="text-sm text-gray-600 mt-2 h-12 overflow-hidden text-ellipsis"
-              style={{ display: "-webkit-box", WebkitLineClamp: 2, WebkitBoxOrient: "vertical" }}
+              style={{
+                display: "-webkit-box",
+                WebkitLineClamp: 2,
+                WebkitBoxOrient: "vertical",
+              }}
             >
               {a.mainText}
             </p>
@@ -576,39 +575,7 @@ const displaycardcourse = () => {
   ]);
 };
 
-  // const displayCardAds = () => {
-  //   const courseCards = (
-  //     <div className="bg-white rounded-lg shadow-md p-4 border border-gray-300 mb-4">
-  //       <h2 className="text-xl font-bold mb-4">Ads</h2>
-  //       <div className="flex overflow-x-auto space-x-4 mb-4">
-  //         {ads.map((course, index) => (
-  //           <div key={index} className="course-card flex-shrink-0 w-64">
-  //             <img
-  //               src={course.image}
-  //               alt={course.title}
-  //               className="w-full h-40 object-cover rounded-lg"
-  //             />
-  //             <div className="text-gray-800 mt-2 font-semibold">
-  //               {course.title}
-  //             </div>
-  //             <a
-  //               href={course.link}
-  //               target="_blank"
-  //               rel="noopener noreferrer"
-  //               className="mt-2 inline-block bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600"
-  //             >
-  //               More Details
-  //             </a>
-  //           </div>
-  //         ))}
-  //       </div>
-  //     </div>
-  //   );
-  //   setMessages((prevMessages) => [
-  //     ...prevMessages,
-  //     { text: courseCards, sender: "bot" },
-  //   ]);
-  // }
+
 
   useEffect(() => {
     if (chatContainerRef.current) {
@@ -636,12 +603,12 @@ const displaycardcourse = () => {
       setHasInteracted(true);
       setIsTyping(true);
       displaycardcourse();
-      setTimeout(() => {
+      // setTimeout(() => {
+      // }, 3000);
         displayMessageLineByLine(scenarios.initial.question, "bot");
 
         setCurrentScenario("initial");
         setIsTyping(false);
-      }, 2000);
     } else if (!isChatVisible) {
       setTimeout(() => {
         if (chatContainerRef.current) {
@@ -705,10 +672,10 @@ const displaycardcourse = () => {
             </svg>
           </button>
         ) : (
-          <div className="flex items-center shadow-2xl bg-gray-900 rounded-full text-black  p-1">
+          <div className="flex items-center  text-black  p-1">
             {!hasInteracted ? (
               <img
-                src={ai}
+                src={iconbot}
                 onClick={toggleChatVisibility}
                 alt="Bot Logo"
                 className="w-16 h-16"
@@ -726,7 +693,7 @@ const displaycardcourse = () => {
               //   </p>
               // </div>
               <img
-                src={ai}
+                src={iconbot}
                 onClick={toggleChatVisibility}
                 alt="Bot Logo"
                 className="w-16 h-16 object-contain"

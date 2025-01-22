@@ -1,4 +1,4 @@
-import { Form, Input, Select, Button, message } from 'antd';
+import { Form, Input, Select, Button, message, Row, Col } from 'antd';
 import 'tailwindcss/tailwind.css';
 import Section from '../components/Section';
 import { useNavigate } from 'react-router-dom'; // Use for redirection
@@ -38,7 +38,7 @@ const ServiceForm = () => {
 
   return (
     <Section
-      className="pt-20 md:pt-20 bg-gray-50 min-h-screen"
+      className="pt-20 md:pt-20 bg-gradient-to-b from-gray-200 to-gray-20 min-h-screen"
       crosses
       crossesOffset="lg:translate-y-[5.25rem]"
       customPaddings
@@ -56,8 +56,8 @@ const ServiceForm = () => {
             autoComplete="off"
             className="space-y-6 bg-white shadow-lg rounded-lg p-8"
           >
-            {/* Prénom */}
-            <Form.Item
+           
+            {/* <Form.Item
               label="Prenom"
               name="request_lastname"
               rules={[{ required: true, message: 'Veuillez entrer votre prénom' }]}
@@ -69,7 +69,7 @@ const ServiceForm = () => {
               />
             </Form.Item>
 
-            {/* Nom */}
+ 
             <Form.Item
               label="Nom"
               name="request_name"
@@ -82,7 +82,6 @@ const ServiceForm = () => {
               />
             </Form.Item>
 
-            {/* Téléphone */}
             <Form.Item
               label="Téléphone"
               name="request_phone"
@@ -98,7 +97,7 @@ const ServiceForm = () => {
               />
             </Form.Item>
 
-            {/* Email */}
+         
             <Form.Item
               label="Email"
               name="request_email"
@@ -112,7 +111,75 @@ const ServiceForm = () => {
                 placeholder="Entrez votre adresse email"
                 className="w-full border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500"
               />
-            </Form.Item>
+            </Form.Item> */}
+            <Row gutter={[16, 16]}>
+  {/* Prénom */}
+  <Col xs={24} sm={12}>
+    <Form.Item
+      label="Prénom"
+      name="request_lastname"
+      rules={[{ required: true, message: 'Veuillez entrer votre prénom' }]}
+      className="font-semibold"
+    >
+      <Input
+        placeholder="Entrez votre prénom"
+        className="w-full border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500"
+      />
+    </Form.Item>
+  </Col>
+
+  {/* Nom */}
+  <Col xs={24} sm={12}>
+    <Form.Item
+      label="Nom"
+      name="request_name"
+      rules={[{ required: true, message: 'Veuillez entrer votre nom' }]}
+      className="font-semibold"
+    >
+      <Input
+        placeholder="Entrez votre nom"
+        className="w-full border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500"
+      />
+    </Form.Item>
+  </Col>
+
+  {/* Téléphone */}
+  <Col xs={24} sm={12}>
+    <Form.Item
+      label="Téléphone"
+      name="request_phone"
+      rules={[
+        { required: true, message: 'Veuillez entrer votre numéro de téléphone' },
+        { pattern: /^[0-9]+$/, message: 'Le numéro doit être numérique' },
+      ]}
+      className="font-semibold"
+    >
+      <Input
+        placeholder="Entrez votre numéro de téléphone"
+        className="w-full border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500"
+      />
+    </Form.Item>
+  </Col>
+
+  {/* Email */}
+  <Col xs={24} sm={12}>
+    <Form.Item
+      label="Email"
+      name="request_email"
+      rules={[
+        { required: true, message: 'Veuillez entrer votre adresse email' },
+        { type: 'email', message: 'Veuillez entrer une adresse email valide' },
+      ]}
+      className="font-semibold"
+    >
+      <Input
+        placeholder="Entrez votre adresse email"
+        className="w-full border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500"
+      />
+    </Form.Item>
+  </Col>
+</Row>
+
 
             {/* Type */}
             <Form.Item

@@ -7,7 +7,7 @@ const Title = ({ className, title, text, tag }) => {
     >
       {tag && <TagLine className="mb-2 h1 font-bold text-center text-lg text-[#b1e2be] md:justify-center">{tag}</TagLine>}
       {title && <h2 className="h2 text-center">{title}</h2>}
-      {text && <p className="body-2 mt-2 ">{text}</p>}
+      {text && <p className="body-2 mt-2">{text}</p>}
     </div>
   );
 };
