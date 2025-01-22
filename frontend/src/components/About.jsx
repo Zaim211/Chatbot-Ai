@@ -104,14 +104,22 @@ const About = () => {
           suivre face à un prospect en ligne. Transformez vos conversations en
           ventes potentielles.
         </p> */}
-        <p className="px-auto text-start text-pretty consistent-spacing text-[16px] font-normal leading-relaxed">
+        {/* <p className="px-auto text-start text-pretty consistent-spacing text-[16px] font-normal leading-relaxed">
   Accélérez le processus de vente grâce à l'assistant personnel{" "}
   <strong className="text-[#77be89]">Leadsgeneration.AI</strong>{" "}
   exclusivement conçu pour les conseillers qui contactent les leads, les
   conseille en temps réel en leur indiquant les bonnes pratiques à
   suivre face à un prospect en ligne. Transformez vos conversations en
   ventes potentielles.
+</p> */}
+<p className="px-4 sm:px-6 text-start text-[14px] sm:text-[16px] font-normal leading-[1.6] sm:leading-relaxed text-gray-700">
+  Accélérez le processus de vente grâce à l'assistant personnel{" "}
+  <strong className="text-[#77be89] font-medium">Leadsgeneration.AI</strong>, 
+  exclusivement conçu pour les conseillers qui contactent les leads et les 
+  conseillent en temps réel. Il leur indique les bonnes pratiques à suivre face 
+  à un prospect en ligne, transformant vos conversations en ventes potentielles.
 </p>
+
 
 
         {/* Boxes Section */}
