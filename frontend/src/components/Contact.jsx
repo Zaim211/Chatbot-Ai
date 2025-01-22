@@ -66,23 +66,23 @@ const Contact = () => {
           </div> */}
           <div className="space-y-6 md:space-y-8">
   <div className="flex flex-col">
-    <h5 className="lg:text-2xl text-lg font-semibold text-gray-900 mb-2">Notre Adresse</h5>
-    <p className="text-lg text-gray-700">123 Rue de l'Innovation, Paris, France</p>
+    <h5 className="lg:text-2xl text-md font-semibold text-gray-900 mb-2">Notre Adresse</h5>
+    <p className="lg:text-lg text-md text-gray-700">123 Rue de l'Innovation, Paris, France</p>
   </div>
   <div className="flex flex-col">
-    <h5 className="lg:text-2xl text-lg font-semibold text-gray-900 mb-2">Téléphone</h5>
-    <p className="text-lg text-gray-700">+33 1 23 45 67 89</p>
+    <h5 className="lg:text-2xl text-md font-semibold text-gray-900 mb-2">Téléphone</h5>
+    <p className="lg:text-lg text-md text-gray-700">+33 1 23 45 67 89</p>
   </div>
   <div className="flex flex-col">
-    <h5 className="lg:text-2xl text-lg font-semibold text-gray-900 mb-2">Email</h5>
-    <p className="text-lg text-gray-700">botgeneration.ai@gmail.com</p>
+    <h5 className="lg:text-2xl text-md font-semibold text-gray-900 mb-2">Email</h5>
+    <p className="lg:text-lg text-md text-gray-700">botgeneration.ai@gmail.com</p>
   </div>
 </div>
 
 
           {/* Social Media Links */}
           <div>
-            <h5 className="text-xl font-semibold text-gray-900 mb-4">Suivez-nous</h5>
+            <h5 className="lg:text-xl text-md font-semibold text-gray-900 mb-4">Suivez-nous</h5>
             <div className="flex space-x-6">
               <a
                 href="https://www.facebook.com/people/Botgenerationia/61569901421109/"
