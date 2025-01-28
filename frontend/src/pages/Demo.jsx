@@ -19,7 +19,7 @@ const Demo = () => {
             Comment fonctionne notre{" "}
             <span className="text-[#5ba85b]">Chatbot</span> ?
           </h1>
-          <p className="px-0 sm:px-0 text-start text-[14px] sm:text-[16px] font-normal leading-[1.6] sm:leading-relaxed">
+          <p className="px-0 sm:px-0 text-balance  text-[14px] sm:text-[16px] font-normal leading-[1.6] sm:leading-relaxed">
             Découvrez comment notre chatbot, alimenté par l'intelligence artificielle, s'intègre parfaitement à votre site web, génère des leads précieux et offre un tableau de bord pour une gestion optimisée.
           </p>
 
@@ -56,7 +56,7 @@ const Demo = () => {
     <h2 className="text-lg font-bold text-[#5ba85b] mb-4 h-10">
       Intégration Simplifiée
     </h2>
-    <p className="px-4 text-start text-[14px] sm:text-[16px] font-normal leading-[1.6] sm:leading-relaxed text-gray-700 flex-1">
+    <p className="px-4   text-[14px] sm:text-[16px] font-normal leading-[1.6] sm:leading-relaxed text-gray-700 flex-1">
       Ajoutez notre widget chatbot directement sur votre site web. Choisissez
       un scénario adapté à vos besoins pour interagir avec vos visiteurs de
       manière efficace et personnalisée.
@@ -66,7 +66,7 @@ const Demo = () => {
     <h2 className="text-lg font-bold text-[#5ba85b] mb-4 h-10">
       Génération de Leads
     </h2>
-    <p className="px-4 text-start text-[14px] sm:text-[16px] font-normal leading-[1.6] sm:leading-relaxed text-gray-700 flex-1">
+    <p className="px-4 text-center text-[14px] sm:text-[16px] font-normal leading-[1.6] sm:leading-relaxed text-gray-700 flex-1">
       Collectez automatiquement les informations clés de vos visiteurs. Notre
       chatbot transforme les interactions en opportunités, stockées
       directement dans un tableau de bord clair et accessible.
@@ -76,7 +76,7 @@ const Demo = () => {
     <h2 className="text-lg font-bold text-[#5ba85b] mb-4 h-10">
       Tableau de Bord Intuitif
     </h2>
-    <p className="px-4 text-start text-[14px] sm:text-[16px] font-normal leading-[1.6] sm:leading-relaxed text-gray-700 flex-1">
+    <p className="px-4 text-center text-[14px] sm:text-[16px] font-normal leading-[1.6] sm:leading-relaxed text-gray-700 flex-1">
       Suivez et analysez vos leads grâce à un tableau de bord intuitif.
       Prenez des décisions basées sur des données pour maximiser vos
       conversions et vos performances.

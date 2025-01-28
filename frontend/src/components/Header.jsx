@@ -282,7 +282,9 @@ const Header = () => {
           onClick={handleRedirect}
           className="bg-[#77be89] text-white font-bold hover:text-black text-md rounded-lg mr-4 items-center hover:bg-[#5ea76c] transition hidden lg:flex"
         >
+          <span className="text-[12px]">
           Planifier un rendez-vous
+          </span>
           <FontAwesomeIcon
             icon={faCalendarAlt}
             style={{ fontSize: "20px" }}

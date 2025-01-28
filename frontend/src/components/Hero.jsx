@@ -58,7 +58,7 @@ const Hero = () => {
 
             <Button
               href="/demo"
-              className="bg-[#77be89] font-normal text-lg text-white lg:py-2 py-1 px-0 lg:px-4 rounded hover:bg-[#5ea76c]"
+              className="bg-[#77be89] font-bold text-md text-[16px] text-white lg:py-2 py-1 px-0 lg:px-4 rounded hover:bg-[#5ea76c]"
             >
               Tester notre démo
             </Button>
