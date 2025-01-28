@@ -34,11 +34,11 @@ const Faq = () => {
 
             {/* Contact Button */}
             <div className="lg:ml-28 ml-16">
-            <Button className="hover:bg-[#5ea76c] text-white text-lg justify-end rounded-lg flex items-center bg-[#77be89] transition">
-              <Link className="mr-2 font-semibold" to="/formulaire">
+            <Button href="/formaulaire" className="hover:bg-[#5ea76c] bg-[#77be89] text-white text-lg rounded-lg flex items-center px-6 py-2 transition duration-300">
+              <Link className="mr-2 font-semibold" >
                 Formulaire
               </Link>
-              <FontAwesomeIcon icon={faEnvelope} className="text-white" />
+              <FontAwesomeIcon icon={faEnvelope} />
             </Button>
             </div>
           </div>
@@ -83,12 +83,18 @@ const Faq = () => {
             </p>
 
             {/* Contact Button */}
-            <div className="lg:ml-28 ml-16">
-            <Button className="hover:bg-[#5ea76c] text-white text-lg justify-end rounded-lg flex items-center bg-[#77be89] transition">
-              <Link className="mr-2 font-semibold" to="/formulaire">
+            <div className="lg:ml-28 flex ml-16">
+            {/* <Button href="/formaulaire" className="hover:bg-[#5ea76c] text-white text-lg justify-end rounded-lg flex items-center bg-[#77be89] transition">
+              <Link className="mr-2 font-semibold">
                 Formulaire
               </Link>
               <FontAwesomeIcon icon={faEnvelope} className="text-white" />
+            </Button> */}
+             <Button href="/formaulaire" className="hover:bg-[#5ea76c] bg-[#77be89] text-white text-lg rounded-lg flex items-center px-6 py-2 transition duration-300">
+              <Link className="mr-2 font-semibold" >
+                Formulaire
+              </Link>
+              <FontAwesomeIcon icon={faEnvelope} />
             </Button>
             </div>
           </div>

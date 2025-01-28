@@ -1,8 +1,8 @@
-import { Form, Input, Select, Button, message, Row, Col } from 'antd';
-import 'tailwindcss/tailwind.css';
-import Section from '../components/Section';
-import { useNavigate } from 'react-router-dom'; // Use for redirection
-import { sendChatData } from '../api/sendChatData';
+import { Form, Input, Select, Button, message, Row, Col } from "antd";
+import "tailwindcss/tailwind.css";
+import Section from "./Section";
+import { useNavigate } from "react-router-dom"; // Use for redirection
+import { sendChatData } from "../api/sendChatData";
 
 const { Option } = Select;
 const { TextArea } = Input;
@@ -10,31 +10,28 @@ const { TextArea } = Input;
 const ServiceForm = () => {
   const [form] = Form.useForm();
   const navigate = useNavigate();
-  
 
   const onFinish = async (values) => {
     try {
       // Replace with your API endpoint
 
       const response = await sendChatData(values);
-        console.log('Réponse:', response.data);
+      console.log("Réponse:", response.data);
 
-        message.success('Formulaire soumis avec succès!');
-       
-        // Reset form fields
-        form.resetFields();
-        navigate('/thank-you');
-      
+      message.success("Formulaire soumis avec succès!");
+
+      // Reset form fields
+      form.resetFields();
+      navigate("/thank-you");
     } catch (error) {
-      console.error('Erreur lors de la soumission:', error);
-      message.error('Une erreur est survenue. Veuillez réessayer.');
+      console.error("Erreur lors de la soumission:", error);
+      message.error("Une erreur est survenue. Veuillez réessayer.");
     }
   };
 
   const onFinishFailed = (errorInfo) => {
-    console.error('Échec de la soumission:', errorInfo);
+    console.error("Échec de la soumission:", errorInfo);
   };
-
 
   return (
     <Section
@@ -56,7 +53,6 @@ const ServiceForm = () => {
             autoComplete="off"
             className="space-y-6 bg-white shadow-lg rounded-lg p-8"
           >
-           
             {/* <Form.Item
               label="Prenom"
               name="request_lastname"
@@ -113,79 +109,96 @@ const ServiceForm = () => {
               />
             </Form.Item> */}
             <Row gutter={[16, 16]}>
-  {/* Prénom */}
-  <Col xs={24} sm={12}>
-    <Form.Item
-      label="Prénom"
-      name="request_lastname"
-      rules={[{ required: true, message: 'Veuillez entrer votre prénom' }]}
-      className="font-semibold"
-    >
-      <Input
-        placeholder="Entrez votre prénom"
-        className="w-full border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500"
-      />
-    </Form.Item>
-  </Col>
+              {/* Prénom */}
+              <Col xs={24} sm={12}>
+                <Form.Item
+                  label="Prénom"
+                  name="request_lastname"
+                  rules={[
+                    { required: true, message: "Veuillez entrer votre prénom" },
+                  ]}
+                  className="font-semibold"
+                >
+                  <Input
+                    placeholder="Entrez votre prénom"
+                    className="w-full border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500"
+                  />
+                </Form.Item>
+              </Col>
 
-  {/* Nom */}
-  <Col xs={24} sm={12}>
-    <Form.Item
-      label="Nom"
-      name="request_name"
-      rules={[{ required: true, message: 'Veuillez entrer votre nom' }]}
-      className="font-semibold"
-    >
-      <Input
-        placeholder="Entrez votre nom"
-        className="w-full border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500"
-      />
-    </Form.Item>
-  </Col>
+              {/* Nom */}
+              <Col xs={24} sm={12}>
+                <Form.Item
+                  label="Nom"
+                  name="request_name"
+                  rules={[
+                    { required: true, message: "Veuillez entrer votre nom" },
+                  ]}
+                  className="font-semibold"
+                >
+                  <Input
+                    placeholder="Entrez votre nom"
+                    className="w-full border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500"
+                  />
+                </Form.Item>
+              </Col>
 
-  {/* Téléphone */}
-  <Col xs={24} sm={12}>
-    <Form.Item
-      label="Téléphone"
-      name="request_phone"
-      rules={[
-        { required: true, message: 'Veuillez entrer votre numéro de téléphone' },
-        { pattern: /^[0-9]+$/, message: 'Le numéro doit être numérique' },
-      ]}
-      className="font-semibold"
-    >
-      <Input
-        placeholder="Entrez votre numéro de téléphone"
-        className="w-full border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500"
-      />
-    </Form.Item>
-  </Col>
+              {/* Téléphone */}
+              <Col xs={24} sm={12}>
+                <Form.Item
+                  label="Téléphone"
+                  name="request_phone"
+                  rules={[
+                    {
+                      required: true,
+                      message: "Veuillez entrer votre numéro de téléphone",
+                    },
+                    {
+                      pattern: /^[0-9]+$/,
+                      message: "Le numéro doit être numérique",
+                    },
+                  ]}
+                  className="font-semibold"
+                >
+                  <Input
+                    placeholder="Entrez votre numéro de téléphone"
+                    className="w-full border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500"
+                  />
+                </Form.Item>
+              </Col>
 
-  {/* Email */}
-  <Col xs={24} sm={12}>
-    <Form.Item
-      label="Email"
-      name="request_email"
-      rules={[
-        { required: true, message: 'Veuillez entrer votre adresse email' },
-        { type: 'email', message: 'Veuillez entrer une adresse email valide' },
-      ]}
-      className="font-semibold"
-    >
-      <Input
-        placeholder="Entrez votre adresse email"
-        className="w-full border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500"
-      />
-    </Form.Item>
-  </Col>
-</Row>
-
+              {/* Email */}
+              <Col xs={24} sm={12}>
+                <Form.Item
+                  label="Email"
+                  name="request_email"
+                  rules={[
+                    {
+                      required: true,
+                      message: "Veuillez entrer votre adresse email",
+                    },
+                    {
+                      type: "email",
+                      message: "Veuillez entrer une adresse email valide",
+                    },
+                  ]}
+                  className="font-semibold"
+                >
+                  <Input
+                    placeholder="Entrez votre adresse email"
+                    className="w-full border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500"
+                  />
+                </Form.Item>
+              </Col>
+            </Row>
 
             {/* Type */}
             <Form.Item
               label="Type"
               name="request_who"
-              rules={[{ required: true, message: 'Veuillez sélectionner un type' }]}
+              rules={[
+                { required: true, message: "Veuillez sélectionner un type" },
+              ]}
               className="font-semibold"
             >
               <Select
@@ -203,13 +216,16 @@ const ServiceForm = () => {
             <Form.Item
               label="Besoins de Service"
               name="information_request"
-              rules={[{ required: true, message: 'Veuillez sélectionner vos besoins' }]}
+              rules={[
+                {
+                  required: true,
+                  message: "Veuillez sélectionner vos besoins",
+                },
+              ]}
               className="font-semibold"
             >
               <Select
-               
                 placeholder="Sélectionnez vos besoins"
-            
                 className="w-full border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500"
               >
                 <Option value="tarifs">Tarifs</Option>
@@ -222,14 +238,18 @@ const ServiceForm = () => {
             <Form.Item
               label="Action"
               name="besoins"
-              rules={[{ required: true, message: 'Veuillez sélectionner une action' }]}
+              rules={[
+                { required: true, message: "Veuillez sélectionner une action" },
+              ]}
               className="font-semibold"
             >
               <Select
                 placeholder="Sélectionnez une action"
                 className="w-full border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500"
               >
-                <Option value="information_request">Demande de renseignements 🔍</Option>
+                <Option value="information_request">
+                  Demande de renseignements 🔍
+                </Option>
                 <Option value="request_who">Être rappelé 📞</Option>
               </Select>
             </Form.Item>
@@ -238,7 +258,9 @@ const ServiceForm = () => {
             <Form.Item
               label="Message"
               name="initial"
-              rules={[{ required: true, message: 'Veuillez entrer un message' }]}
+              rules={[
+                { required: true, message: "Veuillez entrer un message" },
+              ]}
               className="font-semibold"
             >
               <TextArea

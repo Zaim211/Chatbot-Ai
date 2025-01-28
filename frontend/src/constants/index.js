@@ -80,7 +80,7 @@ export const navigation = [
   {
 
     title: "Blog",
-    // url: "/blog",
+    url: "/",
   },
  
   
@@ -177,6 +177,41 @@ export  const faqData = [
         "J'ai besoin d'une fonctionnalité que vous n'avez pas, cela m'aidera dans mon activité ou mon cas d'utilisation, pouvez-vous la développer ?",
       answer:
         "Leadsgeneration.AI repond a toute vos demandes de personnalisation. Vous pouvez utiliser le formulaire de contact pour envoyer les détails sur votre cas d'utilisation, vos besoins professionnels, et discutons de voter projet.",
+    },
+    {
+      question: "Comment puis-je intégrer le chatbot sur mon site web ?",
+      answer:
+        "L'intégration est simple et rapide. Vous n'avez qu'à copier et coller un script fourni dans le code de votre site web. Notre équipe est là pour vous guider en cas de besoin.",
+    },
+    {
+      question: "Le chatbot peut-il générer des leads automatiquement ?",
+      answer:
+        "Oui, notre chatbot est conçu pour capturer automatiquement les informations importantes des visiteurs, comme leurs coordonnées et leurs questions. Ces données sont ensuite accessibles dans un tableau de bord clair et facile à utiliser.",
+    },
+    {
+      question: "Quelles données sont affichées dans le tableau de bord ?",
+      answer:
+        "Le tableau de bord affiche les informations collectées par le chatbot, telles que les coordonnées des leads, leurs préférences, leurs questions fréquentes et l'historique des conversations. Cela vous aide à analyser et gérer vos leads de manière efficace.",
+    },
+    {
+      question: "Le chatbot peut-il s'adapter à différents scénarios d'utilisation ?",
+      answer:
+        "Absolument ! Vous pouvez choisir ou personnaliser des scénarios spécifiques pour le chatbot afin qu'il corresponde parfaitement aux besoins de votre entreprise et de vos visiteurs.",
+    },
+    {
+      question: "Est-ce que je peux suivre les performances du chatbot ?",
+      answer:
+        "Oui, vous pouvez suivre les performances du chatbot grâce à des métriques disponibles dans le tableau de bord, comme le nombre de conversations, les leads générés et les questions posées.",
+    },
+    {
+      question: "Le chatbot fonctionne-t-il sur les appareils mobiles ?",
+      answer:
+        "Oui, notre chatbot est entièrement responsive et fonctionne parfaitement sur les appareils mobiles, tablettes et ordinateurs.",
+    },
+    {
+      question: "Puis-je personnaliser l'apparence du chatbot ?",
+      answer:
+        "Oui, vous pouvez personnaliser les couleurs, les polices et les messages d'accueil du chatbot pour qu'il s'harmonise avec l'apparence de votre site web.",
     },
    
 ];

@@ -12,7 +12,7 @@ const Pricing = () => {
     crossesOffset="lg:translate-y-[5.25rem]"
     customPaddings
      >
-      <div className="container relative mt-32 mb-12 z-2">
+      <div className="container relative lg:mt-32 mt-0 mb-12 z-2">
         <Title
           tag="Commencez avec LeadsGenerationAI"
           title="Payez une fois, utilisez pour toujours"
