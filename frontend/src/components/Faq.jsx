@@ -15,7 +15,7 @@ const Faq = () => {
   };
 
   return (
-    <Section id="faq" className="mt-32">
+    <Section id="faq" className="lg:mt-32 mt-4">
         <Title
           title="Questions Fréquemment Posées"
            className="md:max-w-md text-black text-start lg:max-w-3xl lg:text-lg text-md"
