@@ -49,7 +49,7 @@ const Hero = () => {
               </span>
               votre service client grâce à notre chatbot intelligent.
             </p>
-              <p className="text-black mb-6 leading-relaxed px-3 flex-col text-start">
+              <p className="text-black mb-6 leading-relaxed px-[20px] flex-col text-start">
                 Libérez le pouvoir de l'IA avec{" "}
                 <strong className="text-[#77be89]">LeadsGeneration.AI</strong>{" "}
                 Améliorez votre expérience utilisateur et optimisez votre

@@ -43,7 +43,7 @@ const Services = () => {
             {/* Explanation about how the chatbot works on the right */}
             <div className="relative z-10 mt-2  lg:w-1/2 ">
               <h1 className="md:max-w-md text-black mt-2 lg:max-w-2xl text-start mb-8 lg:text-2xl text-sm">
-                Comment fonctionne notre Chatbot ?
+                Comment fonctionne notre Chatbot
               </h1>
 
               <div className=" text-n-3">
