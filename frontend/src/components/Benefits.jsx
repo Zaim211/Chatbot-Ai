@@ -39,7 +39,7 @@ const Benefits = () => {
                   />
                 )}
                 <div className="absolute inset-0 mb-2  flex items-end justify-center">
-                  <h5 className="h5 text-center bg-opacity-40 bg-white px-3 py-1 rounded">
+                  <h5 className="lg:text-xl text-md text-center bg-opacity-40 bg-white px-3 py-1 rounded">
                     {item.title}
                   </h5>
                 </div>

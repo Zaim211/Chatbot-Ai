@@ -59,7 +59,7 @@ const Services = () => {
 
                 <p className="text-pretty consistent-spacing leading-relaxed lg:text-md text-sm mb-6">
                   <span className="text-lg">❖</span>
-                  <span className="ml-2">
+                  <span className="ml-2 text-balance lg:px-0 px-2">
                     Notre chatbot peut aussi prendre en charge la génération de
                     prospects, en recueillant les informations clés et en les
                     envoyant directement dans votre tableau de bord.
@@ -67,7 +67,7 @@ const Services = () => {
                 </p>
                 <p className="text-pretty  text-start consistent-spacing leading-relaxed lg:text-md text-sm mb-6">
                   <span className="text-lg">❖</span>
-                  <span className="ml-2">
+                  <span className="ml-2 text-balance lg:px-0 px-2">
                     Il peut orienter les utilisateurs vers les informations
                     pertinentes en fonction des scénarios définis, assurant
                     ainsi une expérience fluide et efficace pour chaque
