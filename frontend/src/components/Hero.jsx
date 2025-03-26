@@ -37,7 +37,7 @@ const Hero = () => {
                 />
               </span>
             </h1>
-            <p className="text-black lg:block md:block hidden text-sm sm:text-md md:text-lg mb- leading-relaxed">
+            <p className="text-black lg:block md:block hidden text-sm sm:text-md md:text-lg mb-4 leading-relaxed">
               Libérez le pouvoir de l'IA avec{" "}
               <strong className="text-[#77be89]">LeadsGeneration.AI</strong>{" "}
               <span className="hidden lg:inline">
