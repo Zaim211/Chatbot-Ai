@@ -13,7 +13,7 @@ const Hero = () => {
       customPaddings
       id="hero"
     >
-      <div className="container relative lg:mt-8 lg:mb-16 mb-4">
+      <div className="container relative lg:mt-16 lg:mb-16 mb-4">
         <div className="flex flex-col-reverse lg:flex-row items-center lg:gap-2 ">
           {/* Left Content */}
           <div className="text-center lg:text-left w-full lg:w-1/2 sm:px-2">
@@ -37,7 +37,7 @@ const Hero = () => {
                 />
               </span>
             </h1>
-            <p className="text-black lg:block md:block hidden text-sm sm:text-md md:text-lg mb-6 px-auto leading-relaxed">
+            <p className="text-black lg:block md:block hidden text-sm sm:text-md md:text-lg mb- leading-relaxed">
               Libérez le pouvoir de l'IA avec{" "}
               <strong className="text-[#77be89]">LeadsGeneration.AI</strong>{" "}
               <span className="hidden lg:inline">
@@ -49,7 +49,7 @@ const Hero = () => {
               </span>
               votre service client grâce à notre chatbot intelligent.
             </p>
-              <p className="text-black mb-6 leading-relaxed px-[20px] flex-col text-start">
+              <p className="text-black mb-6 leading-relaxed lg:px-[0px] px-[20px] flex-col text-start">
                 Libérez le pouvoir de l'IA avec{" "}
                 <strong className="text-[#77be89]">LeadsGeneration.AI</strong>{" "}
                 Améliorez votre expérience utilisateur et optimisez votre

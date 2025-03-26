@@ -39,7 +39,7 @@ const App = () => {
               {/* <Pricing /> */}
               <Contact />
               <Footer />
-              <Chatbot />
+              {/* <Chatbot /> */}
             </>
           }
         />
